@@ -18,7 +18,7 @@ mainSections = ["posts", "projects"]
 defaultBackgroundImage = "img/background.jpg" # used as default for background images 
 
 [header]
-  layout = "fixed" # valid options: basic, fixed
+  layout = "basic" # valid options: basic, fixed
 
 [footer]
   showMenu = true

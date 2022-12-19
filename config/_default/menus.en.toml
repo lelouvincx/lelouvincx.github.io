@@ -21,7 +21,7 @@
  weight = 20
 
 [[main]]
- name = "My recommendations"
+ name = "My Recommendations"
  pageRef = "myrecommendations"
  weight = 30
 
@@ -44,3 +44,8 @@
   name = "Categories"
   pageRef = "categories"
   weight = 20
+
+[[footer]]
+  name = "Open Analytics"
+  pageRef = ""
+  weight = 30

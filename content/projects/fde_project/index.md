@@ -4,7 +4,7 @@ date: 2022-12-18
 draft: false
 description: "Data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản (batch ingestion)"
 summary: "Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)"
-tags: ["data engineering"]
+tags: ["data engineering", "project"]
 ---
 
 ## 1. Introduction
