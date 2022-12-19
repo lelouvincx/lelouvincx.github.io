@@ -2,13 +2,13 @@
 # Refer to the theme docs for more details about each of these parameters.
 # https://nunocoracao.github.io/blowfish/docs/getting-started/
 
-# theme = "blowfish"
-# baseURL = "https://your_domain.com/"
+theme = "blowfish"
+baseURL = "https://lelouvincx.github.io/"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
-paginate = 20
-summaryLength = 30
+paginate = 8
+summaryLength = 5
 
 buildDrafts = false
 buildFuture = false
