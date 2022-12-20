@@ -619,7 +619,9 @@ cd terraform
 make tf-down
 ```
 
+{{< alert >}}
 **Note:** Lên AWS kiểm tra lại các services sau đã dừng và bị xóa chưa (nếu không muốn mất tiền oan như mình): EC2, S3.
+{{< /alert >}}
 
 ## 7. Design considerations
 

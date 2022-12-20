@@ -35,7 +35,7 @@ Hiện tại mình là sinh viên năm hai, khóa K21 trường đại học KHT
 ## Những thứ mình làm
 
 Chủ yếu là những thứ mình giúp ích cho cuộc sống của mình.
-Bạn có thể xem thêm ở trang project và [github](https://github.com/lelouvincx) của mình.
+Bạn có thể xem thêm ở trang [project]({{< ref "projects" >}}) và [github](https://github.com/lelouvincx) của mình.
 
 ## Kết nối với mình
 
