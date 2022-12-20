@@ -6,7 +6,7 @@ weight = 1
 rtl = false
 
 title = "lelouvincx's blog"
-logo = "img/avatar.png"
+# logo = "img/avatar.png"
 description = "My awesome website"
 # copyright = "Copy, _right?_ :thinking_face:"
 
@@ -15,7 +15,7 @@ dateFormat = "2 January 2006"
 [author]
   name = "lelouvincx"
   image = "img/avatar.png"
-  headline = "I'm writing about data science, dev life, productivity, linux... Let's discover!"
+  headline = "I'm writing about data science, dev life, productivity, and linux. Let's discover!"
   bio = "Hi! I'm lelouvincx. I'm writing about data science, dev life, productivity, linux... Let's discover!"
   links = [
     { email = "mailto:dinhminhchinh3357@duck.com" },

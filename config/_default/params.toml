@@ -29,14 +29,14 @@ defaultBackgroundImage = "img/background.jpg" # used as default for background i
 
 [homepage]
   layout = "background" # valid options: page, profile, hero, card, background, custom
-  # homepageImage = "background.jpg" # used in: hero, and card
+  # homepageImage = "img/background.jpg" # used in: hero, and card
   showRecent = true
   showRecentItems = 8
   showMoreLink = true
   showMoreLinkDest = "/posts"
   cardView = false
   cardViewScreenWidth = false
-  layoutBackgroundBlur = false # only used when layout equals background
+  layoutBackgroundBlur = true # only used when layout equals background
 
 [article]
   showDate = true
