@@ -13,7 +13,8 @@ Mình đang học năm 2, trường Đại học Khoa học Tự nhiên TP. HCM,
 # Làm
 
 Đang cải thiện trình độ SQL và Python hàng ngày.
-Bên cạnh đó, mình cũng có niềm yêu thích đặc biệt với an toàn thông tin (security).
+Trong một dự án, mình bỗng dưng _"fall in love"_ với Ruby.
+Ngoài ra, mình cũng có niềm yêu thích đặc biệt với an toàn thông tin (security).
 
 - [x] [Spotify data pipeline ingestion]({{< ref "projects/fde_project" >}}): Data pipeline đơn giản theo hướng ELT, để ingest dữ liệu từ MySQL và Spotify API (batch ingestion).
 - [ ] [Ubunchuu Trường Ú](https://ubunchuu-truong-us.github.io/): Một project nhỏ với mục tiêu đem lại giúp các bạn sinh viên tiếp cận dễ hơn với linux (ubuntu).
