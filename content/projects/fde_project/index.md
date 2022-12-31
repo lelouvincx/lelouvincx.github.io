@@ -4,7 +4,7 @@ date: 2022-12-18
 draft: false
 description: "Data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản (batch ingestion)"
 summary: "Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)"
-tags: ["data engineering", "project"]
+tags: ["project", "data engineering"]
 ---
 
 ## 1. Introduction
@@ -171,7 +171,7 @@ python3 -m pytest -vv --cov=utils elt_pipeline/tests/utils
 python3 -m pytest -vv --cov=ops elt_pipeline/tests/ops
 ```
 
-Truy cập giao diện của pipeline bằng dagit: https://localhost:3001/
+Truy cập giao diện của pipeline bằng dagit: <https://localhost:3001/>
 
 ### 4.3 Setup data infrastructure on AWS
 
@@ -608,7 +608,7 @@ Sau khi transform thành công, mở dbeaver lên và chúng ta thấy các tabl
 
 ## 6. Tear down infrastructure
 
-Dỡ bỏ infra sau khi xong việc (_thực hiện dưới máy local_):
+Dỡ bỏ infra sau khi xong việc (*thực hiện dưới máy local*):
 
 ```bash
 # Tear down containers

@@ -23,7 +23,7 @@ defaultBackgroundImage = "img/background.jpg" # used as default for background i
 [footer]
   showMenu = true
   showCopyright = true
-  showThemeAttribution = true
+  showThemeAttribution = false
   showAppearanceSwitcher = true
   showScrollToTop = true
 
@@ -39,7 +39,7 @@ defaultBackgroundImage = "img/background.jpg" # used as default for background i
   layoutBackgroundBlur = true # only used when layout equals background
 
 [article]
-  showDate = true
+  showDate = false
   #showViews = true
   #showLikes = true
   showDateUpdated = false

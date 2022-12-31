@@ -1,0 +1,1801 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Spotify data pipeline ingestion &middot; lelouvincx&#39;s blog</title>
+  <meta name="title" content="Spotify data pipeline ingestion &middot; lelouvincx&#39;s blog" />
+  
+  <meta name="description" content="My awesome website" />
+  
+  
+  
+  <link rel="canonical" href="https://lelouvincx.github.io/projects/fde_project/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.d6053b405404b4d9083a5216e5ac664d14f60e4f9c6e9483da50f338a87fdcdad10f14d00c91b36fb3b156deabe99b12a36bf0c768dd6aa2bdfdd138a37302ef.css"
+    integrity="sha512-1gU7QFQEtNkIOlIW5axmTRT2Dk&#43;cbpSD2lDzOKh/3NrRDxTQDJGzb7OxVt6r6ZsSo2vwx2jdaqK9/dE4o3MC7w==" />
+  
+  
+  <script type="text/javascript" src="/js/main.min.cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e.js" integrity="sha512-z4PhNX7vuL3xVChQ1m2AB9Yg5AULVxXcg/SpIdNs6c5H0NE8XYXysP&#43;DGNKHfuwvY7kxvUdBeoGlODJ6&#43;SfaPg=="></script>
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.49025a779c36ad37a5bf9f1cc6bffd35ccb69ce15560ef1b10057ddf31576265b19f8bcc1733207336c9144926f7b18aea2e5895f29e858b24271332a2fa5cd5.js"
+    integrity="sha512-SQJad5w2rTelv58cxr/9Ncy2nOFVYO8bEAV93zFXYmWxn4vMFzMgczbJFEkm97GK6i5YlfKehYskJxMyovpc1Q=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.34ee8372ff77835535e486c6ed01ff6993374a1cec8108898cad793fc6ae7520778e24db68e085c762d25af6fa7d00b57d7a791438dc68b676581f8c8344f6e0.js"
+    integrity="sha512-NO6Dcv93g1U15IbG7QH/aZM3ShzsgQiJjK15P8audSB3jiTbaOCFx2LSWvb6fQC1fXp5FDjcaLZ2WB&#43;Mg0T24A==" data-copy="" data-copied=""></script>
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Spotify data pipeline ingestion" />
+<meta property="og:description" content="Data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản (batch ingestion)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lelouvincx.github.io/projects/fde_project/" /><meta property="og:image" content="https://lelouvincx.github.io/projects/fde_project/featured.jpg"/><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2022-12-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-12-18T00:00:00+00:00" /><meta property="og:site_name" content="lelouvincx&#39;s blog" />
+
+
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://lelouvincx.github.io/projects/fde_project/featured.jpg"/>
+<meta name="twitter:title" content="Spotify data pipeline ingestion"/>
+<meta name="twitter:description" content="Data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản (batch ingestion)"/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Projects",
+    "name": "Spotify data pipeline ingestion",
+    "headline": "Spotify data pipeline ingestion",
+    "description": "Data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản (batch ingestion)",
+    "abstract": "Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)",
+    "inLanguage": "en",
+    "url" : "https:\/\/lelouvincx.github.io\/projects\/fde_project\/",
+    "author" : {
+      "@type": "Person",
+      "name": "lelouvincx"
+    },
+    "copyrightYear": "2022",
+    "dateCreated": "2022-12-18T00:00:00\u002b00:00",
+    "datePublished": "2022-12-18T00:00:00\u002b00:00",
+    
+    "dateModified": "2022-12-18T00:00:00\u002b00:00",
+    
+    "keywords": ["project","data engineering"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2197"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="lelouvincx" />
+  
+  
+  
+  <link href="mailto:dinhminhchinh3357@duck.com" rel="me" />
+  
+  
+  <link href="https://linkedin.com/in/lelouvincx" rel="me" />
+  
+  
+  <link href="https://github.com/lelouvincx" rel="me" />
+  
+  
+  <link href="https://gitlab.com/lelouvincx" rel="me" />
+  
+  
+  <link href="https://stackoverflow.com/users/10793419/lelouvincx" rel="me" />
+  
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+</head><body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0"
+    class="flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">lelouvincx&rsquo;s blog</a>
+            
+            
+        </nav>
+        <div class="hidden md:flex items-center space-x-5 md:ml-12">
+
+            
+            
+            <a href="/posts/"  class="text-base font-medium text-gray-500 hover:text-gray-900" title="Posts">
+                
+
+
+                
+                Blog
+            </a>
+            
+            <a href="/projects/"  class="text-base font-medium text-gray-500 hover:text-gray-900" title="Projects">
+                
+
+
+                
+                Projects
+            </a>
+            
+            <a href=""  class="text-base font-medium text-gray-500 hover:text-gray-900" title="">
+                
+
+
+                
+                Resources
+            </a>
+            
+            <a href="/now/"  class="text-base font-medium text-gray-500 hover:text-gray-900" title="What I&#39;m doing now">
+                
+
+
+                
+                Now
+            </a>
+            
+            <a href="/about/"  class="text-base font-medium text-gray-500 hover:text-gray-900" title="About me">
+                
+
+
+                
+                About
+            </a>
+            
+            
+
+            
+
+
+            
+            <button id="search-button" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400">
+                <button id="appearance-switcher" type="button">
+                    <div class="flex items-center justify-center h-12 dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden h-12 dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </div>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" type="button" style="margin-right:5px">
+                <div class="flex items-center justify-center h-12 dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden h-12 dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:25px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-auto overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex movedown flex-col w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl sm:px-14 md:px-24 lg:px-32 sm:py-10 sm:pt-10">
+                    <li class="mb-1">
+                        <span class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+                    
+                    <li class="mb-1">
+                        <a  class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                            href="/posts/" title="Posts">
+                            <span class="inline-block align-text-bottom">
+
+</span>
+                            
+                            Blog
+                        </a>
+                    </li>
+                    
+                    <li class="mb-1">
+                        <a  class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                            href="/projects/" title="Projects">
+                            <span class="inline-block align-text-bottom">
+
+</span>
+                            
+                            Projects
+                        </a>
+                    </li>
+                    
+                    <li class="mb-1">
+                        <a  class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                            href="" title="">
+                            <span class="inline-block align-text-bottom">
+
+</span>
+                            
+                            Resources
+                        </a>
+                    </li>
+                    
+                    <li class="mb-1">
+                        <a  class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                            href="/now/" title="What I&#39;m doing now">
+                            <span class="inline-block align-text-bottom">
+
+</span>
+                            
+                            Now
+                        </a>
+                    </li>
+                    
+                    <li class="mb-1">
+                        <a  class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                            href="/about/" title="About me">
+                            <span class="inline-block align-text-bottom">
+
+</span>
+                            
+                            About
+                        </a>
+                    </li>
+                    
+                    
+
+                </ul>
+            </div>
+        </label>
+    </div>
+</div>
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+  
+  
+  
+        <div class="w-full h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/projects/fde_project/featured_hu05d880aff69880235c444aa05d37e813_150482_1200x0_resize_q75_box.jpg);"></div>
+    
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >lelouvincx&#39;s blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/projects/"
+      >Projects</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/projects/fde_project/"
+      >Spotify data pipeline ingestion</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Spotify data pipeline ingestion
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/project/&#34;);">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    project
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/data-engineering/&#34;);">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    data engineering
+  </span>
+</span>
+
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+  </header>
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+     
+    <div class="order-first sm:max-w-prose lg:ml-auto px-0 lg:order-last lg:max-w-xs ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky  lg:top-10 ">
+        <details open class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden"
+  >
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600"
+  >
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-introduction">1. Introduction</a></li>
+    <li><a href="#2-objective">2. Objective</a></li>
+    <li><a href="#3-design">3. Design</a>
+      <ul>
+        <li><a href="#31-pipeline-design">3.1 Pipeline design</a></li>
+        <li><a href="#32-data-lake-structure">3.2 Data lake structure</a></li>
+        <li><a href="#33-directory-tree">3.3 Directory tree</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-setup">4. Setup</a>
+      <ul>
+        <li><a href="#41-prequisites">4.1 Prequisites</a></li>
+        <li><a href="#42-setup-data-infrastructure-local">4.2 Setup data infrastructure local</a></li>
+        <li><a href="#43-setup-data-infrastructure-on-aws">4.3 Setup data infrastructure on AWS</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-detailed-code-walkthrough">5. Detailed code walkthrough</a>
+      <ul>
+        <li><a href="#51-extract">5.1 Extract</a></li>
+        <li><a href="#52-load">5.2 Load</a></li>
+        <li><a href="#53-transform">5.3 Transform</a></li>
+        <li><a href="#54-check-results">5.4 Check results</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-tear-down-infrastructure">6. Tear down infrastructure</a></li>
+    <li><a href="#7-design-considerations">7. Design considerations</a></li>
+    <li><a href="#8-further-actions">8. Further actions</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden"
+  >
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600"
+  >
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-introduction">1. Introduction</a></li>
+    <li><a href="#2-objective">2. Objective</a></li>
+    <li><a href="#3-design">3. Design</a>
+      <ul>
+        <li><a href="#31-pipeline-design">3.1 Pipeline design</a></li>
+        <li><a href="#32-data-lake-structure">3.2 Data lake structure</a></li>
+        <li><a href="#33-directory-tree">3.3 Directory tree</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-setup">4. Setup</a>
+      <ul>
+        <li><a href="#41-prequisites">4.1 Prequisites</a></li>
+        <li><a href="#42-setup-data-infrastructure-local">4.2 Setup data infrastructure local</a></li>
+        <li><a href="#43-setup-data-infrastructure-on-aws">4.3 Setup data infrastructure on AWS</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-detailed-code-walkthrough">5. Detailed code walkthrough</a>
+      <ul>
+        <li><a href="#51-extract">5.1 Extract</a></li>
+        <li><a href="#52-load">5.2 Load</a></li>
+        <li><a href="#53-transform">5.3 Transform</a></li>
+        <li><a href="#54-check-results">5.4 Check results</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-tear-down-infrastructure">6. Tear down infrastructure</a></li>
+    <li><a href="#7-design-considerations">7. Design considerations</a></li>
+    <li><a href="#8-further-actions">8. Further actions</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+      </div>
+      </div>
+      
+      <div class="min-w-0 min-h-0 max-w-prose">
+        
+        <div id="1-introduction" class="anchor">1. Introduction></div>
+<h2 class="relative group">1. Introduction 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-introduction" aria-label="Anchor">#</a></span>        
+    
+</h2><p>Trong project này mình sẽ hướng dẫn xây dựng một data pipeline cơ bản theo mô hình ELT (extract - load - transform), sử dụng bộ dữ liệu từ spotify để phân tích xu hướng nghe nhạc.</p>
+<p>Project này hoàn thành dựa trên kiến thức đã học được từ khóa Fundamental Data Engineering của AIDE. Xin gửi lời cảm ơn đặc biệt tới thầy Nguyễn Thanh Bình, anh Ông Xuân Hồng và anh Hùng Lê.</p>
+<p><a href="https://gitlab.com/lelouvincx/fde01_project_fde220103_dinhminhchinh"   target="_blank">
+    Source code</a> của project.</p>
+<div id="2-objective" class="anchor">2. Objective></div>
+<h2 class="relative group">2. Objective 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2-objective" aria-label="Anchor">#</a></span>        
+    
+</h2><p>Mục tiêu của project này là xây dựng một data pipeline để đưa dữ liệu của bảng <code>spotify_tracks</code> từ mySQL và <code>my_tracks</code> từ API của Spotify thành dashboard để phân tích. Các bảng được hỗ trợ bởi <code>spotify_albums</code> và <code>spotify_artists</code> như mô tả dưới đây:</p>
+<ol>
+<li><code>spotify_tracks</code>: OLTP table chứa thông tin bài hát từ spotify</li>
+<li><code>my_tracks</code>: lịch sử stream nhạc của bản thân, lấy schema giống <code>spotify_tracks</code></li>
+<li><code>spotify_albums</code>: chứa thông tin albums từ dataset</li>
+<li><code>spotify_artists</code>: thông tin nghệ sĩ từ dataset</li>
+</ol>
+<p>
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./dataset.png" alt="" />
+      <figcaption>table schema</figcaption>
+    </figure>
+  
+
+</p>
+<p>Chi tiết hơn xem ở: <a href="https://gitlab.com/lelouvincx/fde01_project_fde220103_dinhminhchinh/-/blob/main/EDA.ipynb"   target="_blank">
+    Exploratory Data Analysis</a></p>
+<div id="3-design" class="anchor">3. Design></div>
+<h2 class="relative group">3. Design 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3-design" aria-label="Anchor">#</a></span>        
+    
+</h2><div id="31-pipeline-design" class="anchor">3.1 Pipeline design></div>
+<h3 class="relative group">3.1 Pipeline design 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#31-pipeline-design" aria-label="Anchor">#</a></span>        
+    
+</h3><p>Chúng ta sử dụng máy ảo AWS EC2 để tính toán và <a href="https://dagster.io/"   target="_blank">
+    dagster</a> để orchestrate tasks.</p>
+<ol>
+<li>Dữ liệu spotify được download từ kaggle dưới dạng csv, sau đó import vào mySQL mô phỏng làm dữ liệu doanh nghiệp</li>
+<li>Dữ liệu streaming history của bản thân được extract từ spotify API</li>
+<li>Extract 2 nguồn dữ liệu trên bằng pandas để preprocessing (optimize size consumed)</li>
+<li>Load vào Amazon S3, từ đó load tiếp vào data warehouse (PostgreSQL) để làm analytics</li>
+<li>Transform dữ liệu bằng dbt trên nền PostgreSQL</li>
+<li>Trực quan hóa dữ liệu bằng Metabase</li>
+</ol>
+<p>
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./pipeline_design.png" alt="" />
+      <figcaption>ELT pipeline design</figcaption>
+    </figure>
+  
+
+</p>
+<div id="32-data-lake-structure" class="anchor">3.2 Data lake structure></div>
+<h3 class="relative group">3.2 Data lake structure 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#32-data-lake-structure" aria-label="Anchor">#</a></span>        
+    
+</h3><p>Chúng ta sử dụng AWS S3 làm data lake. Mọi dữ liệu trước hết sẽ được chứa ở đây. Trong project này, ta chỉ cần 1 bucket với nhiều thư mục.</p>
+<ol>
+<li><strong>Bronze</strong>: Lưu dữ liệu thô mới lấy về. Chúng là step 1, 2, 3 trong pipeline design</li>
+<li><strong>Silver</strong>: Lưu dữ liệu được tiền xử lý. Chúng là step 4 trong pipeline design</li>
+<li><strong>Gold</strong>: Lưu dữ liệu sạch khi transform bằng dbt (step 5)</li>
+</ol>
+<p>
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./datalake_structure.png" alt="" />
+      <figcaption>structure of S3</figcaption>
+    </figure>
+  
+
+</p>
+<div id="33-directory-tree" class="anchor">3.3 Directory tree></div>
+<h3 class="relative group">3.3 Directory tree 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#33-directory-tree" aria-label="Anchor">#</a></span>        
+    
+</h3><p>
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./directory_tree.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<ul>
+<li><strong>docker-compose</strong>: compose các container chạy trong docker</li>
+<li><strong>EDA</strong>: khám phá dataset và profiling</li>
+<li><strong>.gitignore</strong>: giúp git không track file (như env, cache, &hellip;)</li>
+<li><strong>.gitlab-ci</strong>: config quá trình CI trên gitlab</li>
+<li><strong>Makefile</strong>: thu gọn câu lệnh</li>
+<li><strong>requirements.txt</strong>: packages python cần thiết và thiết lập virtualenv</li>
+<li>Folder <strong>dagser_home</strong> chứa dagster.yaml để config thành phần dagster còn workspace.yaml để chỉ định dagster chạy host elt_pipeline</li>
+<li>Folder <strong>dockers</strong> chứa file config các container: dagster và jupyter</li>
+<li>Folder <strong>load_dataset</strong> chứa các file dùng để load dữ liệu ban đầu vào mySQL</li>
+<li>Folder <strong>terraform</strong> để khởi tạo và config server trên AWS</li>
+</ul>
+<p>Chi tiết cây thư mục xem ở: <a href="https://gitlab.com/lelouvincx/fde01_project_fde220103_dinhminhchinh/-/blob/main/tree.txt"   target="_blank">
+    directory tree</a></p>
+<div id="4-setup" class="anchor">4. Setup></div>
+<h2 class="relative group">4. Setup 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4-setup" aria-label="Anchor">#</a></span>        
+    
+</h2><div id="41-prequisites" class="anchor">4.1 Prequisites></div>
+<h3 class="relative group">4.1 Prequisites 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#41-prequisites" aria-label="Anchor">#</a></span>        
+    
+</h3><p>Để sử dụng pipeline này, download những phần mềm sau:</p>
+<ol>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"   target="_blank">
+    Git</a></li>
+<li><a href="https://gitlab.com/"   target="_blank">
+    Tài khoản gitlab</a></li>
+<li><a href="https://learn.hashicorp.com/tutorials/terraform/install-cli"   target="_blank">
+    Terraform</a></li>
+<li><a href="https://aws.amazon.com/"   target="_blank">
+    Tài khoản AWS</a></li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html"   target="_blank">
+    AWS CLI</a> và <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html"   target="_blank">
+    configure</a></li>
+<li><a href="https://docs.docker.com/engine/install/"   target="_blank">
+    Docker</a> ít nhất 4GB RAM và <a href="https://docs.docker.com/compose/install/"   target="_blank">
+    Docker Compose</a> ít nhất v1.29.2</li>
+</ol>
+<p>Nếu dùng Windows, setup thêm WSL và một máy ảo local Ubuntu, cài đặt những thứ trên cho ubuntu.</p>
+<div id="42-setup-data-infrastructure-local" class="anchor">4.2 Setup data infrastructure local></div>
+<h3 class="relative group">4.2 Setup data infrastructure local 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#42-setup-data-infrastructure-local" aria-label="Anchor">#</a></span>        
+    
+</h3><p>Clone repository:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone https://gitlab.com/lelouvincx/fde01_project_fde220103_dinhminhchinh.git
+mv fde01_project_fde220103_dinhminhchinh project
+<span class="nb">cd</span> project
+
+<span class="c1"># Create env file</span>
+touch env
+cp env.template env
+</code></pre></div><p>Điền các biến môi trường vào file env.</p>
+<p>Chạy các lệnh sau để setup infra dưới local:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Setup python packages</span>
+make install
+
+<span class="c1"># Build docker images</span>
+make build
+
+<span class="c1"># Run locally</span>
+make up
+
+<span class="c1"># Check running containers</span>
+docker ps
+
+<span class="c1"># Check code quality</span>
+make check
+make lint
+
+<span class="c1"># Use black to reformat if any tests failed, then try again</span>
+black ./elt_pipeline
+
+<span class="c1"># Test coverage</span>
+make <span class="nb">test</span>
+</code></pre></div><p>Lúc này sẽ có 7 services sau đang chạy:
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./services.png" alt="" />
+      <figcaption>running services</figcaption>
+    </figure>
+  
+
+</p>
+<p>Bây giờ chúng ta import dataset spotify (dạng csv) vào mySQL:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Enter mysql cli</span>
+make to_mysql
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">local_infile</span><span class="o">=</span><span class="k">true</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="c1">-- Check if local_infile is turned on
+</span><span class="c1"></span><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s2">&#34;local_infile&#34;</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">exit</span><span class="w">
+</span></code></pre></div><p>Source từng file theo thứ tự:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Create tables with schema</span>
+make mysql_create
+<span class="c1"># Load csv into created tables</span>
+make mysql_load
+<span class="c1"># Set their foreign keys</span>
+make mysql_set_foreign_key
+</code></pre></div><p>Khởi tạo schema và table trong PostgreSQL:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Enter psql cli</span>
+make psql_create
+</code></pre></div><p>Testing:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Test utils</span>
+python3 -m pytest -vv --cov<span class="o">=</span>utils elt_pipeline/tests/utils
+<span class="c1"># Test ops</span>
+python3 -m pytest -vv --cov<span class="o">=</span>ops elt_pipeline/tests/ops
+</code></pre></div><p>Truy cập giao diện của pipeline bằng dagit: <a href="https://localhost:3001/"   target="_blank">
+    https://localhost:3001/</a></p>
+<div id="43-setup-data-infrastructure-on-aws" class="anchor">4.3 Setup data infrastructure on AWS></div>
+<h3 class="relative group">4.3 Setup data infrastructure on AWS 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#43-setup-data-infrastructure-on-aws" aria-label="Anchor">#</a></span>        
+    
+</h3><ol>
+<li>Chúng ta dùng terraform làm IaC (Infrastructure as Code) để setup hạ tầng trên AWS (nhớ <a href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build"   target="_blank">
+    cấp credential key cho AWS</a> nhé)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> terraform
+
+<span class="c1"># Initialize infra</span>
+make tf-init
+
+<span class="c1"># Checkout planned infra</span>
+make tf-plan
+
+<span class="c1"># Build up infra</span>
+make tf-up
+</code></pre></div><p>Đợi một chút để setup xong. Chúng ta lên <a href="aws.amazon.com"  >
+    Amazon Web Services</a></p>
+<ul>
+<li>Trong EC2 sẽ thấy 1 máy ảo tên project-spotify-EC2
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./ec2.png" alt="" />
+      
+    </figure>
+  
+
+</li>
+<li>Trong S3 thấy 1 bucket tên project-spotify-bucket
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./s3.png" alt="" />
+      
+    </figure>
+  
+
+</li>
+</ul>
+<p>Sau khi project-spotify-EC2 hiện đã pass hết status thì chúng ta đã setup thành công.</p>
+<ol start="2">
+<li>Bây giờ chúng ta truy cập vào EC2 để hoàn tất setup</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Connect to EC2 from local terminal</span>
+make ssh-ec2
+<span class="c1"># Generate new ssh key for gitlab</span>
+ssh-keygen
+<span class="c1"># Then press Enter until done</span>
+cat ~/.ssh/id_rsa.pub
+</code></pre></div><ul>
+<li>Copy đoạn mã SSH</li>
+<li>Vào gitlab, phía trên góc phải có hình avatar -&gt; Preferences -&gt; SSH Keys -&gt; paste key vừa copy vào -&gt; đặt tên là &lsquo;project-spotify-vm&rsquo; -&gt; Add key</li>
+<li>Vào terminal của EC2 (vừa connect lúc nãy), clone về bằng SSH</li>
+<li>Lặp lại bước setup infra local đã trình bày ở phần trên</li>
+</ul>
+<div id="5-detailed-code-walkthrough" class="anchor">5. Detailed code walkthrough></div>
+<h2 class="relative group">5. Detailed code walkthrough 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5-detailed-code-walkthrough" aria-label="Anchor">#</a></span>        
+    
+</h2><p>ELT pipeline gồm 2 job chạy 2 tác vụ độc lập: EL data từ MySQL và EL data từ API nhưng nhìn chung chúng có cấu trúc giống nhau. Cụ thể:</p>
+<ol>
+<li><strong>extract<em>data_from</em>{mysql/api}</strong>: Lấy data từ MySQL hoặc api (thông qua <code>access token</code>) và lưu tạm dưới dạng <code>pandas.DataFrame</code>. Tùy theo chiến lược ingest data (full load/incremental by partition/incremental by watermark) mà có cách giải quyết phù hợp.</li>
+<li><strong>load_data_to_s3</strong>: Tiền xử lý <code>data types</code> cho <code>DataFrame</code> từ upstream và load vào S3 dưới dạng parquet.</li>
+<li><strong>load_data_to_psql</strong>: Extract data dạng parquet trong S3 thành <code>pandas.DataFrame</code> và load vào PostgreSQL. Để dữ liệu được toàn vẹn (không bị crash, lỗi đường truyền) trong quá trình crash, ta tạo <code>TEMP TABLE</code> và load vào đó trước.</li>
+<li><strong>validate_{mssql2psql/api2psql}_ingestion</strong>: Thẩm định 3 step trên đã được EL thành công hay chưa</li>
+<li><strong>trigger_dbt_spotify</strong>: Sensor để trigger <code>dbt</code> nhằm transform data.</li>
+</ol>
+<p><a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  
+  target="_self"
+  role="button"
+>
+  
+job_mssql2psql_ingestion
+
+</a>
+
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./mssql2psql_ingestion.png" alt="job_mssql2psql_ingestion" />
+      
+    </figure>
+  
+
+</p>
+<p><a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  
+  target="_self"
+  role="button"
+>
+  
+job_api2psql_ingestion
+
+</a>
+
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./api2psql_ingestion.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<div id="51-extract" class="anchor">5.1 Extract></div>
+<h3 class="relative group">5.1 Extract 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#51-extract" aria-label="Anchor">#</a></span>        
+    
+</h3><p>Lấy data từ MySQL hoặc api (thông qua <code>access token</code>) và lưu tạm dưới dạng <code>pandas.DataFrame</code>. Tùy theo chiến lược ingest data (full load/incremental by partition/incremental by watermark) mà có cách giải quyết phù hợp.</p>
+<p>Ta định nghĩa phương thức extract data của mysql và api trong thư mục utils.</p>
+<a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  
+  target="_self"
+  role="button"
+>
+  
+utils/mysql_loader/extract
+
+</a>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">extract_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sql</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">pd_data</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_db_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">db_conn</span><span class="p">:</span>
+        <span class="n">pd_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">db_conn</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd_data</span>
+</code></pre></div><a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  
+  target="_self"
+  role="button"
+>
+  
+utils/api_loader/get_recently
+
+</a>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">get_recently</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&#34;Accept&#34;</span><span class="p">:</span> <span class="s2">&#34;application/json&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;Content-Type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/json&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;Authorization&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;Bearer &#34;</span> <span class="o">+</span> <span class="n">token</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&#34;limit&#34;</span><span class="p">,</span> <span class="n">number</span><span class="p">),]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s2">&#34;https://api.spotify.com/v1/me/player/recently-played&#34;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div><a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  
+  target="_self"
+  role="button"
+>
+  
+utils/api_loader/extract
+
+</a>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">extract_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_recently</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+    <span class="n">my_tracks</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&#34;album_id&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;artists_id&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;track_id&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;track_unique_id&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;popularity&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;duration_ms&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;played_at&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;danceability&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;energy&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;track_key&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;loudness&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;mode&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;speechiness&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;acousticness&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;instrumentalness&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;liveness&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;valence&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&#34;tempo&#34;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="p">}</span>
+
+    <span class="n">items</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;items&#34;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="c1"># Take album_id, artists_id, track_id, name, popularity, type, duration_ms</span>
+        <span class="n">played_at</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;played_at&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">track</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;track&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">album</span> <span class="o">=</span> <span class="n">track</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;album&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">album_id</span> <span class="o">=</span> <span class="n">album</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">artists</span> <span class="o">=</span> <span class="n">track</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;artists&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">artists_id</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">artist</span> <span class="ow">in</span> <span class="n">artists</span><span class="p">:</span>
+            <span class="n">artists_id</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">artist</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="n">track_id</span> <span class="o">=</span> <span class="n">track</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">track</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">popularity</span> <span class="o">=</span> <span class="n">track</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;popularity&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="n">track</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;type&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">duration_ms</span> <span class="o">=</span> <span class="n">track</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;duration_ms&#34;</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="c1"># Take features</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_features</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+        <span class="n">danceability</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;danceability&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">energy</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;energy&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">track_key</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;key&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">loudness</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;loudness&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;mode&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">speechiness</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;speechiness&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">acousticness</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;acousticness&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">instrumentalness</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;instrumentalness&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">liveness</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;liveness&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">valence</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;valence&#34;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">tempo</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;tempo&#34;</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="c1"># Extract row into dict</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;album_id&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">album_id</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;artists_id&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">artists_id</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;track_id&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">track_id</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;track_unique_id&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">track_id</span> <span class="o">+</span> <span class="n">played_at</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;name&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;popularity&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">popularity</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;type&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;duration_ms&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">duration_ms</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;played_at&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">played_at</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;danceability&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">danceability</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;energy&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;track_key&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">track_key</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;loudness&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loudness</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;mode&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;speechiness&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">speechiness</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;acousticness&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">acousticness</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;instrumentalness&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">instrumentalness</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;liveness&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">liveness</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;valence&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">valence</span><span class="p">)</span>
+        <span class="n">my_tracks</span><span class="p">[</span><span class="s2">&#34;tempo&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tempo</span><span class="p">)</span>
+
+    <span class="n">pd_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">my_tracks</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd_data</span>
+</code></pre></div><p>Giờ là lúc extract data.</p>
+<a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  
+  target="_self"
+  role="button"
+>
+  
+extract_data_from_mysql
+
+</a>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">extract_data_from_mysql</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">run_config</span><span class="p">):</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">op_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;updated_at&#34;</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Updated at: </span><span class="si">{</span><span class="n">updated_at</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">updated_at</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">updated_at</span> <span class="o">==</span> <span class="s2">&#34;&#34;</span><span class="p">:</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Nothing to do!&#34;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Op extracts data from MySQL at </span><span class="si">{</span><span class="n">updated_at</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+
+    <span class="c1"># Choose extract strategy (default: full load)</span>
+    <span class="n">sql_stm</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        SELECT *
+</span><span class="s2">        FROM </span><span class="si">{</span><span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;src_tbl&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">
+</span><span class="s2">        WHERE 1=1
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">if</span> <span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;strategy&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;incremental_by_partition&#34;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">updated_at</span> <span class="o">!=</span> <span class="s2">&#34;init_dump&#34;</span><span class="p">:</span>
+            <span class="n">sql_stm</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;&#34;&#34; AND CAST(</span><span class="si">{</span><span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;partition&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> AS DATE) = &#39;</span><span class="si">{</span><span class="n">updated_at</span><span class="si">}</span><span class="s2">&#39; &#34;&#34;&#34;</span>
+
+    <span class="k">if</span> <span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;strategy&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;incremental_by_watermark&#34;</span><span class="p">:</span>
+        <span class="n">data_loader</span> <span class="o">=</span> <span class="n">get_data_loader</span><span class="p">(</span>
+            <span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;db_provider&#34;</span><span class="p">),</span> <span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;target_db_params&#34;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">watermark</span> <span class="o">=</span> <span class="n">data_loader</span><span class="o">.</span><span class="n">get_watermark</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_schema&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_tbl&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span>
+            <span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;watermark&#34;</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">watermark</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">updated_at</span> <span class="k">if</span> <span class="n">watermark</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">watermark</span> <span class="o">&gt;</span> <span class="n">updated_at</span> <span class="k">else</span> <span class="n">watermark</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">updated_at</span> <span class="o">!=</span> <span class="s2">&#34;init_dump&#34;</span><span class="p">:</span>
+            <span class="n">sql_stm</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;&#34;&#34; AND </span><span class="si">{</span><span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;watermark&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> &gt;= &#39;</span><span class="si">{</span><span class="n">watermark</span><span class="si">}</span><span class="s2">&#39; &#34;&#34;&#34;</span>
+
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Extracting with SQL: </span><span class="si">{</span><span class="n">sql_stm</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="n">db_loader</span> <span class="o">=</span> <span class="n">MysqlLoader</span><span class="p">(</span><span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;src_db_params&#34;</span><span class="p">))</span>
+    <span class="n">pd_data</span> <span class="o">=</span> <span class="n">db_loader</span><span class="o">.</span><span class="n">extract_data</span><span class="p">(</span><span class="n">sql_stm</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Data extracted successfully with shape: </span><span class="si">{</span><span class="n">pd_data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+
+    <span class="c1"># Update params</span>
+    <span class="n">run_config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&#34;updated_at&#34;</span><span class="p">:</span> <span class="n">updated_at</span><span class="p">,</span>
+            <span class="s2">&#34;data&#34;</span><span class="p">:</span> <span class="n">pd_data</span><span class="p">,</span>
+            <span class="s2">&#34;s3_path&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;bronze/</span><span class="si">{</span><span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data_source&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ls_target&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_tbl&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;load_dtypes&#34;</span><span class="p">:</span> <span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;load_dtypes&#34;</span><span class="p">),</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">run_config</span>
+</code></pre></div><a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  
+  target="_self"
+  role="button"
+>
+  
+extract_data_from_api
+
+</a>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">extract_data_from_api</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">run_config</span><span class="p">):</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">op_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;updated_at&#34;</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Updated at: </span><span class="si">{</span><span class="n">updated_at</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">updated_at</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">updated_at</span> <span class="o">==</span> <span class="s2">&#34;&#34;</span><span class="p">:</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Nothing to do!&#34;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Op extracts data from API at </span><span class="si">{</span><span class="n">updated_at</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+
+    <span class="c1"># Extract strategy (only support incremental_by_partition)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Extracting on date: </span><span class="si">{</span><span class="n">updated_at</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="n">api_loader</span> <span class="o">=</span> <span class="n">ApiLoader</span><span class="p">(</span><span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;src_api_params&#34;</span><span class="p">))</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">api_loader</span><span class="o">.</span><span class="n">get_api_token</span><span class="p">()</span>
+    <span class="n">pd_data</span> <span class="o">=</span> <span class="n">api_loader</span><span class="o">.</span><span class="n">extract_data</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="n">index_played_at</span> <span class="o">=</span> <span class="n">pd_data</span><span class="p">[</span><span class="n">pd_data</span><span class="p">[</span><span class="s2">&#34;played_at&#34;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">updated_at</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>  <span class="c1"># Drop data</span>
+    <span class="n">pd_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index_played_at</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&#34;Data loaded and filtered successfully with shape: </span><span class="si">{</span><span class="n">pd_data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&#34;</span>
+    <span class="p">)</span>
+
+    <span class="n">run_config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&#34;updated_at&#34;</span><span class="p">:</span> <span class="n">updated_at</span><span class="p">,</span>
+            <span class="s2">&#34;data&#34;</span><span class="p">:</span> <span class="n">pd_data</span><span class="p">,</span>
+            <span class="s2">&#34;s3_path&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;bronze/</span><span class="si">{</span><span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data_source&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ls_target&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;target_tbl&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;load_dtypes&#34;</span><span class="p">:</span> <span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;load_dtypes&#34;</span><span class="p">),</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">run_config</span>
+</code></pre></div><div id="52-load" class="anchor">5.2 Load></div>
+<h3 class="relative group">5.2 Load 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#52-load" aria-label="Anchor">#</a></span>        
+    
+</h3><p>Tiền xử lý <code>data types</code> cho <code>DataFrame</code> từ upstream và load vào S3 dưới dạng parquet.</p>
+<a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  
+  target="_self"
+  role="button"
+>
+  
+load_data_to_s3
+
+</a>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">load_data_to_s3</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">upstream</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">upstream</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">upstream</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;updated_at&#34;</span><span class="p">)</span>
+    <span class="n">s3_bucket</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;DATALAKE_BUCKET&#34;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">updated_at</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="n">updated_at</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">updated_at</span><span class="p">)</span>
+    <span class="n">s3_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;s3://</span><span class="si">{</span><span class="n">s3_bucket</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">upstream</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;s3_path&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/updated_at=</span><span class="si">{</span><span class="n">updated_at</span><span class="si">}</span><span class="s2">&#34;</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Loading data to S3: </span><span class="si">{</span><span class="n">s3_file</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+
+    <span class="c1"># Load data to S3</span>
+    <span class="n">pd_data</span> <span class="o">=</span> <span class="n">upstream</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;data&#34;</span><span class="p">)</span>
+
+    <span class="c1"># Preprocess data</span>
+    <span class="n">load_dtypes</span> <span class="o">=</span> <span class="n">upstream</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;load_dtypes&#34;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">data_type</span> <span class="ow">in</span> <span class="n">load_dtypes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">data_type</span> <span class="o">==</span> <span class="s2">&#34;str&#34;</span><span class="p">:</span>
+                <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+                <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+                <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+                <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;&#39;&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span>
+                <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&#34;&#39;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span>
+                <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;\n&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">data_type</span> <span class="o">==</span> <span class="s2">&#34;int&#34;</span><span class="p">:</span>
+                <span class="n">cur_bit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+                <span class="k">if</span> <span class="n">cur_bit</span> <span class="o">&gt;</span> <span class="mi">32</span><span class="p">:</span>
+                    <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="n">col</span><span class="p">:</span> <span class="s2">&#34;int64&#34;</span><span class="p">})</span>
+                <span class="k">elif</span> <span class="n">cur_bit</span> <span class="o">&gt;</span> <span class="mi">16</span><span class="p">:</span>
+                    <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="n">col</span><span class="p">:</span> <span class="s2">&#34;int32&#34;</span><span class="p">})</span>
+                <span class="k">elif</span> <span class="n">cur_bit</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">:</span>
+                    <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="n">col</span><span class="p">:</span> <span class="s2">&#34;int16&#34;</span><span class="p">})</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="n">col</span><span class="p">:</span> <span class="s2">&#34;int8&#34;</span><span class="p">})</span>
+            <span class="k">elif</span> <span class="n">data_type</span> <span class="o">==</span> <span class="s2">&#34;float&#34;</span><span class="p">:</span>
+                <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="n">col</span><span class="p">:</span> <span class="s2">&#34;float32&#34;</span><span class="p">})</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Data preprocessed successfully&#34;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Exception: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+
+    <span class="c1"># Write parquet object to S3</span>
+    <span class="n">pa_data</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">Table</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">pd_data</span><span class="p">,</span> <span class="n">preserve_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">pq</span><span class="o">.</span><span class="n">write_table</span><span class="p">(</span><span class="n">pa_data</span><span class="p">,</span> <span class="n">s3_file</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Data loaded successfully to S3&#34;</span><span class="p">)</span>
+
+    <span class="c1"># Update stream</span>
+    <span class="n">upstream</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&#34;s3_bucket&#34;</span><span class="p">:</span> <span class="n">s3_bucket</span><span class="p">,</span> <span class="s2">&#34;s3_file&#34;</span><span class="p">:</span> <span class="n">s3_file</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">upstream</span>
+</code></pre></div><a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  
+  target="_self"
+  role="button"
+>
+  
+load_data_to_psql
+
+</a>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">load_data_to_psql</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">upstream</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">upstream</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="c1"># Load data to target</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Loading data to postgreSQL&#34;</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Extracting data from </span><span class="si">{</span><span class="n">upstream</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;s3_file&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="n">pd_stag</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">upstream</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;s3_file&#34;</span><span class="p">))</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Extracted data shape: </span><span class="si">{</span><span class="n">pd_stag</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pd_stag</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;No data to upload!&#34;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&#34;No data to upload!&#34;</span>
+
+    <span class="c1"># Execute</span>
+    <span class="n">db_loader</span> <span class="o">=</span> <span class="n">PsqlLoader</span><span class="p">(</span><span class="n">upstream</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;target_db_params&#34;</span><span class="p">))</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">db_loader</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">pd_stag</span><span class="p">,</span> <span class="n">upstream</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Batch inserted status: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div><div id="53-transform" class="anchor">5.3 Transform></div>
+<h3 class="relative group">5.3 Transform 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#53-transform" aria-label="Anchor">#</a></span>        
+    
+</h3><p>Do dataset hầu hết đã được clean. Chúng ta chọn các column cần thiết cho việc visualization.</p>
+<a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  
+  target="_self"
+  role="button"
+>
+  
+cleaned_my_tracks.sql
+
+</a>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="err">{{</span><span class="w"> </span><span class="n">config</span><span class="p">(</span><span class="n">materialized</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">with</span><span class="w"> </span><span class="n">my_unique_tracks</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span><span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="n">spotify</span><span class="p">.</span><span class="n">my_tracks</span><span class="w">
+</span><span class="w">  </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">track_unique_id</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">my_unique_tracks</span><span class="w">
+</span></code></pre></div><a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  
+  target="_self"
+  role="button"
+>
+  
+cleaned_spotify_tracks.sql
+
+</a>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="err">{{</span><span class="w"> </span><span class="n">config</span><span class="p">(</span><span class="n">materialized</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">with</span><span class="w"> </span><span class="n">unique_tracks</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="k">select</span><span class="w"> </span><span class="n">acousticness</span><span class="p">,</span><span class="w"> </span><span class="n">album_id</span><span class="p">,</span><span class="w"> </span><span class="n">artists_id</span><span class="p">,</span><span class="w"> </span><span class="n">country</span><span class="p">,</span><span class="w"> </span><span class="n">danceability</span><span class="p">,</span><span class="w"> </span><span class="n">duration_ms</span><span class="p">,</span><span class="w"> </span><span class="n">energy</span><span class="p">,</span><span class="w"> </span><span class="n">track_id</span><span class="p">,</span><span class="w"> </span><span class="n">instrumentalness</span><span class="p">,</span><span class="w"> </span><span class="n">track_key</span><span class="p">,</span><span class="w"> </span><span class="n">liveness</span><span class="p">,</span><span class="w"> </span><span class="n">loudness</span><span class="p">,</span><span class="w"> </span><span class="k">mode</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">popularity</span><span class="p">,</span><span class="w"> </span><span class="n">speechiness</span><span class="p">,</span><span class="w"> </span><span class="n">tempo</span><span class="p">,</span><span class="w"> </span><span class="n">valence</span><span class="w">
+</span><span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="n">spotify</span><span class="p">.</span><span class="n">spotify_tracks</span><span class="w">
+</span><span class="w">  </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">track_id</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">unique_tracks</span><span class="w">
+</span></code></pre></div><a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  
+  target="_self"
+  role="button"
+>
+  
+cleaned_spotify_artists.sql
+
+</a>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="err">{{</span><span class="w"> </span><span class="n">config</span><span class="p">(</span><span class="n">materialized</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">with</span><span class="w"> </span><span class="n">unique_artists</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="k">select</span><span class="w"> </span><span class="n">artist_popularity</span><span class="p">,</span><span class="w"> </span><span class="n">followers</span><span class="p">,</span><span class="w"> </span><span class="n">genres</span><span class="p">,</span><span class="w"> </span><span class="n">artist_id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">track_id</span><span class="w">
+</span><span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="n">spotify</span><span class="p">.</span><span class="n">spotify_artists</span><span class="w">
+</span><span class="w">  </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">artist_id</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">unique_artists</span><span class="w">
+</span></code></pre></div><a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  
+  target="_self"
+  role="button"
+>
+  
+cleaned_spotify_albums.sql
+
+</a>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="err">{{</span><span class="w"> </span><span class="n">config</span><span class="p">(</span><span class="n">materialized</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">with</span><span class="w"> </span><span class="n">unique_albums</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="k">select</span><span class="w"> </span><span class="n">album_id</span><span class="p">,</span><span class="w"> </span><span class="n">artist_id</span><span class="p">,</span><span class="w"> </span><span class="n">album_type</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">release_date</span><span class="p">,</span><span class="w"> </span><span class="n">release_date_precision</span><span class="p">,</span><span class="w"> </span><span class="n">total_tracks</span><span class="p">,</span><span class="w"> </span><span class="n">track_id</span><span class="w">
+</span><span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="n">spotify</span><span class="p">.</span><span class="n">spotify_albums</span><span class="w">
+</span><span class="w">  </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">album_id</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">unique_albums</span><span class="w">
+</span></code></pre></div><div id="54-check-results" class="anchor">5.4 Check results></div>
+<h3 class="relative group">5.4 Check results 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#54-check-results" aria-label="Anchor">#</a></span>        
+    
+</h3><p>Sau khi transform thành công, mở dbeaver lên và chúng ta thấy các table đã sẵn sàng để analytics.</p>
+<div id="6-tear-down-infrastructure" class="anchor">6. Tear down infrastructure></div>
+<h2 class="relative group">6. Tear down infrastructure 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#6-tear-down-infrastructure" aria-label="Anchor">#</a></span>        
+    
+</h2><p>Dỡ bỏ infra sau khi xong việc (<em>thực hiện dưới máy local</em>):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Tear down containers</span>
+make down
+
+<span class="c1"># Tear down AWS</span>
+<span class="nb">cd</span> terraform
+make tf-down
+</code></pre></div><div class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900">
+  <span class="text-primary-400 ltr:pr-3 rtl:pl-3">
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+  <span class="dark:text-neutral-300"><strong>Note:</strong> Lên AWS kiểm tra lại các services sau đã dừng và bị xóa chưa (nếu không muốn mất tiền oan như mình): EC2, S3.</span>
+</div>
+
+<div id="7-design-considerations" class="anchor">7. Design considerations></div>
+<h2 class="relative group">7. Design considerations 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#7-design-considerations" aria-label="Anchor">#</a></span>        
+    
+</h2><p>Sau khi deploy thành công pipeline, giờ là lúc đánh giá project.</p>
+<ol>
+<li><strong>Tốc độ</strong>: Tốc độ extract data khá chậm (vì load vào <code>pandas.DataFrame</code> 2 lần). Một số giải pháp thay thế: <a href="https://pola-rs.github.io/polars-book/user-guide/introduction.html?fbclid=IwAR0ERGiDoExMbnvby9_HprvCFGAA1AMrDvrtghJ5Ql88pYXONA5rZ902bD4"   target="_blank">
+    polars</a>, json, &hellip;</li>
+<li><strong>Kích thước</strong>: Chuyện gì sẽ xảy ra khi data lớn lên gấp 10x, 100x, 1000x? Lúc đấy ta cần xem xét các giải pháp giúp lưu trữ big data, thay đổi data warehouse thành Amazon RDS, Google BigQuery, &hellip;</li>
+<li><strong>Môi trường phát triển</strong>: Khi project có thêm nhiều người cùng sử dụng là cũng là lúc phân chia môi trường thành testing, staging, production.</li>
+</ol>
+<div id="8-further-actions" class="anchor">8. Further actions></div>
+<h2 class="relative group">8. Further actions 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#8-further-actions" aria-label="Anchor">#</a></span>        
+    
+</h2><ol>
+<li><strong>Tăng lượng data</strong>: Tích hợp nhiều data hơn từ Spotify API: Khi ingest bài hát mới, ingest luôn thông tin về artist, album, tạo thành hệ sinh thái bài hát đầy đủ.</li>
+<li><strong>Stream ingestion</strong>: Dùng một tech stack khác cho job API theo hướng streaming. Hệ thống sẽ listen mỗi lần nghe xong bài hát là tự động cập nhật vào pipeline.</li>
+<li><strong>My wrap-up</strong>: Tự thực hành phân tích dữ liệu như tính năng wrap-up của spotify.</li>
+<li><strong>Recommender system</strong>: Thực hành làm một hệ thống gợi ý dựa trên những bài đã nghe.</li>
+</ol>
+
+        </br></br>
+        
+      </div>
+      <script>
+        var oid = "views_projects\/fde_project\/index.md"
+        var oid_likes = "likes_projects\/fde_project\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.e81cc025d61acff630909044f33df3ded3f4b7c917bf3db3ab7bef2ed26c7baf9be84ffedc2c4ee9dff8bbc1f3ad63ccb7d489d7f43e56a00a2b14bdeaaee7e1.js" integrity="sha512-6BzAJdYaz/YwkJBE8z3z3tP0t8kXvz2zq3vvLtJse6&#43;b6E/&#43;3CxO6d/4u8HzrWPMt9SJ1/Q&#43;VqAKKxS96q7n4Q=="></script>
+  </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+
+
+    
+    
+    
+
+    
+
+    
+
+    
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="mailto:?body=https://lelouvincx.github.io/projects/fde_project/&amp;subject=Spotify%20data%20pipeline%20ingestion"
+          title="Send via email"
+          aria-label="Send via email"
+          >
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://www.facebook.com/sharer/sharer.php?u=https://lelouvincx.github.io/projects/fde_project/&amp;quote=Spotify%20data%20pipeline%20ingestion"
+          title="Share on Facebook"
+          aria-label="Share on Facebook"
+          >
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+
+  </span>
+
+
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://lelouvincx.github.io/projects/fde_project/&amp;title=Spotify%20data%20pipeline%20ingestion"
+          title="Share on LinkedIn"
+          aria-label="Share on LinkedIn"
+          >
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://pinterest.com/pin/create/bookmarklet/?url=https://lelouvincx.github.io/projects/fde_project/&amp;description=Spotify%20data%20pipeline%20ingestion"
+          title="Pin on Pinterest"
+          aria-label="Pin on Pinterest"
+          >
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg>
+
+  </span>
+
+
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://reddit.com/submit/?url=https://lelouvincx.github.io/projects/fde_project/&amp;resubmit=true&amp;title=Spotify%20data%20pipeline%20ingestion"
+          title="Submit to Reddit"
+          aria-label="Submit to Reddit"
+          >
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+
+  </span>
+
+
+        </a>
+      
+    
+      
+        <a
+          target="_blank"
+          class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+          href="https://twitter.com/intent/tweet/?url=https://lelouvincx.github.io/projects/fde_project/&amp;text=Spotify%20data%20pipeline%20ingestion"
+          title="Tweet on Twitter"
+          aria-label="Tweet on Twitter"
+          >
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+
+        </a>
+      
+    
+  </section>
+
+
+    
+  
+
+
+    
+  </footer>
+</article>
+
+      
+      <div class="pointer-events-none absolute top-[100vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+        <a href="#the-top"
+          class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+          aria-label="" title="">
+          &uarr;
+        </a>
+      </div>
+      
+    </main><footer class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="/tags/"
+            title="Tags">Tags</a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="/categories/"
+            title="Categories">Categories</a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href=""
+            title="">Open Analytics</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2023
+      lelouvincx
+    </p>
+    
+
+    
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.e7c3599dbb1cedb20b622602837cde52ffd76433ccf3544defb2f071860d81580f68eb150111f9b7fabdeda3aacb803d34d2d8a0a0a9f10410e9d20b98b1f4a1.js" integrity="sha512-58NZnbsc7bILYiYCg3zeUv/XZDPM81RN77LwcYYNgVgPaOsVARH5t/q97aOqy4A9NNLYoKCp8QQQ6dILmLH0oQ=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://lelouvincx.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

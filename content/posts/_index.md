@@ -1,13 +1,17 @@
 ---
 title: "Posts"
-description: "My articles"
+description: "My posts"
 
 cascade:
-  showDate: true
+  showDate: false
+  showAuthor: false
+  invertPagination: true
 ---
 
 {{< lead >}}
-Journey of a thousand miles begins with a single step.
+_Journey of a thousand miles begins with a single step._
+
 ~ Lao Tzu ~
 {{< /lead >}}
-This section contains my posts, aka articles about multiple topics.
+
+This section contains my posts, as known as articles about multiple topics such as data science, dev, productivity, life, etc.

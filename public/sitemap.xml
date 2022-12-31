@@ -4,6 +4,68 @@
   
     
       <url>
+            <loc>https://lelouvincx.github.io/tags/data-engineering/</loc>
+            <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/</loc>
+            <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/project/</loc>
+            <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/projects/</loc>
+            <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/projects/fde_project/</loc>
+            <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/</loc>
+            <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/about/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
             <loc>https://lelouvincx.github.io/authors/</loc>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
@@ -20,7 +82,39 @@
   
     
       <url>
-            <loc>https://lelouvincx.github.io/</loc>
+            <loc>https://lelouvincx.github.io/posts/neovim_setup_ruby/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/neovim/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/post/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/posts/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/ruby/</loc>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
@@ -36,7 +130,7 @@
   
     
       <url>
-            <loc>https://lelouvincx.github.io/tags/</loc>
+            <loc>https://lelouvincx.github.io/now/</loc>
             <changefreq>daily</changefreq>
             <priority>0.5</priority>
           </url>
