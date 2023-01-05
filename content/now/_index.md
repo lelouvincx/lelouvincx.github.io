@@ -3,18 +3,25 @@ title: "What I'm doing now"
 ---
 
 {{< lead >}}
-Cập nhật ngày 20/12/2022, Việt Nam.
+Cập nhật ngày 05/01/2023, Việt Nam.
+
+Hành trình vạn dặm khởi đầu bằng bước chân đầu tiên.
+~ _Lão Tử_
 {{< /lead >}}
 
 # Học
 
-Mình đang học năm 2, trường Đại học Khoa học Tự nhiên TP. HCM, ngành Khoa học dữ liệu.
+Mình đang học năm hai, trường Đại học Khoa học Tự nhiên TP. HCM, ngành Khoa Học Dữ Liệu.
+
+Trong một dự án, mình bỗng dưng _"fall in love"_ với Ruby.
+Mình đang học OOP của Ruby song song với Rails.
+
+Đang cải thiện trình độ SQL và Python bằng việc làm project và Hackerrank hàng ngày.
+Ngoài ra, mình cũng có niềm yêu thích đặc biệt với an toàn thông tin (cybersecurity).
 
 # Làm
 
-Đang cải thiện trình độ SQL và Python hàng ngày.
-Trong một dự án, mình bỗng dưng _"fall in love"_ với Ruby.
-Ngoài ra, mình cũng có niềm yêu thích đặc biệt với an toàn thông tin (security).
+Vài project nhỏ mà mình và bạn mình nổi hứng nghĩ ra:
 
 - [x] [Spotify data pipeline ingestion]({{< ref "projects/fde_project" >}}): Data pipeline đơn giản theo hướng ELT, để ingest dữ liệu từ MySQL và Spotify API (batch ingestion).
 - [ ] [Ubunchuu Trường Ú](https://ubunchuu-truong-us.github.io/): Một project nhỏ với mục tiêu đem lại giúp các bạn sinh viên tiếp cận dễ hơn với linux (ubuntu).
