@@ -199,6 +199,7 @@ alias cat="bat"
 - Shortcut cho `tmux`:
 
 ```zsh
+# ~/.zshrc
 # Map tmux shortcut
 alias ta="tmux a"
 alias tl="tmux ls"
