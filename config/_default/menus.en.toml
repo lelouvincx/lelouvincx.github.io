@@ -16,14 +16,19 @@
   weight = 30
 
 [[main]]
+  name = "Resume"
+  pageRef = ""
+  weight = 40
+
+[[main]]
   name = "Now"
   pageRef = "now"
-  weight = 40
+  weight = 50
 
 [[main]]
   name = "About"
   pageRef = "about"
-  weight = 50
+  weight = 60
 
 # -- Footer Menu --
 

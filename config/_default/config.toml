@@ -7,7 +7,7 @@ baseURL = "https://lelouvincx.github.io/"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
-paginate = 8
+paginate = 6
 summaryLength = 30
 
 buildDrafts = false
