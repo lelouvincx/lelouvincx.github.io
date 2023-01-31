@@ -34,3 +34,4 @@ Goodreads [của mình](https://www.goodreads.com/user/show/73433536-lelouvincx)
 {{< /alert >}}
 
 - Big Data: Công nghệ cốt lõi trong kỷ nguyên số - Thomas Davenport
+- Atomic Habits - James Clear
