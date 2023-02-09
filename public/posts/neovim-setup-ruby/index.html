@@ -10,16 +10,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>What I&#39;m doing now &middot; lelouvincx&#39;s blog</title>
-  <meta name="title" content="What I&#39;m doing now &middot; lelouvincx&#39;s blog" />
+  <title>Code Ruby trên Neovim &middot; lelouvincx&#39;s blog</title>
+  <meta name="title" content="Code Ruby trên Neovim &middot; lelouvincx&#39;s blog" />
   
   <meta name="description" content="lelouvincx&#39;s website" />
   
   
   
-  <link rel="canonical" href="https://lelouvincx.github.io/now/" />
-  
-  <link rel="alternate" type="application/rss+xml" href="/now/index.xml" title="lelouvincx's blog" />
+  <link rel="canonical" href="https://lelouvincx.github.io/posts/neovim-setup-ruby/" />
   
   
   
@@ -65,18 +63,48 @@
   
   
   
-  <meta property="og:title" content="What I&#39;m doing now" />
-<meta property="og:description" content="lelouvincx&#39;s website" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://lelouvincx.github.io/now/" /><meta property="og:site_name" content="lelouvincx&#39;s blog" />
+  <meta property="og:title" content="Code Ruby trên Neovim" />
+<meta property="og:description" content="Hướng dẫn setup môi trường phát triển Ruby trên Neovim" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lelouvincx.github.io/posts/neovim-setup-ruby/" /><meta property="og:image" content="https://lelouvincx.github.io/posts/neovim-setup-ruby/featured.png"/><meta property="article:section" content="posts" />
+
+<meta property="og:site_name" content="lelouvincx&#39;s blog" />
 
 
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="What I&#39;m doing now"/>
-<meta name="twitter:description" content="lelouvincx&#39;s website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://lelouvincx.github.io/posts/neovim-setup-ruby/featured.png"/>
+<meta name="twitter:title" content="Code Ruby trên Neovim"/>
+<meta name="twitter:description" content="Hướng dẫn setup môi trường phát triển Ruby trên Neovim"/>
 
   
-  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Code Ruby trên Neovim",
+    "headline": "Code Ruby trên Neovim",
+    "description": "Hướng dẫn setup môi trường phát triển Ruby trên Neovim",
+    "abstract": "Hướng dẫn setup môi trường phát triển Ruby trên Neovim",
+    "inLanguage": "en",
+    "url" : "https:\/\/lelouvincx.github.io\/posts\/neovim-setup-ruby\/",
+    "author" : {
+      "@type": "Person",
+      "name": "lelouvincx"
+    },
+    
+    
+    
+    
+    
+    
+    "keywords": ["post","neovim","ruby"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "267"
+  }]
+  </script>
+
 
   
   
@@ -544,40 +572,73 @@
       
 
 
-
-
-
-
-
-
-
-    
-    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/img/background_hu3d03a01dcc18bc5be0e67db3d8d209a6_3253951_1200x0_resize_q75_box.jpg);">
-    
-
-
-    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
-    </div>
-    <div
-        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
-    </div>
-</div>
-
-<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
-<script>
-    window.addEventListener('scroll', function (e) {
-        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        var background_blur = document.getElementById('background-blur');
-        background_blur.style.opacity = (scroll / 300)
-    });
-</script>
-
- <header>
+<article>
   
-  <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">What I&#39;m doing now</h1>
-  <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
     
+     
+    
+    
+      
+        
+            <div class="w-full h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/posts/neovim-setup-ruby/featured_hu7921b84e37b4951668865b6f4724dc5f_18820_1200x0_resize_box_3.png);"></div>
+        
+    
+    
+  
+  
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >lelouvincx&#39;s blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/posts/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/posts/neovim-setup-ruby/"
+      >Code Ruby trên Neovim</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Code Ruby trên Neovim
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+
+
+
+
 
 
 
@@ -602,89 +663,348 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
+
+  
+  
 </div>
 
 
-  </div>
-  </header>
-  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
-    
-    <div class="min-w-0 min-h-0 max-w-prose">
-      <div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
-  <p>Cập nhật ngày 05/01/2023, Việt Nam.</p>
-<p>Hành trình vạn dặm khởi đầu bằng bước chân đầu tiên.
-~ <em>Lão Tử</em></p>
-
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </div>
 
-<div id="học" class="anchor">Học></div>
-<h1 class="relative group">Học 
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#h%e1%bb%8dc" aria-label="Anchor">#</a></span>        
-    
-</h1><p>Mình đang học năm hai, trường Đại học Khoa học Tự nhiên TP. HCM, ngành Khoa Học Dữ Liệu.</p>
-<p>Trong một dự án, mình bỗng dưng <em>&ldquo;fall in love&rdquo;</em> với Ruby.
-Mình đang học OOP của Ruby song song với Rails.</p>
-<p>Đang cải thiện trình độ SQL và Python bằng việc làm project và Hackerrank hàng ngày.
-Ngoài ra, mình cũng có niềm yêu thích đặc biệt với an toàn thông tin (cybersecurity).</p>
-<div id="làm" class="anchor">Làm></div>
-<h1 class="relative group">Làm 
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#l%c3%a0m" aria-label="Anchor">#</a></span>        
-    
-</h1><p>Vài project nhỏ mà mình và bạn mình nổi hứng nghĩ ra:</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> <a href="https://lelouvincx.github.io/projects/fde_project/"  >
-    Spotify data pipeline ingestion</a>: Data pipeline đơn giản theo hướng ELT, để ingest dữ liệu từ MySQL và Spotify API (batch ingestion).</li>
-<li><input disabled="" type="checkbox"> <a href="https://ubunchuu-truong-us.github.io/"   target="_blank">
-    Ubunchuu Trường Ú</a>: Một project nhỏ với mục tiêu đem lại giúp các bạn sinh viên tiếp cận dễ hơn với linux (ubuntu).</li>
-<li><input disabled="" type="checkbox"> Tự design và implement một RDBMS đơn giản (với B-Tree).</li>
-</ul>
-<div id="đọc" class="anchor">Đọc></div>
-<h1 class="relative group">Đọc 
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%c4%91%e1%bb%8dc" aria-label="Anchor">#</a></span>        
-    
-</h1><div class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900">
-  <span class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center">
-    
 
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/post/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    post
+  </span>
+</span>
 
   </span>
-  <span class="dark:text-neutral-300">Goodreads <a href="https://www.goodreads.com/user/show/73433536-lelouvincx">của mình</a></span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/neovim/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    neovim
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ruby/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    ruby
+  </span>
+</span>
+
+  </span>
+  
+  
+  
+  
 </div>
 
-<ul>
-<li>Big Data: Công nghệ cốt lõi trong kỷ nguyên số - Thomas Davenport</li>
-<li>Atomic Habits - James Clear</li>
-</ul>
+
 
     </div>
-    <script>
-      var oid = "views_now\/_index.md"
-      var oid_likes = "likes_now\/_index.md"
-    </script>
+  </header>
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+     
+    <div class="order-first sm:max-w-prose lg:ml-auto px-0 lg:order-last lg:max-w-xs ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky  lg:top-10 ">
+        <details open class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-tại-sao-nên-đọc-bài-này">1. Tại sao nên đọc bài này?</a></li>
+    <li><a href="#2-yêu-cầu">2. Yêu cầu</a></li>
+    <li><a href="#3-cài-đặt">3. Cài đặt</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-tại-sao-nên-đọc-bài-này">1. Tại sao nên đọc bài này?</a></li>
+    <li><a href="#2-yêu-cầu">2. Yêu cầu</a></li>
+    <li><a href="#3-cài-đặt">3. Cài đặt</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+      </div>
+      </div>
+      
+      <div class="min-w-0 min-h-0 max-w-prose">
+        
+
+        <div id="1-tại-sao-nên-đọc-bài-này" class="anchor">1. Tại sao nên đọc bài này?></div>
+<h2 class="relative group">1. Tại sao nên đọc bài này? 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-t%e1%ba%a1i-sao-n%c3%aan-%c4%91%e1%bb%8dc-b%c3%a0i-n%c3%a0y" aria-label="Anchor">#</a></span>        
     
+</h2><p>Với những ai yêu thích Neovim và sử dụng nó làm IDE chính, bạn sẽ đôi lúc gặp vấn đề khó chịu khi code Ruby trên Neovim như thiếu suggestion, lint, format, &hellip;
+Nhân dịp năm mới 2023, mình sẽ hướng dẫn các bạn cách setup môi trường phát triển Ruby bằng Neovim sử dụng LSP Solargraph.</p>
+<p><strong>Solargraph</strong> là một language server cung cấp IntelliSense, code completion và docs cho Ruby.
+Nó hỗ trợ nhiều IDE và text editor như VSCode, Emacs, Atom, etc và dĩ nhiên, Neovim.
+<a href="https://solargraph.org/"   target="_blank">
+    Trang chủ</a> của solargraph.</p>
+<div id="2-yêu-cầu" class="anchor">2. Yêu cầu></div>
+<h2 class="relative group">2. Yêu cầu 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2-y%c3%aau-c%e1%ba%a7u" aria-label="Anchor">#</a></span>        
     
-    <script type="text/javascript" src="/js/page.min.e81cc025d61acff630909044f33df3ded3f4b7c917bf3db3ab7bef2ed26c7baf9be84ffedc2c4ee9dff8bbc1f3ad63ccb7d489d7f43e56a00a2b14bdeaaee7e1.js" integrity="sha512-6BzAJdYaz/YwkJBE8z3z3tP0t8kXvz2zq3vvLtJse6&#43;b6E/&#43;3CxO6d/4u8HzrWPMt9SJ1/Q&#43;VqAKKxS96q7n4Q=="></script>
-  </section>
+</h2><p>Để setup bạn cần config trước những thứ sau:</p>
+<ul>
+<li><a href="https://www.ruby-lang.org/en/"   target="_blank">
+    Ruby</a> cài và chạy được</li>
+<li><a href="https://www.ruby-lang.org/en/"   target="_blank">
+    Neovim</a> version 0.5.0, đã cài mason và config LSP</li>
+</ul>
+<div id="3-cài-đặt" class="anchor">3. Cài đặt></div>
+<h2 class="relative group">3. Cài đặt 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3-c%c3%a0i-%c4%91%e1%ba%b7t" aria-label="Anchor">#</a></span>        
+    
+</h2><p>Đầu tiên bạn cần cài gem solargraph:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">gem install solargraph
+</code></pre></div><p>Kiểm tra solargraph đã được cài chưa:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">gem list <span class="p">|</span> grep solargraph
+<span class="c1"># Nếu chưa thì dùng command sau</span>
+gem install --user-install solargraph
+</code></pre></div><p>Hoặc thêm dòng sau vào Gemfile:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">&#39;solargraph&#39;</span><span class="p">,</span> <span class="ss">group</span><span class="p">:</span> <span class="ss">:development</span>
+</code></pre></div><p>Tiếp theo vào Neovim và mở mason: <code>:Mason</code>, tìm và cài 2 gói sau: <code>solargraph</code> và <code>rubocop</code>.</p>
+<p>Nếu có config LSP theo dotfiles của mình, bạn chỉ cần thêm đoạn sau vào <code>~/config/nvim/lua/$USER/plugins/lsp/lspconfig.lua</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-lua" data-lang="lua"><span class="c1">-- ...</span>
+<span class="c1">-- configure ruby language server</span>
+<span class="n">lspconfig</span><span class="p">[</span><span class="s2">&#34;solargraph&#34;</span><span class="p">].</span><span class="n">setup</span><span class="p">({</span>
+ <span class="n">capabilities</span> <span class="o">=</span> <span class="n">capabilities</span><span class="p">,</span>
+ <span class="n">on_attach</span> <span class="o">=</span> <span class="n">on_attach</span><span class="p">,</span>
+ <span class="n">filetypes</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&#34;ruby&#34;</span> <span class="p">},</span>
+<span class="p">})</span>
+<span class="c1">-- ...</span>
+</code></pre></div><p>Xong! Bây giờ chỉ cần mở file Ruby và check <code>:LspInfo</code>, lúc này sẽ hiện 1 client có tên solargraph được attach vào buffer <code>.rb</code>:</p>
+<p>
+
+
+
+
   
-  <section class="mt-10 prose dark:prose-invert">
-    <p class="py-8 border-t">
-      <em>There's no articles to list here yet.</em>
-    </p>
-  </section>
   
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./attached.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+
+        </br></br>
+        
+
+      </div>
+      <script>
+        var oid = "views_posts\/neovim-setup-ruby\/index.md"
+        var oid_likes = "likes_posts\/neovim-setup-ruby\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.e81cc025d61acff630909044f33df3ded3f4b7c917bf3db3ab7bef2ed26c7baf9be84ffedc2c4ee9dff8bbc1f3ad63ccb7d489d7f43e56a00a2b14bdeaaee7e1.js" integrity="sha512-6BzAJdYaz/YwkJBE8z3z3tP0t8kXvz2zq3vvLtJse6&#43;b6E/&#43;3CxO6d/4u8HzrWPMt9SJ1/Q&#43;VqAKKxS96q7n4Q=="></script>
+  </section>
+  <footer class="pt-8 max-w-prose print:hidden">
 
     
 
+
+    
+    
+    
+
+    
+
+    
+
+    
   
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://lelouvincx.github.io/posts/neovim-setup-ruby/&amp;title=Code%20Ruby%20tr%c3%aan%20Neovim"
+      title="Share on LinkedIn"
+      aria-label="Share on LinkedIn"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://twitter.com/intent/tweet/?url=https://lelouvincx.github.io/posts/neovim-setup-ruby/&amp;text=Code%20Ruby%20tr%c3%aan%20Neovim"
+      title="Tweet on Twitter"
+      aria-label="Tweet on Twitter"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://www.facebook.com/sharer/sharer.php?u=https://lelouvincx.github.io/posts/neovim-setup-ruby/&amp;quote=Code%20Ruby%20tr%c3%aan%20Neovim"
+      title="Share on Facebook"
+      aria-label="Share on Facebook"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="mailto:?body=https://lelouvincx.github.io/posts/neovim-setup-ruby/&amp;subject=Code%20Ruby%20tr%c3%aan%20Neovim"
+      title="Send via email"
+      aria-label="Send via email"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+  </section>
+
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/oh-my-zsh-to-zim/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Chuyển nhà từ oh-my-zsh sang zimfw</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
       <div class="pointer-events-none absolute top-[100vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
   <a href="#the-top"
     class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"

@@ -13,7 +13,7 @@
   <title>404 Page not found &middot; lelouvincx&#39;s blog</title>
   <meta name="title" content="404 Page not found &middot; lelouvincx&#39;s blog" />
   
-  <meta name="description" content="My awesome website" />
+  <meta name="description" content="lelouvincx&#39;s website" />
   
   
   
@@ -28,11 +28,8 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.d6053b405404b4d9083a5216e5ac664d14f60e4f9c6e9483da50f338a87fdcdad10f14d00c91b36fb3b156deabe99b12a36bf0c768dd6aa2bdfdd138a37302ef.css"
-    integrity="sha512-1gU7QFQEtNkIOlIW5axmTRT2Dk&#43;cbpSD2lDzOKh/3NrRDxTQDJGzb7OxVt6r6ZsSo2vwx2jdaqK9/dE4o3MC7w==" />
-  
-  
-  <script type="text/javascript" src="/js/main.min.cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e.js" integrity="sha512-z4PhNX7vuL3xVChQ1m2AB9Yg5AULVxXcg/SpIdNs6c5H0NE8XYXysP&#43;DGNKHfuwvY7kxvUdBeoGlODJ6&#43;SfaPg=="></script>
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.f4768793c6e39d65693bc2f59f77e81065e3a66628d4a6ca20fbde3039f13ffddee2e2bbccc3c5918f6c76e84a17d4e49bb0856715b2dec889549c695e0f390d.css"
+    integrity="sha512-9HaHk8bjnWVpO8L1n3foEGXjpmYo1KbKIPveMDnxP/3e4uK7zMPFkY9sduhKF9Tkm7CFZxWy3siJVJxpXg85DQ==" />
   
   
   <script type="text/javascript" src="/js/appearance.min.49025a779c36ad37a5bf9f1cc6bffd35ccb69ce15560ef1b10057ddf31576265b19f8bcc1733207336c9144926f7b18aea2e5895f29e858b24271332a2fa5cd5.js"
@@ -67,14 +64,14 @@
   
   
   <meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content="My awesome website" />
+<meta property="og:description" content="lelouvincx&#39;s website" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://lelouvincx.github.io/404.html" /><meta property="og:site_name" content="lelouvincx&#39;s blog" />
 
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="404 Page not found"/>
-<meta name="twitter:description" content="My awesome website"/>
+<meta name="twitter:description" content="lelouvincx&#39;s website"/>
 
   
   
@@ -103,11 +100,25 @@
   
   
 
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
   
@@ -119,7 +130,8 @@
   
   
   
-</head><body
+</head>
+<body
   class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
@@ -128,59 +140,127 @@
   </div>
   
   
-  <div style="padding-left:0;padding-right:0"
-    class="flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
     
     <div class="flex flex-1 items-center justify-between">
         <nav class="flex space-x-3">
 
             <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">lelouvincx&rsquo;s blog</a>
-            
-            
+
+
         </nav>
-        <div class="hidden md:flex items-center space-x-5 md:ml-12">
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12">
 
             
             
-            <a href="/posts/"  class="text-base font-medium text-gray-500 hover:text-gray-900" title="Posts">
-                
-
-
-                
-                Blog
-            </a>
             
-            <a href="/projects/"  class="text-base font-medium text-gray-500 hover:text-gray-900" title="Projects">
-                
+  <a href="/posts/"  class="flex items-center">
+    
+    <p class="text-base font-medium text-gray-500 hover:text-gray-900" title="Posts">
+        Blog
+    </p>
+</a>
 
 
-                
-                Projects
-            </a>
             
-            <a href=""  class="text-base font-medium text-gray-500 hover:text-gray-900" title="">
-                
-
-
-                
-                Resources
-            </a>
             
-            <a href="/now/"  class="text-base font-medium text-gray-500 hover:text-gray-900" title="What I&#39;m doing now">
-                
+  <a href="/projects/"  class="flex items-center">
+    
+    <p class="text-base font-medium text-gray-500 hover:text-gray-900" title="Projects">
+        Projects
+    </p>
+</a>
 
 
-                
-                Now
-            </a>
             
-            <a href="/about/"  class="text-base font-medium text-gray-500 hover:text-gray-900" title="About me">
-                
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a class="text-base font-medium text-gray-500 hover:text-gray-900" title="Resources">
+      Resources
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
 
 
-                
-                About
-            </a>
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href=""  class="flex items-center">
+          
+          <p class="text-sm font-sm text-gray-500 hover:text-gray-900" title="">
+            Resume
+          </p>
+        </a>
+        
+        <a href=""  class="flex items-center">
+          
+          <p class="text-sm font-sm text-gray-500 hover:text-gray-900" title="">
+            Recommendations
+          </p>
+        </a>
+        
+        <a href=""  class="flex items-center">
+          
+          <p class="text-sm font-sm text-gray-500 hover:text-gray-900" title="">
+            Reading list
+          </p>
+        </a>
+        
+        <a href=""  class="flex items-center">
+          
+          <p class="text-sm font-sm text-gray-500 hover:text-gray-900" title="">
+            List 100
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            
+            
+  <a href="/now/"  class="flex items-center">
+    
+    <p class="text-base font-medium text-gray-500 hover:text-gray-900" title="What I&#39;m doing now">
+        Now
+    </p>
+</a>
+
+
+            
+            
+  <a href="/about/"  class="flex items-center">
+    
+    <p class="text-base font-medium text-gray-500 hover:text-gray-900" title="About me">
+        About
+    </p>
+</a>
+
+
             
             
 
@@ -201,7 +281,7 @@
             </button>
             
 
-            
+
             
             
             <div
@@ -231,7 +311,7 @@
             </div>
             
 
-        </div>
+        </nav>
         <div class="flex md:hidden items-center space-x-5 md:ml-12">
 
             <span></span>
@@ -295,12 +375,14 @@
 
 
             </div>
-            <div id="menu-wrapper" style="padding-top:25px;"
+            <div id="menu-wrapper" style="padding-top:5px;"
                 class="fixed inset-0 z-30 invisible w-screen h-screen m-auto overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
                 <ul
-                    class="flex movedown flex-col w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl sm:px-14 md:px-24 lg:px-32 sm:py-10 sm:pt-10">
-                    <li class="mb-1">
-                        <span class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
@@ -312,68 +394,148 @@
 
                     
                     
-                    <li class="mb-1">
-                        <a  class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-                            href="/posts/" title="Posts">
-                            <span class="inline-block align-text-bottom">
 
-</span>
-                            
-                            Blog
-                        </a>
-                    </li>
                     
-                    <li class="mb-1">
-                        <a  class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-                            href="/projects/" title="Projects">
-                            <span class="inline-block align-text-bottom">
+  <li class="mt-1">
+    <a href="/posts/"  class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="Posts">
+            Blog
+        </p>
+    </a>
+</li>
 
-</span>
-                            
-                            Projects
-                        </a>
-                    </li>
+
+
                     
-                    <li class="mb-1">
-                        <a  class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-                            href="" title="">
-                            <span class="inline-block align-text-bottom">
 
-</span>
-                            
-                            Resources
-                        </a>
-                    </li>
                     
-                    <li class="mb-1">
-                        <a  class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-                            href="/now/" title="What I&#39;m doing now">
-                            <span class="inline-block align-text-bottom">
+  <li class="mt-1">
+    <a href="/projects/"  class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="Projects">
+            Projects
+        </p>
+    </a>
+</li>
 
-</span>
-                            
-                            Now
-                        </a>
-                    </li>
+
+
                     
-                    <li class="mb-1">
-                        <a  class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-                            href="/about/" title="About me">
-                            <span class="inline-block align-text-bottom">
 
-</span>
-                            
-                            About
-                        </a>
-                    </li>
+                     
+  <li class="mt-1">
+    <a class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="Resources">
+            Resources
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href=""  class="flex items-center">
+        
+        <p class="text-sm font-small text-gray-500 hover:text-gray-900" title="">
+            Resume
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href=""  class="flex items-center">
+        
+        <p class="text-sm font-small text-gray-500 hover:text-gray-900" title="">
+            Recommendations
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href=""  class="flex items-center">
+        
+        <p class="text-sm font-small text-gray-500 hover:text-gray-900" title="">
+            Reading list
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href=""  class="flex items-center">
+        
+        <p class="text-sm font-small text-gray-500 hover:text-gray-900" title="">
+            List 100
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/now/"  class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="What I&#39;m doing now">
+            Now
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/about/"  class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="About me">
+            About
+        </p>
+    </a>
+</li>
+
+
+
                     
                     
 
                 </ul>
+                
+
             </div>
         </label>
     </div>
 </div>
+
+
+
+
   
   <div class="relative flex flex-col grow">
     <main id="main-content" class="grow">

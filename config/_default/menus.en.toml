@@ -17,6 +17,25 @@
 
 [[main]]
   name = "Resume"
+  parent = "Resources"
+  pageRef = ""
+  weight = 10
+
+[[main]]
+  name = "Recommendations"
+  parent = "Resources"
+  pageRef = ""
+  weight = 20
+
+[[main]]
+  name = "Reading list"
+  parent = "Resources"
+  pageRef = ""
+  weight = 30
+
+[[main]]
+  name = "List 100"
+  parent = "Resources"
   pageRef = ""
   weight = 40
 

@@ -5,7 +5,7 @@ description: "My posts"
 cascade:
   showDate: false
   showAuthor: false
-  invertPagination: true
+  invertPagination: false
 ---
 
 <!---->

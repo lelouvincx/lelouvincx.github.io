@@ -27,6 +27,8 @@ Wow, cũng đáng để thử đấy chứ!
 Cộng thêm việc mình đã quá ngán với con zsh của mình khi lúc nào bật lên cũng tốn ~0.5 - 1 giây (quá chậm cho 1 shell), vậy là quá đủ lý do để từ bỏ oh-my-zsh.
 Và thế là công cuộc chuyển nhà từ oh-my-zsh của mình sang Zim bắt đầu.
 
+{{< github repo="zimfw/zimfw" >}}
+
 ## 2. Cài đặt
 
 Đầu tiên bạn cần gỡ bỏ oh-my-zsh trước:
@@ -74,8 +76,7 @@ zimfw uninstall && zimfw install
 
 Khởi động lại terminal và enjoy!
 
-{{< alert "sign" >}}
-**Note**:
+{{< alert "circle-info" >}}
 Như vậy tới đây bạn đã biết cách thêm 1 zsh plugin vào bằng Zim: thêm `zmodule` + tên plugin vào file `~/.zimrc`, rồi chạy lệnh `zimfw install`.
 
 Các module được cài nằm ở `~/.zim/modules`
@@ -91,8 +92,7 @@ zmodule romkatv/powerlevel10k
 
 `zimfw install`, khởi động lại terminal rồi `p10k configure`.
 
-{{< alert "sign" >}}
-**Note**:
+{{< alert "circle-info" >}}
 `p10k` sequence ưa thích của mình là `y y y n 3 1 3 4 4 5 2 3 4 2 2 1 1 y 2 y`
 {{< /alert >}}
 
@@ -106,6 +106,7 @@ Bạn có thể dùng luôn mà không cần config gì thêm.
 Nhưng ở đây mình muốn shell của mình được việc hơn tí nên sẽ cài thêm [zoxide](https://github.com/ajeetdsouza/zoxide) và [zsh-autoswitch-virtualenv](https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv).
 
 Zoxide là một tool tự động nhớ các đường dẫn mà bạn đã `cd`, giúp bạn di chuyển nhan hơn trong terminal.
+{{< github repo="ajeetdsouza/zoxide" >}}
 Nếu chưa có `zoxide`, hãy cài nó vào trước:
 
 ```bash
@@ -135,6 +136,7 @@ Sau đấy thì `zimfw install` thôi :D
 
 `zsh-autoswitch-virtualenv` là tool giúp tự activate/deactivate khi bạn `cd` vào project có `virtualenv` của python.
 Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách nhận diện một trong các file sau (xem thêm ở GitHub):
+{{< github repo="MichaelAquilina/zsh-autoswitch-virtualenv" >}}
 
 - setup.py
 - requirements.txt
@@ -179,6 +181,8 @@ alias source_ruby="source $HOME/.rvm/scripts/rvm"
 ```
 
 - Dùng `exa` thay cho `ls`, exa nhanh và cho màu đẹp hơn `ls`:
+
+{{< github repo="ogham/exa" >}}
 
 ```bash
 # ~/.zshrc
