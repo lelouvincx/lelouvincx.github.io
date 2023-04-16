@@ -11,7 +11,7 @@ Trong project này mình sẽ hướng dẫn xây dựng một data pipeline cơ
 
 Project này hoàn thành dựa trên kiến thức đã học được từ khóa Fundamental Data Engineering 02 của AIDE. Xin gửi lời cảm ơn đặc biệt tới thầy Nguyễn Thanh Bình, anh Ông Xuân Hồng và anh Hùng Lê.
 
-[Source code](https://github.com/lelouvincx/goodreads-elt-pipeline) của project.
+{{< github repo="lelouvincx/goodreads-elt-pipeline" >}}
 
 ## 1. Introduction
 
