@@ -4,7 +4,8 @@ date: 2023-04-16
 draft: false
 description: "ELT data pipelines với bộ dữ liệu sách từ Goodreads"
 summary: "Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads"
-tags: ["project", "data engineering"]
+tags: ["ELT", "dbt", "dagster", "goodreads", "spark", "minio"]
+categories: ["data engineering"]
 ---
 
 Trong project này mình sẽ hướng dẫn xây dựng một data pipeline cơ bản theo mô hình ELT (extract - load - transform), sử dụng bộ dữ liệu từ goodreads để ingest, transform data phục vụ hệ thống recommend sách cho bản thân.
@@ -12,6 +13,14 @@ Trong project này mình sẽ hướng dẫn xây dựng một data pipeline cơ
 Project này hoàn thành dựa trên kiến thức đã học được từ khóa Fundamental Data Engineering 02 của AIDE. Xin gửi lời cảm ơn đặc biệt tới thầy Nguyễn Thanh Bình, anh Ông Xuân Hồng và anh Hùng Lê.
 
 {{< github repo="lelouvincx/goodreads-elt-pipeline" >}}
+</br>
+
+{{< alert icon="fire" cardColor="#e63946" iconColor="#1d3557" textColor="#f1faee" >}}
+Demo video
+{{< /alert >}}
+</br>
+
+<iframe src="https://www.facebook.com/plugins/video.php?height=317&href=https%3A%2F%2Fwww.facebook.com%2Faideinstitutevietnam%2Fvideos%2F622101275993767%2F&show_text=false&width=625&t=9600" width="625" height="317" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
 
 ## 1. Introduction
 
@@ -183,7 +192,9 @@ Gồm các model (asset):
 5. Máy local đã free các port sau: 3306, 5432, 9000, 9001, 3001, 8501, 4040, 7077, 8080, 3030
 6. Dbeaver hoặc một db client bất kỳ (nếu không có thể dùng command-line)
 
+{{< alert icon="microsoft" >}}
 Nếu dùng Windows, setup thêm WSL2 và một máy ảo local Ubuntu, cài đặt những thứ trên cho ubuntu.
+{{< /alert >}}
 
 ### 4.2 Setup local infrastructure
 
@@ -275,8 +286,8 @@ MB_DB_FILE=/metabase_data/metabase.db
 
 Bạn có thể thay các thông tin về user, pasword, ...
 
-{{< alert "circle-info" >}}
-Chỉ dùng cho development, không dùng cho production.
+{{< alert icon="triangle-exclamation" cardColor="#cc3300" iconColor="#ffcc00" textColor="#f1faee" >}}
+Chỉ dùng cho môi trường development, không dùng cho testing, staging, production.
 {{< /alert >}}
 
 Bây giờ chúng ta import dataset spotify (dạng csv) vào mySQL:
@@ -313,13 +324,17 @@ black ./elt_pipeline
 make test
 ```
 
+{{< alert icon="docker" >}}
 Lúc này sẽ có 11 services sau đang chạy:
+{{< /alert >}}
 
 ![](./docker_1.png)
 
 ![](./docker_2.png)
 
-**Ports**:
+{{< alert icon="circle-info" >}}
+**Ports**
+{{< /alert >}}
 
 - MySQL: 3306
 - PostgreSQL: 5432
@@ -1020,6 +1035,6 @@ Giờ là lúc đánh giá project:
 ## 8. Further actions
 
 1. Hoàn thiện recommender system
-2. Tích hợp jupyter notebook để làm task của DS (dagstermill)
+2. Tích hợp jupyter notebook để làm task của data scientist - [dagstermill](https://docs.dagster.io/integrations/dagstermill)
 3. Testing environment
-4. Continuous Integration
+4. Continuous Integration với Github Actions

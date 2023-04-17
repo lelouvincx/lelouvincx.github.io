@@ -4,7 +4,8 @@ date: 2023-31-1
 draft: false
 description: "Trong bài này mình sẽ hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này"
 summary: "Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này"
-tags: ["post", "zsh", "zimfw"]
+tags: ["zsh", "zimfw"]
+categories: ["linux"]
 ---
 
 ## 1. Tại sao nên đọc bài này?

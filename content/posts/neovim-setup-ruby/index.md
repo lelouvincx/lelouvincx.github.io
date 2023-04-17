@@ -4,7 +4,8 @@ date: 2023-1-1
 draft: false
 description: "Hướng dẫn setup môi trường phát triển Ruby trên Neovim"
 summary: "Hướng dẫn setup môi trường phát triển Ruby trên Neovim"
-tags: ["post", "neovim", "ruby"]
+tags: ["ruby"]
+categories: ["vim"]
 ---
 
 ## 1. Tại sao nên đọc bài này?
