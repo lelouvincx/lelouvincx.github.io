@@ -17,7 +17,7 @@ Project này hoàn thành dựa trên kiến thức đã học được từ kh�
 
 Mình thích đọc sách. Và mình có một chiếc máy đọc sách kindle dùng cho việc đọc hàng ngày.
 
-![](./introduction.jpg "my kindle")
+![](./introduction.jpg)
 
 Có một điểm mình thích ở chiếc kindle là nó có một địa chỉ email riêng biệt được amazon cấp phát. Nếu sử dụng email của mình để gửi file sách (dạng .epub/.mobi), hệ thống trên amazon sẽ tự động gửi file sách vào kindle giúp mình, miễn là có kết nối mạng.
 
@@ -33,7 +33,7 @@ Mục tiêu của project, là với nguồn data được thu thập và xử l
 
 ### 3.1 Directory tree
 
-![](./directory_tree.png "Directory tree")
+![](./directory_tree.png)
 
 - app: Giao diện để tương tác với người dùng, viết bằng streamlit
 - dagster_home: Config cho dagit (dagster UI) và dagster daemon
@@ -64,7 +64,7 @@ Chi tiết xem ở file [tree.txt](https://github.com/lelouvincx/goodreads-elt-p
 
 ### 3.2 Pipeline design
 
-![](./design_pipeline.png "Pipeline design")
+![](./design_pipeline.png)
 
 0. Ta sử dụng `docker` để đóng gói ứng dụng và `dagster` để orchestrate assets (theo [định nghĩa](https://docs.dagster.io/concepts/assets/software-defined-assets) của daster)
 1. Dữ liệu Goodreads được download từ kaggle dưới dạng `.csv`, sau đó import vào `MySQL` mô phỏng dữ liệu development
@@ -83,7 +83,7 @@ Chi tiết xem ở file [tree.txt](https://github.com/lelouvincx/goodreads-elt-p
 
 ### 3.3 Database schema
 
-![](./design_schema.png "Database schema")
+![](./design_schema.png)
 
 1. `book`: OLTP table chứa thông tin cuốn sách (ISBN, Authors, Rating, Description...)
 2. `genre`: table chứa tên các thể loại sách
@@ -94,7 +94,7 @@ Chi tiết xem ở file [tree.txt](https://github.com/lelouvincx/goodreads-elt-p
 
 ### 3.4 Datalake structure
 
-![](./datalake_structure.png "Datalake structure")
+![](./datalake_structure.png)
 
 1. Datalake chia theo các layer: bronze, silver, gold
 2. Các loại file đều dạng .parquet để cho kết quả đọc tốt hơn .csv
