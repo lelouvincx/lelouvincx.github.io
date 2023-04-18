@@ -105,24 +105,24 @@ defaultBackgroundImage = "img/background.jpg" # used as default for background i
   #cardView = false
 
 [firebase]
-  # apiKey = "XXXXXX"
-  # authDomain = "XXXXXX"
-  # projectId = "XXXXXX"
-  # storageBucket = "XXXXXX"
-  # messagingSenderId = "XXXXXX"
-  # appId = "XXXXXX"
-  # measurementId = "XXXXXX"
+  apiKey = "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g"
+  authDomain = "lelouvincx-blog.firebaseapp.com"
+  projectId = "lelouvincx-blog"
+  storageBucket = "lelouvincx-blog.appspot.com"
+  messagingSenderId = "687151694094"
+  appId = "1:687151694094:web:1489248715ee5f7849d75f"
+  measurementId = "G-PW1F2X7CRE"
 
 [fathomAnalytics]
   # site = "ABC12345"
   # domain = "llama.yoursite.com"
 
 [buymeacoffee]
-  # identifier = ""
-  # globalWidget = true
-  # globalWidgetMessage = "Hello"
-  # globalWidgetColor = "#FFDD00"
-  # globalWidgetPosition = "Right"
+  identifier = "lelouvincx"
+  globalWidget = true
+  globalWidgetMessage = "Hi! How about your day? Let's buy me a coffee!"
+  globalWidgetColor = "#BEE5B0"
+  globalWidgetPosition = "Right"
 
 [verification]
   # google = ""
