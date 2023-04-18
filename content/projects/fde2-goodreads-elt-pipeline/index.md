@@ -44,30 +44,30 @@ Mục tiêu của project, là với nguồn data được thu thập và xử l
 
 ![](./directory_tree.png)
 
-- app: Giao diện để tương tác với người dùng, viết bằng streamlit
-- dagster_home: Config cho dagit (dagster UI) và dagster daemon
-- dataset: Lưu dataset dưới dạng .csv, mặc định load vào MySQL
-- docker-compose: Compose docker containers
-- dockerimages: Chứa các image tự build như dagster (dagit + daemon), spark master, streamlit app
-- EDA.ipynb: Exploratory Data Analysis, xem trực tiếp [tại đây](https://gist.github.com/lelouvincx/a88fa6caf59d7ff76086ab485ecc69bd)
-- elt_pipeline: Toàn bộ pipeline
-  - dbt_transform: code location của dbt, dùng cho bước transform ở cuối
-  - Dockerfile + requirements.txt: Thông tin build image
-  - elt_pipeline: pipeline từ đầu tới trước dbt
-- .env + .spark_master.env + .spark_worker.env: Lưu biến môi trường (ví dụ POSTGRES_USER, MYSQL_USER, SPARK, ...)
-- env.template: Template để bạn tự điền thông tin biến môi trường
-- .git + .gitignore: Thuộc git, quản lý code version
-- Makefile: Shortcut câu lệnh trên terminal
-- load_dataset: Chứa script .sql để tạo schema và load vào database MySQL và Postgres
-- requirements.txt + Pipfile + Pipfile.lock: Dependencies của python
+- `app`: Giao diện để tương tác với người dùng, viết bằng streamlit
+- `dagster_home`: Config cho dagit (dagster UI) và dagster daemon
+- `dataset`: Lưu dataset dưới dạng .csv, mặc định load vào MySQL
+- `docker-compose`: Compose docker containers
+- `dockerimages`: Chứa các image tự build như dagster (dagit + daemon), spark master, streamlit app
+- `EDA.ipynb`: Exploratory Data Analysis, xem trực tiếp [tại đây](https://gist.github.com/lelouvincx/a88fa6caf59d7ff76086ab485ecc69bd)
+- `elt_pipeline`: Toàn bộ pipeline
+  - `dbt_transform`: code location của dbt, dùng cho bước transform ở cuối
+  - `Dockerfile + requirements.txt`: Thông tin build image
+  - `elt_pipeline`: pipeline từ đầu tới trước dbt
+- `.env + .spark_master.env + .spark_worker.env`: Lưu biến môi trường (ví dụ POSTGRES_USER, MYSQL_USER, SPARK, ...)
+- `env.template`: Template để bạn tự điền thông tin biến môi trường
+- `.git + .gitignore`: Thuộc git, quản lý code version
+- `Makefile`: Shortcut câu lệnh trên terminal
+- `load_dataset`: Chứa script .sql để tạo schema và load vào database MySQL và Postgres
+- `requirements.txt + Pipfile + Pipfile.lock`: Dependencies của python
 
 Ngoài ra còn có các thư mục sở hữu riêng của container:
 
-- minio
-- storage
-  - mysql_data
-  - postgres_data
-  - metabase_data
+- `minio`
+- `storage`
+  - `mysql_data`
+  - `postgres_data`
+  - `metabase_data`
 
 Chi tiết xem ở file [tree.txt](https://github.com/lelouvincx/goodreads-elt-pipeline/blob/main/tree.txt)
 
@@ -196,15 +196,64 @@ Gồm các model (asset):
 Nếu dùng Windows, setup thêm WSL2 và một máy ảo local Ubuntu, cài đặt những thứ trên cho ubuntu.
 {{< /alert >}}
 
-### 4.2 Setup local infrastructure
-
-Clone repository:
+Clone the repository
 
 ```bash
 git clone https://github.com/lelouvincx/goodreads-elt-pipeline.git project
 cd project
+```
 
-# Create env file
+### 4.2 Setup google drive api
+
+Đầu tiên chúng ta cần tạo một OAuth 2.0 token tới google, [Google API Console](https://console.developers.google.com/).
+
+Chọn `create new project` để mở hộp thoại.
+
+![](./gdrive_1.png)
+
+Điền tên của project vào (goodreads-elt_pipeline), tùy chọn location của bạn (mặc định `No organization`).
+
+![](./gdrive_2.png)
+
+Sau khi tạo xong project, chọn tab `Library`.
+
+![](./gdrive_3.png)
+
+Search `Google Drive API`, enable nó.
+
+![](./gdrive_4.png)
+
+![](./gdrive_5.png)
+
+Tiếp theo, chọn tab `OAuth consent screen`,
+
+![](./gdrive_6.png)
+
+Điền thông tin như dưới
+
+![](./gdrive_7.png)
+
+Ở mục `scopes`, chọn `add or remove scopes`, tìm `google drive api, readonly` rồi tick vào, `save and continue` tới hết
+
+![](./gdrive_8.png)
+
+Vào tab `credentials` -> `create credentials` và chọn `OAuth client ID`.
+
+![](./gdrive_9.png)
+
+Chọn `Desktop app`, đặt tên tùy thích (goodreads-elt-pipeline)
+
+![](./gdrive_10.png)
+
+Download json và đặt file vào `project/elt_pipeline/elt_pipeline`
+
+![](./gdrive_11.png)
+
+### 4.3 Setup local infrastructure
+
+Create env file
+
+```bash
 touch .env
 cp env.template .env
 touch .spark_master.env
@@ -350,7 +399,7 @@ Lúc này sẽ có 11 services sau đang chạy:
 - Metabase: 3030
 - Streamlit: 8501
 
-### 4.3 Import data into MySQL
+### 4.4 Import data into MySQL
 
 Source từng file theo thứ tự:
 
@@ -373,13 +422,13 @@ make mysql_create
 make mysql_load
 ```
 
-### 4.4 Create schema in Postgres
+### 4.5 Create schema in Postgres
 
 ```bash
 make psql_create
 ```
 
-### 4.5 User interfaces
+### 4.6 User interfaces
 
 1. <http://localhost:3001> - Dagit
 2. <http://localhost:4040> - Spark jobs
