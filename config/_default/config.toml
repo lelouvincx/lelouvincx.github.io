@@ -13,7 +13,7 @@ summaryLength = 30
 buildDrafts = false
 buildFuture = false
 
-# googleAnalytics = "G-XXXXXXXXX"
+googleAnalytics = "G-PW1F2X7CRE"
 
 [taxonomies]
   tag = "tags"
