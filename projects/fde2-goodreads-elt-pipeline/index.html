@@ -101,7 +101,7 @@
     "keywords": ["ELT","dbt","dagster","goodreads","spark","minio"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "3391"
+    "wordCount": "3508"
   }]
   </script>
 
@@ -849,10 +849,11 @@ if (!doNotTrack) {
     <li><a href="#4-setup">4. Setup</a>
       <ul>
         <li><a href="#41-prequisites">4.1 Prequisites</a></li>
-        <li><a href="#42-setup-local-infrastructure">4.2 Setup local infrastructure</a></li>
-        <li><a href="#43-import-data-into-mysql">4.3 Import data into MySQL</a></li>
-        <li><a href="#44-create-schema-in-postgres">4.4 Create schema in Postgres</a></li>
-        <li><a href="#45-user-interfaces">4.5 User interfaces</a></li>
+        <li><a href="#42-setup-google-drive-api">4.2 Setup google drive api</a></li>
+        <li><a href="#43-setup-local-infrastructure">4.3 Setup local infrastructure</a></li>
+        <li><a href="#44-import-data-into-mysql">4.4 Import data into MySQL</a></li>
+        <li><a href="#45-create-schema-in-postgres">4.5 Create schema in Postgres</a></li>
+        <li><a href="#46-user-interfaces">4.6 User interfaces</a></li>
       </ul>
     </li>
     <li><a href="#5-detailed-code-walkthrough">5. Detailed code walkthrough</a>
@@ -895,10 +896,11 @@ if (!doNotTrack) {
     <li><a href="#4-setup">4. Setup</a>
       <ul>
         <li><a href="#41-prequisites">4.1 Prequisites</a></li>
-        <li><a href="#42-setup-local-infrastructure">4.2 Setup local infrastructure</a></li>
-        <li><a href="#43-import-data-into-mysql">4.3 Import data into MySQL</a></li>
-        <li><a href="#44-create-schema-in-postgres">4.4 Create schema in Postgres</a></li>
-        <li><a href="#45-user-interfaces">4.5 User interfaces</a></li>
+        <li><a href="#42-setup-google-drive-api">4.2 Setup google drive api</a></li>
+        <li><a href="#43-setup-local-infrastructure">4.3 Setup local infrastructure</a></li>
+        <li><a href="#44-import-data-into-mysql">4.4 Import data into MySQL</a></li>
+        <li><a href="#45-create-schema-in-postgres">4.5 Create schema in Postgres</a></li>
+        <li><a href="#46-user-interfaces">4.6 User interfaces</a></li>
       </ul>
     </li>
     <li><a href="#5-detailed-code-walkthrough">5. Detailed code walkthrough</a>
@@ -1099,35 +1101,35 @@ if (!doNotTrack) {
 
 </p>
 <ul>
-<li>app: Giao diện để tương tác với người dùng, viết bằng streamlit</li>
-<li>dagster_home: Config cho dagit (dagster UI) và dagster daemon</li>
-<li>dataset: Lưu dataset dưới dạng .csv, mặc định load vào MySQL</li>
-<li>docker-compose: Compose docker containers</li>
-<li>dockerimages: Chứa các image tự build như dagster (dagit + daemon), spark master, streamlit app</li>
-<li>EDA.ipynb: Exploratory Data Analysis, xem trực tiếp <a href="https://gist.github.com/lelouvincx/a88fa6caf59d7ff76086ab485ecc69bd"   target="_blank">
+<li><code>app</code>: Giao diện để tương tác với người dùng, viết bằng streamlit</li>
+<li><code>dagster_home</code>: Config cho dagit (dagster UI) và dagster daemon</li>
+<li><code>dataset</code>: Lưu dataset dưới dạng .csv, mặc định load vào MySQL</li>
+<li><code>docker-compose</code>: Compose docker containers</li>
+<li><code>dockerimages</code>: Chứa các image tự build như dagster (dagit + daemon), spark master, streamlit app</li>
+<li><code>EDA.ipynb</code>: Exploratory Data Analysis, xem trực tiếp <a href="https://gist.github.com/lelouvincx/a88fa6caf59d7ff76086ab485ecc69bd"   target="_blank">
     tại đây</a></li>
-<li>elt_pipeline: Toàn bộ pipeline
+<li><code>elt_pipeline</code>: Toàn bộ pipeline
 <ul>
-<li>dbt_transform: code location của dbt, dùng cho bước transform ở cuối</li>
-<li>Dockerfile + requirements.txt: Thông tin build image</li>
-<li>elt_pipeline: pipeline từ đầu tới trước dbt</li>
+<li><code>dbt_transform</code>: code location của dbt, dùng cho bước transform ở cuối</li>
+<li><code>Dockerfile + requirements.txt</code>: Thông tin build image</li>
+<li><code>elt_pipeline</code>: pipeline từ đầu tới trước dbt</li>
 </ul>
 </li>
-<li>.env + .spark_master.env + .spark_worker.env: Lưu biến môi trường (ví dụ POSTGRES_USER, MYSQL_USER, SPARK, &hellip;)</li>
-<li>env.template: Template để bạn tự điền thông tin biến môi trường</li>
-<li>.git + .gitignore: Thuộc git, quản lý code version</li>
-<li>Makefile: Shortcut câu lệnh trên terminal</li>
-<li>load_dataset: Chứa script .sql để tạo schema và load vào database MySQL và Postgres</li>
-<li>requirements.txt + Pipfile + Pipfile.lock: Dependencies của python</li>
+<li><code>.env + .spark_master.env + .spark_worker.env</code>: Lưu biến môi trường (ví dụ POSTGRES_USER, MYSQL_USER, SPARK, &hellip;)</li>
+<li><code>env.template</code>: Template để bạn tự điền thông tin biến môi trường</li>
+<li><code>.git + .gitignore</code>: Thuộc git, quản lý code version</li>
+<li><code>Makefile</code>: Shortcut câu lệnh trên terminal</li>
+<li><code>load_dataset</code>: Chứa script .sql để tạo schema và load vào database MySQL và Postgres</li>
+<li><code>requirements.txt + Pipfile + Pipfile.lock</code>: Dependencies của python</li>
 </ul>
 <p>Ngoài ra còn có các thư mục sở hữu riêng của container:</p>
 <ul>
-<li>minio</li>
-<li>storage
+<li><code>minio</code></li>
+<li><code>storage</code>
 <ul>
-<li>mysql_data</li>
-<li>postgres_data</li>
-<li>metabase_data</li>
+<li><code>mysql_data</code></li>
+<li><code>postgres_data</code></li>
+<li><code>metabase_data</code></li>
 </ul>
 </li>
 </ul>
@@ -1455,20 +1457,204 @@ if (!doNotTrack) {
     >Nếu dùng Windows, setup thêm WSL2 và một máy ảo local Ubuntu, cài đặt những thứ trên cho ubuntu.</span>
 </div>
 
-<div id="42-setup-local-infrastructure" class="anchor"></div>
-<h3 class="relative group">4.2 Setup local infrastructure 
+<p>Clone the repository</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/lelouvincx/goodreads-elt-pipeline.git project
+<span class="nb">cd</span> project
+</code></pre></div><div id="42-setup-google-drive-api" class="anchor"></div>
+<h3 class="relative group">4.2 Setup google drive api 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#42-setup-local-infrastructure" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#42-setup-google-drive-api" aria-label="Anchor">#</a></span>        
     
 </h3>
-<p>Clone repository:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/lelouvincx/goodreads-elt-pipeline.git project
-<span class="nb">cd</span> project
+<p>Đầu tiên chúng ta cần tạo một OAuth 2.0 token tới google, <a href="https://console.developers.google.com/"   target="_blank">
+    Google API Console</a>.</p>
+<p>Chọn <code>create new project</code> để mở hộp thoại.</p>
+<p>
 
-<span class="c1"># Create env file</span>
-touch .env
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./gdrive_1.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Điền tên của project vào (goodreads-elt_pipeline), tùy chọn location của bạn (mặc định <code>No organization</code>).</p>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./gdrive_2.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Sau khi tạo xong project, chọn tab <code>Library</code>.</p>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./gdrive_3.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Search <code>Google Drive API</code>, enable nó.</p>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./gdrive_4.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./gdrive_5.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Tiếp theo, chọn tab <code>OAuth consent screen</code>,</p>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./gdrive_6.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Điền thông tin như dưới</p>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./gdrive_7.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Ở mục <code>scopes</code>, chọn <code>add or remove scopes</code>, tìm <code>google drive api, readonly</code> rồi tick vào, <code>save and continue</code> tới hết</p>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./gdrive_8.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Vào tab <code>credentials</code> -&gt; <code>create credentials</code> và chọn <code>OAuth client ID</code>.</p>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./gdrive_9.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Chọn <code>Desktop app</code>, đặt tên tùy thích (goodreads-elt-pipeline)</p>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./gdrive_10.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Download json và đặt file vào <code>project/elt_pipeline/elt_pipeline</code></p>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./gdrive_11.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<div id="43-setup-local-infrastructure" class="anchor"></div>
+<h3 class="relative group">4.3 Setup local infrastructure 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#43-setup-local-infrastructure" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<p>Create env file</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">touch .env
 cp env.template .env
 touch .spark_master.env
 cp spark_master.env.template .spark_master.env
@@ -1729,12 +1915,12 @@ make <span class="nb">test</span>
 <li>Metabase: 3030</li>
 <li>Streamlit: 8501</li>
 </ul>
-<div id="43-import-data-into-mysql" class="anchor"></div>
-<h3 class="relative group">4.3 Import data into MySQL 
+<div id="44-import-data-into-mysql" class="anchor"></div>
+<h3 class="relative group">4.4 Import data into MySQL 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#43-import-data-into-mysql" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#44-import-data-into-mysql" aria-label="Anchor">#</a></span>        
     
 </h3>
 <p>Source từng file theo thứ tự:</p>
@@ -1748,21 +1934,21 @@ make mysql_create
 
 <span class="c1"># Load csv into created tables</span>
 make mysql_load
-</code></pre></div><div id="44-create-schema-in-postgres" class="anchor"></div>
-<h3 class="relative group">4.4 Create schema in Postgres 
+</code></pre></div><div id="45-create-schema-in-postgres" class="anchor"></div>
+<h3 class="relative group">4.5 Create schema in Postgres 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#44-create-schema-in-postgres" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#45-create-schema-in-postgres" aria-label="Anchor">#</a></span>        
     
 </h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">make psql_create
-</code></pre></div><div id="45-user-interfaces" class="anchor"></div>
-<h3 class="relative group">4.5 User interfaces 
+</code></pre></div><div id="46-user-interfaces" class="anchor"></div>
+<h3 class="relative group">4.6 User interfaces 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#45-user-interfaces" aria-label="Anchor">#</a></span>        
+            style="text-decoration-line: none !important;" href="#46-user-interfaces" aria-label="Anchor">#</a></span>        
     
 </h3>
 <ol>
