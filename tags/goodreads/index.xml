@@ -1,1 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>goodreads on lelouvincx's blog</title><link>https://lelouvincx.github.io/tags/goodreads/</link><description>Recent content in goodreads on lelouvincx's blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 16 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/tags/goodreads/index.xml" rel="self" type="application/rss+xml"/><item><title>Goodreads ELT pipelines</title><link>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</link><pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate><guid>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</guid><description>Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>goodreads on lelouvincx&#39;s blog</title>
+    <link>https://lelouvincx.github.io/tags/goodreads/</link>
+    <description>Recent content in goodreads on lelouvincx&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 16 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/tags/goodreads/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Goodreads ELT pipelines</title>
+      <link>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</link>
+      <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</guid>
+      <description>Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads</description>
+    </item>
+    
+  </channel>
+</rss>

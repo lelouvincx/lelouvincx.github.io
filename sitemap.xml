@@ -1,1 +1,244 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://lelouvincx.github.io/categories/</loc><lastmod>2023-04-16T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/tags/dagster/</loc><lastmod>2023-04-16T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/categories/data-engineering/</loc><lastmod>2023-04-16T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/tags/dbt/</loc><lastmod>2023-04-16T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/tags/elt/</loc><lastmod>2023-04-16T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/tags/goodreads/</loc><lastmod>2023-04-16T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</loc><lastmod>2023-04-16T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/</loc><lastmod>2023-04-16T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/tags/minio/</loc><lastmod>2023-04-16T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/projects/</loc><lastmod>2023-04-16T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/tags/spark/</loc><lastmod>2023-04-16T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/tags/</loc><lastmod>2023-04-16T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/tags/aws/</loc><lastmod>2022-12-18T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/tags/spotify/</loc><lastmod>2022-12-18T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/projects/fde_project/</loc><lastmod>2022-12-18T00:00:00+00:00</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/about/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/authors/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/posts/oh-my-zsh-to-zim/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/posts/neovim-setup-ruby/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/categories/linux/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/posts/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/resources/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/tags/ruby/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/series/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/categories/vim/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/now/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/tags/zimfw/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url><loc>https://lelouvincx.github.io/tags/zsh/</loc><changefreq>daily</changefreq><priority>0.5</priority></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/categories/</loc>
+            <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/dagster/</loc>
+            <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/categories/data-engineering/</loc>
+            <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/dbt/</loc>
+            <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/elt/</loc>
+            <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/goodreads/</loc>
+            <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</loc>
+            <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/</loc>
+            <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/minio/</loc>
+            <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/projects/</loc>
+            <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/spark/</loc>
+            <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/</loc>
+            <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/aws/</loc>
+            <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/spotify/</loc>
+            <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/projects/fde_project/</loc>
+            <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/about/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/authors/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/posts/oh-my-zsh-to-zim/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/posts/neovim-setup-ruby/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/categories/linux/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/posts/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/resources/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/ruby/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/series/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/categories/vim/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/now/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/zimfw/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+    
+      <url>
+            <loc>https://lelouvincx.github.io/tags/zsh/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.5</priority>
+          </url>
+    
+  
+</urlset>
