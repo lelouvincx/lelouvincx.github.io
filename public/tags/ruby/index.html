@@ -30,12 +30,12 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.f4768793c6e39d65693bc2f59f77e81065e3a66628d4a6ca20fbde3039f13ffddee2e2bbccc3c5918f6c76e84a17d4e49bb0856715b2dec889549c695e0f390d.css"
-    integrity="sha512-9HaHk8bjnWVpO8L1n3foEGXjpmYo1KbKIPveMDnxP/3e4uK7zMPFkY9sduhKF9Tkm7CFZxWy3siJVJxpXg85DQ==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.71ceac099f7e0639a8ba6a8147aa1adde5c0052df09f536e5d4f28313d7855caad46570b2254fa5c2da0d692919e21dd340478ad9cf54a25909467502ed55f49.css"
+    integrity="sha512-cc6sCZ9&#43;BjmoumqBR6oa3eXABS3wn1NuXU8oMT14VcqtRlcLIlT6XC2g1pKRniHdNAR4rZz1SiWQlGdQLtVfSQ==" />
   
   
-  <script type="text/javascript" src="/js/appearance.min.49025a779c36ad37a5bf9f1cc6bffd35ccb69ce15560ef1b10057ddf31576265b19f8bcc1733207336c9144926f7b18aea2e5895f29e858b24271332a2fa5cd5.js"
-    integrity="sha512-SQJad5w2rTelv58cxr/9Ncy2nOFVYO8bEAV93zFXYmWxn4vMFzMgczbJFEkm97GK6i5YlfKehYskJxMyovpc1Q=="></script>
+  <script type="text/javascript" src="/js/appearance.min.3508351f0d2322ec03ef8ac4710aedb9fb7aea7d643c74ed34e35458b0fa4de9060522eca162d3de142defab8d9c5ccf9873a25cba9550026d430f0a64326770.js"
+    integrity="sha512-NQg1Hw0jIuwD74rEcQrtuft66n1kPHTtNONUWLD6TekGBSLsoWLT3hQt76uNnFzPmHOiXLqVUAJtQw8KZDJncA=="></script>
   
   
   
@@ -129,7 +129,30 @@
 
   
   
+  <meta name="theme-color"/>
   
+  
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g",
+      authDomain: "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g",
+      projectId: "lelouvincx-blog",
+      storageBucket: "lelouvincx-blog.appspot.com",
+      messagingSenderId: "687151694094",
+      appId: "1:687151694094:web:1489248715ee5f7849d75f",
+      measurementId: "G-PW1F2X7CRE"
+    };
+
+    var app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+
+  </script>
   
   
 </head>
@@ -270,7 +293,7 @@
 
 
             
-            <button id="search-button" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
                 title="">
                 
 
@@ -288,7 +311,7 @@
             
             <div
                 class="ltr:mr-14 rtl:ml-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400">
-                <button id="appearance-switcher" type="button">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button">
                     <div class="flex items-center justify-center h-12 dark:hidden">
                         
 
@@ -322,7 +345,7 @@
 
 
             
-            <button id="search-button-mobile" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
                 title="">
                 
 
@@ -337,7 +360,7 @@
 
             
             
-            <button id="appearance-switcher-mobile" type="button" style="margin-right:5px">
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" style="margin-right:5px">
                 <div class="flex items-center justify-center h-12 dark:hidden">
                     
 
@@ -538,6 +561,7 @@
 
 
 
+
   
   <div class="relative flex flex-col grow">
     <main id="main-content" class="grow">
@@ -608,7 +632,7 @@
 
   <a href="/posts/neovim-setup-ruby/" class="min-w-full">
     
-    <div class="border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative backdrop-blur">
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative backdrop-blur">
         
         <div class="w-full thumbnail_card nozoom" style="background-image:url(/posts/neovim-setup-ruby/featured_hu7921b84e37b4951668865b6f4724dc5f_18820_600x0_resize_box_3.png);"></div>
         
@@ -683,33 +707,24 @@
   
   
   
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/post/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/vim/&#34;,'_self');">
     <span class="flex">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
   >
-    post
+    vim
   </span>
 </span>
 
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/neovim/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
-    neovim
-  </span>
-</span>
-
-  </span>
+  
+  
+  
+  
+  
+  
+  
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ruby/&#34;,'_self');">
     <span class="flex">
@@ -866,5 +881,9 @@
 
   </div>
 </body>
+
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+  data-id="lelouvincx" data-description="Support me on Buy me a coffee!" data-message="Hi! How about your day? Let&#39;s buy me a coffee!"
+  data-color="#BEE5B0" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 
 </html>

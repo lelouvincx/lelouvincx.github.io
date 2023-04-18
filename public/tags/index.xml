@@ -6,40 +6,76 @@
     <description>Recent content in Tags on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>data engineering</title>
-      <link>https://lelouvincx.github.io/tags/data-engineering/</link>
+      <title>dagster</title>
+      <link>https://lelouvincx.github.io/tags/dagster/</link>
+      <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/tags/dagster/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dbt</title>
+      <link>https://lelouvincx.github.io/tags/dbt/</link>
+      <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/tags/dbt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ELT</title>
+      <link>https://lelouvincx.github.io/tags/elt/</link>
+      <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/tags/elt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>goodreads</title>
+      <link>https://lelouvincx.github.io/tags/goodreads/</link>
+      <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/tags/goodreads/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>minio</title>
+      <link>https://lelouvincx.github.io/tags/minio/</link>
+      <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/tags/minio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spark</title>
+      <link>https://lelouvincx.github.io/tags/spark/</link>
+      <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/tags/spark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>https://lelouvincx.github.io/tags/aws/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/data-engineering/</guid>
+      <guid>https://lelouvincx.github.io/tags/aws/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>project</title>
-      <link>https://lelouvincx.github.io/tags/project/</link>
+      <title>spotify</title>
+      <link>https://lelouvincx.github.io/tags/spotify/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>neovim</title>
-      <link>https://lelouvincx.github.io/tags/neovim/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lelouvincx.github.io/tags/neovim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>post</title>
-      <link>https://lelouvincx.github.io/tags/post/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lelouvincx.github.io/tags/post/</guid>
+      <guid>https://lelouvincx.github.io/tags/spotify/</guid>
       <description></description>
     </item>
     

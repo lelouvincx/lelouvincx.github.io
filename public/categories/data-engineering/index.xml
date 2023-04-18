@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data engineering on lelouvincx&#39;s blog</title>
+    <link>https://lelouvincx.github.io/categories/data-engineering/</link>
+    <description>Recent content in data engineering on lelouvincx&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 16 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/categories/data-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Goodreads ELT pipelines</title>
+      <link>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</link>
+      <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</guid>
+      <description>Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads</description>
+    </item>
+    
+    <item>
+      <title>Spotify data pipeline ingestion</title>
+      <link>https://lelouvincx.github.io/projects/fde_project/</link>
+      <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/projects/fde_project/</guid>
+      <description>Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -13,8 +13,8 @@
   <title>Code Ruby trên Neovim &middot; lelouvincx&#39;s blog</title>
   <meta name="title" content="Code Ruby trên Neovim &middot; lelouvincx&#39;s blog" />
   
-  <meta name="description" content="lelouvincx&#39;s website" />
-  
+  <meta name="description" content="Hướng dẫn setup môi trường phát triển Ruby trên Neovim" />
+  <meta name="keywords" content="ruby, " />
   
   
   <link rel="canonical" href="https://lelouvincx.github.io/posts/neovim-setup-ruby/" />
@@ -28,12 +28,12 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.f4768793c6e39d65693bc2f59f77e81065e3a66628d4a6ca20fbde3039f13ffddee2e2bbccc3c5918f6c76e84a17d4e49bb0856715b2dec889549c695e0f390d.css"
-    integrity="sha512-9HaHk8bjnWVpO8L1n3foEGXjpmYo1KbKIPveMDnxP/3e4uK7zMPFkY9sduhKF9Tkm7CFZxWy3siJVJxpXg85DQ==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.71ceac099f7e0639a8ba6a8147aa1adde5c0052df09f536e5d4f28313d7855caad46570b2254fa5c2da0d692919e21dd340478ad9cf54a25909467502ed55f49.css"
+    integrity="sha512-cc6sCZ9&#43;BjmoumqBR6oa3eXABS3wn1NuXU8oMT14VcqtRlcLIlT6XC2g1pKRniHdNAR4rZz1SiWQlGdQLtVfSQ==" />
   
   
-  <script type="text/javascript" src="/js/appearance.min.49025a779c36ad37a5bf9f1cc6bffd35ccb69ce15560ef1b10057ddf31576265b19f8bcc1733207336c9144926f7b18aea2e5895f29e858b24271332a2fa5cd5.js"
-    integrity="sha512-SQJad5w2rTelv58cxr/9Ncy2nOFVYO8bEAV93zFXYmWxn4vMFzMgczbJFEkm97GK6i5YlfKehYskJxMyovpc1Q=="></script>
+  <script type="text/javascript" src="/js/appearance.min.3508351f0d2322ec03ef8ac4710aedb9fb7aea7d643c74ed34e35458b0fa4de9060522eca162d3de142defab8d9c5ccf9873a25cba9550026d430f0a64326770.js"
+    integrity="sha512-NQg1Hw0jIuwD74rEcQrtuft66n1kPHTtNONUWLD6TekGBSLsoWLT3hQt76uNnFzPmHOiXLqVUAJtQw8KZDJncA=="></script>
   
   
   
@@ -98,10 +98,10 @@
     
     
     
-    "keywords": ["post","neovim","ruby"],
+    "keywords": ["ruby"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "267"
+    "wordCount": "254"
   }]
   </script>
 
@@ -157,7 +157,30 @@
 
   
   
+  <meta name="theme-color"/>
   
+  
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g",
+      authDomain: "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g",
+      projectId: "lelouvincx-blog",
+      storageBucket: "lelouvincx-blog.appspot.com",
+      messagingSenderId: "687151694094",
+      appId: "1:687151694094:web:1489248715ee5f7849d75f",
+      measurementId: "G-PW1F2X7CRE"
+    };
+
+    var app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+
+  </script>
   
   
 </head>
@@ -298,7 +321,7 @@
 
 
             
-            <button id="search-button" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
                 title="">
                 
 
@@ -316,7 +339,7 @@
             
             <div
                 class="ltr:mr-14 rtl:ml-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400">
-                <button id="appearance-switcher" type="button">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button">
                     <div class="flex items-center justify-center h-12 dark:hidden">
                         
 
@@ -350,7 +373,7 @@
 
 
             
-            <button id="search-button-mobile" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
                 title="">
                 
 
@@ -365,7 +388,7 @@
 
             
             
-            <button id="appearance-switcher-mobile" type="button" style="margin-right:5px">
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" style="margin-right:5px">
                 <div class="flex items-center justify-center h-12 dark:hidden">
                     
 
@@ -566,6 +589,7 @@
 
 
 
+
   
   <div class="relative flex flex-col grow">
     <main id="main-content" class="grow">
@@ -693,33 +717,24 @@
   
   
   
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/post/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/vim/&#34;,'_self');">
     <span class="flex">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
   >
-    post
+    vim
   </span>
 </span>
 
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/neovim/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
-    neovim
-  </span>
-</span>
-
-  </span>
+  
+  
+  
+  
+  
+  
+  
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ruby/&#34;,'_self');">
     <span class="flex">
@@ -785,41 +800,44 @@
       <div class="min-w-0 min-h-0 max-w-prose">
         
 
-        <div id="1-tại-sao-nên-đọc-bài-này" class="anchor">1. Tại sao nên đọc bài này?></div>
+        <div id="1-tại-sao-nên-đọc-bài-này" class="anchor"></div>
 <h2 class="relative group">1. Tại sao nên đọc bài này? 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#1-t%e1%ba%a1i-sao-n%c3%aan-%c4%91%e1%bb%8dc-b%c3%a0i-n%c3%a0y" aria-label="Anchor">#</a></span>        
     
-</h2><p>Với những ai yêu thích Neovim và sử dụng nó làm IDE chính, bạn sẽ đôi lúc gặp vấn đề khó chịu khi code Ruby trên Neovim như thiếu suggestion, lint, format, &hellip;
+</h2>
+<p>Với những ai yêu thích Neovim và sử dụng nó làm IDE chính, bạn sẽ đôi lúc gặp vấn đề khó chịu khi code Ruby trên Neovim như thiếu suggestion, lint, format, &hellip;
 Nhân dịp năm mới 2023, mình sẽ hướng dẫn các bạn cách setup môi trường phát triển Ruby bằng Neovim sử dụng LSP Solargraph.</p>
 <p><strong>Solargraph</strong> là một language server cung cấp IntelliSense, code completion và docs cho Ruby.
 Nó hỗ trợ nhiều IDE và text editor như VSCode, Emacs, Atom, etc và dĩ nhiên, Neovim.
 <a href="https://solargraph.org/"   target="_blank">
     Trang chủ</a> của solargraph.</p>
-<div id="2-yêu-cầu" class="anchor">2. Yêu cầu></div>
+<div id="2-yêu-cầu" class="anchor"></div>
 <h2 class="relative group">2. Yêu cầu 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#2-y%c3%aau-c%e1%ba%a7u" aria-label="Anchor">#</a></span>        
     
-</h2><p>Để setup bạn cần config trước những thứ sau:</p>
+</h2>
+<p>Để setup bạn cần config trước những thứ sau:</p>
 <ul>
 <li><a href="https://www.ruby-lang.org/en/"   target="_blank">
     Ruby</a> cài và chạy được</li>
 <li><a href="https://www.ruby-lang.org/en/"   target="_blank">
     Neovim</a> version 0.5.0, đã cài mason và config LSP</li>
 </ul>
-<div id="3-cài-đặt" class="anchor">3. Cài đặt></div>
+<div id="3-cài-đặt" class="anchor"></div>
 <h2 class="relative group">3. Cài đặt 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#3-c%c3%a0i-%c4%91%e1%ba%b7t" aria-label="Anchor">#</a></span>        
     
-</h2><p>Đầu tiên bạn cần cài gem solargraph:</p>
+</h2>
+<p>Đầu tiên bạn cần cài gem solargraph:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">gem install solargraph
 </code></pre></div><p>Kiểm tra solargraph đã được cài chưa:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">gem list <span class="p">|</span> grep solargraph
@@ -1122,5 +1140,9 @@ gem install --user-install solargraph
 
   </div>
 </body>
+
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+  data-id="lelouvincx" data-description="Support me on Buy me a coffee!" data-message="Hi! How about your day? Let&#39;s buy me a coffee!"
+  data-color="#BEE5B0" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 
 </html>

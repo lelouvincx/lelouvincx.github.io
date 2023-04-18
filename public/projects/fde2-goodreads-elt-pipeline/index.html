@@ -1,0 +1,2699 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Goodreads ELT pipelines &middot; lelouvincx&#39;s blog</title>
+  <meta name="title" content="Goodreads ELT pipelines &middot; lelouvincx&#39;s blog" />
+  
+  <meta name="description" content="Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads" />
+  <meta name="keywords" content="ELT, dbt, dagster, goodreads, spark, minio, " />
+  
+  
+  <link rel="canonical" href="https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.71ceac099f7e0639a8ba6a8147aa1adde5c0052df09f536e5d4f28313d7855caad46570b2254fa5c2da0d692919e21dd340478ad9cf54a25909467502ed55f49.css"
+    integrity="sha512-cc6sCZ9&#43;BjmoumqBR6oa3eXABS3wn1NuXU8oMT14VcqtRlcLIlT6XC2g1pKRniHdNAR4rZz1SiWQlGdQLtVfSQ==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.3508351f0d2322ec03ef8ac4710aedb9fb7aea7d643c74ed34e35458b0fa4de9060522eca162d3de142defab8d9c5ccf9873a25cba9550026d430f0a64326770.js"
+    integrity="sha512-NQg1Hw0jIuwD74rEcQrtuft66n1kPHTtNONUWLD6TekGBSLsoWLT3hQt76uNnFzPmHOiXLqVUAJtQw8KZDJncA=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.34ee8372ff77835535e486c6ed01ff6993374a1cec8108898cad793fc6ae7520778e24db68e085c762d25af6fa7d00b57d7a791438dc68b676581f8c8344f6e0.js"
+    integrity="sha512-NO6Dcv93g1U15IbG7QH/aZM3ShzsgQiJjK15P8audSB3jiTbaOCFx2LSWvb6fQC1fXp5FDjcaLZ2WB&#43;Mg0T24A==" data-copy="" data-copied=""></script>
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Goodreads ELT pipelines" />
+<meta property="og:description" content="ELT data pipelines với bộ dữ liệu sách từ Goodreads" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/" /><meta property="og:image" content="https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/featured.jpg"/><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2023-04-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-04-16T00:00:00+00:00" /><meta property="og:site_name" content="lelouvincx&#39;s blog" />
+
+
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/featured.jpg"/>
+<meta name="twitter:title" content="Goodreads ELT pipelines"/>
+<meta name="twitter:description" content="ELT data pipelines với bộ dữ liệu sách từ Goodreads"/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Projects",
+    "name": "Goodreads ELT pipelines",
+    "headline": "Goodreads ELT pipelines",
+    "description": "ELT data pipelines với bộ dữ liệu sách từ Goodreads",
+    "abstract": "Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads",
+    "inLanguage": "en",
+    "url" : "https:\/\/lelouvincx.github.io\/projects\/fde2-goodreads-elt-pipeline\/",
+    "author" : {
+      "@type": "Person",
+      "name": "lelouvincx"
+    },
+    "copyrightYear": "2023",
+    "dateCreated": "2023-04-16T00:00:00\u002b00:00",
+    "datePublished": "2023-04-16T00:00:00\u002b00:00",
+    
+    "dateModified": "2023-04-16T00:00:00\u002b00:00",
+    
+    "keywords": ["ELT","dbt","dagster","goodreads","spark","minio"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "3391"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="lelouvincx" />
+  
+  
+  
+  <link href="mailto:dinhminhchinh3357@duck.com" rel="me" />
+  
+  
+  <link href="https://linkedin.com/in/lelouvincx" rel="me" />
+  
+  
+  <link href="https://github.com/lelouvincx" rel="me" />
+  
+  
+  <link href="https://gitlab.com/lelouvincx" rel="me" />
+  
+  
+  <link href="https://stackoverflow.com/users/10793419/lelouvincx" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g",
+      authDomain: "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g",
+      projectId: "lelouvincx-blog",
+      storageBucket: "lelouvincx-blog.appspot.com",
+      messagingSenderId: "687151694094",
+      appId: "1:687151694094:web:1489248715ee5f7849d75f",
+      measurementId: "G-PW1F2X7CRE"
+    };
+
+    var app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+
+  </script>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">lelouvincx&rsquo;s blog</a>
+
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12">
+
+            
+            
+            
+  <a href="/posts/"  class="flex items-center">
+    
+    <p class="text-base font-medium text-gray-500 hover:text-gray-900" title="Posts">
+        Blog
+    </p>
+</a>
+
+
+            
+            
+  <a href="/projects/"  class="flex items-center">
+    
+    <p class="text-base font-medium text-gray-500 hover:text-gray-900" title="Projects">
+        Projects
+    </p>
+</a>
+
+
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a class="text-base font-medium text-gray-500 hover:text-gray-900" title="Resources">
+      Resources
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href=""  class="flex items-center">
+          
+          <p class="text-sm font-sm text-gray-500 hover:text-gray-900" title="">
+            Resume
+          </p>
+        </a>
+        
+        <a href=""  class="flex items-center">
+          
+          <p class="text-sm font-sm text-gray-500 hover:text-gray-900" title="">
+            Recommendations
+          </p>
+        </a>
+        
+        <a href=""  class="flex items-center">
+          
+          <p class="text-sm font-sm text-gray-500 hover:text-gray-900" title="">
+            Reading list
+          </p>
+        </a>
+        
+        <a href=""  class="flex items-center">
+          
+          <p class="text-sm font-sm text-gray-500 hover:text-gray-900" title="">
+            List 100
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            
+            
+  <a href="/now/"  class="flex items-center">
+    
+    <p class="text-base font-medium text-gray-500 hover:text-gray-900" title="What I&#39;m doing now">
+        Now
+    </p>
+</a>
+
+
+            
+            
+  <a href="/about/"  class="flex items-center">
+    
+    <p class="text-base font-medium text-gray-500 hover:text-gray-900" title="About me">
+        About
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button">
+                    <div class="flex items-center justify-center h-12 dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden h-12 dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" style="margin-right:5px">
+                <div class="flex items-center justify-center h-12 dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden h-12 dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-auto overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/posts/"  class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="Posts">
+            Blog
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/projects/"  class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="Projects">
+            Projects
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                     
+  <li class="mt-1">
+    <a class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="Resources">
+            Resources
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href=""  class="flex items-center">
+        
+        <p class="text-sm font-small text-gray-500 hover:text-gray-900" title="">
+            Resume
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href=""  class="flex items-center">
+        
+        <p class="text-sm font-small text-gray-500 hover:text-gray-900" title="">
+            Recommendations
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href=""  class="flex items-center">
+        
+        <p class="text-sm font-small text-gray-500 hover:text-gray-900" title="">
+            Reading list
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href=""  class="flex items-center">
+        
+        <p class="text-sm font-small text-gray-500 hover:text-gray-900" title="">
+            List 100
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/now/"  class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="What I&#39;m doing now">
+            Now
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/about/"  class="flex items-center">
+        
+        <p class="text-bg font-bg text-gray-500 hover:text-gray-900" title="About me">
+            About
+        </p>
+    </a>
+</li>
+
+
+
+                    
+                    
+
+                </ul>
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+    
+     
+    
+    
+      
+        
+            <div class="w-full h-36 md:h-56 lg:h-72 single_hero_basic nozoom" style="background-image:url(/projects/fde2-goodreads-elt-pipeline/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_4789729_1200x0_resize_q75_box.jpg);"></div>
+        
+    
+    
+  
+  
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >lelouvincx&#39;s blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/projects/"
+      >Projects</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/projects/fde2-goodreads-elt-pipeline/"
+      >Goodreads ELT pipelines</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Goodreads ELT pipelines
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/data-engineering/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    data engineering
+  </span>
+</span>
+
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/elt/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    ELT
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/dbt/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    dbt
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/dagster/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    dagster
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/goodreads/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    goodreads
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/spark/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    spark
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/minio/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    minio
+  </span>
+</span>
+
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+  </header>
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+     
+    <div class="order-first sm:max-w-prose lg:ml-auto px-0 lg:order-last lg:max-w-xs ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky  lg:top-10 ">
+        <details open class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-introduction">1. Introduction</a></li>
+    <li><a href="#2-objective">2. Objective</a></li>
+    <li><a href="#3-design">3. Design</a>
+      <ul>
+        <li><a href="#31-directory-tree">3.1 Directory tree</a></li>
+        <li><a href="#32-pipeline-design">3.2 Pipeline design</a></li>
+        <li><a href="#33-database-schema">3.3 Database schema</a></li>
+        <li><a href="#34-datalake-structure">3.4 Datalake structure</a></li>
+        <li><a href="#35-data-lineage">3.5 Data lineage</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-setup">4. Setup</a>
+      <ul>
+        <li><a href="#41-prequisites">4.1 Prequisites</a></li>
+        <li><a href="#42-setup-local-infrastructure">4.2 Setup local infrastructure</a></li>
+        <li><a href="#43-import-data-into-mysql">4.3 Import data into MySQL</a></li>
+        <li><a href="#44-create-schema-in-postgres">4.4 Create schema in Postgres</a></li>
+        <li><a href="#45-user-interfaces">4.5 User interfaces</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-detailed-code-walkthrough">5. Detailed code walkthrough</a>
+      <ul>
+        <li><a href="#51-exploratory-data-analysis">5.1 Exploratory Data Analysis</a></li>
+        <li><a href="#52-extract-mysqlapi">5.2 Extract (MySQL/API)</a></li>
+        <li><a href="#53-load-datalake---minio">5.3 Load (datalake - minIO)</a></li>
+        <li><a href="#54-transform-spark">5.4 Transform (spark)</a></li>
+        <li><a href="#55-load-data-warehouse---postgres">5.5 Load (data warehouse - Postgres)</a></li>
+        <li><a href="#56-transform-dbt">5.6 Transform (dbt)</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-tear-down-infrastructure">6. Tear down infrastructure</a></li>
+    <li><a href="#7-considerations">7. Considerations</a></li>
+    <li><a href="#8-further-actions">8. Further actions</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-introduction">1. Introduction</a></li>
+    <li><a href="#2-objective">2. Objective</a></li>
+    <li><a href="#3-design">3. Design</a>
+      <ul>
+        <li><a href="#31-directory-tree">3.1 Directory tree</a></li>
+        <li><a href="#32-pipeline-design">3.2 Pipeline design</a></li>
+        <li><a href="#33-database-schema">3.3 Database schema</a></li>
+        <li><a href="#34-datalake-structure">3.4 Datalake structure</a></li>
+        <li><a href="#35-data-lineage">3.5 Data lineage</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-setup">4. Setup</a>
+      <ul>
+        <li><a href="#41-prequisites">4.1 Prequisites</a></li>
+        <li><a href="#42-setup-local-infrastructure">4.2 Setup local infrastructure</a></li>
+        <li><a href="#43-import-data-into-mysql">4.3 Import data into MySQL</a></li>
+        <li><a href="#44-create-schema-in-postgres">4.4 Create schema in Postgres</a></li>
+        <li><a href="#45-user-interfaces">4.5 User interfaces</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-detailed-code-walkthrough">5. Detailed code walkthrough</a>
+      <ul>
+        <li><a href="#51-exploratory-data-analysis">5.1 Exploratory Data Analysis</a></li>
+        <li><a href="#52-extract-mysqlapi">5.2 Extract (MySQL/API)</a></li>
+        <li><a href="#53-load-datalake---minio">5.3 Load (datalake - minIO)</a></li>
+        <li><a href="#54-transform-spark">5.4 Transform (spark)</a></li>
+        <li><a href="#55-load-data-warehouse---postgres">5.5 Load (data warehouse - Postgres)</a></li>
+        <li><a href="#56-transform-dbt">5.6 Transform (dbt)</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-tear-down-infrastructure">6. Tear down infrastructure</a></li>
+    <li><a href="#7-considerations">7. Considerations</a></li>
+    <li><a href="#8-further-actions">8. Further actions</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+      </div>
+      </div>
+      
+      <div class="min-w-0 min-h-0 max-w-prose">
+        
+
+        <p>Trong project này mình sẽ hướng dẫn xây dựng một data pipeline cơ bản theo mô hình ELT (extract - load - transform), sử dụng bộ dữ liệu từ goodreads để ingest, transform data phục vụ hệ thống recommend sách cho bản thân.</p>
+<p>Project này hoàn thành dựa trên kiến thức đã học được từ khóa Fundamental Data Engineering 02 của AIDE. Xin gửi lời cảm ơn đặc biệt tới thầy Nguyễn Thanh Bình, anh Ông Xuân Hồng và anh Hùng Lê.</p>
+<p><a target="_blank" href="https://github.com/lelouvincx/goodreads-elt-pipeline" class="cursor-pointer">
+  <div class="w-full md:w-auto pt-3 p-5 border border-neutral-200 dark:border-neutral-700 border-2 rounded-md backdrop-blur shadow-2xl">
+
+    <div class="flex items-center">
+      <span class="text-2xl text-neutral-800 dark:text-neutral" style="margin-right:10px;">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+      </span>
+      <div class="m-0 font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral">
+        lelouvincx/goodreads-elt-pipeline
+      </div>
+    </div>
+
+    <p class="m-0 mt-2 text-md text-neutral-800 dark:text-neutral">
+      This project implements an ELT (Extract - Load - Transform) data pipeline with the goodreads dataset, using dagster (orchestration), spark (calculation) and dbt (transformation)
+    </p>
+
+    <div class="m-0 mt-2 flex items-center">
+      
+      <span class="mr-1 inline-block h-3 w-3 rounded-full" style="background-color: #DA5B0B"></span>
+      <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+         Jupyter Notebook 
+      </div>
+
+      <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M287.9 0C297.1 0 305.5 5.25 309.5 13.52L378.1 154.8L531.4 177.5C540.4 178.8 547.8 185.1 550.7 193.7C553.5 202.4 551.2 211.9 544.8 218.2L433.6 328.4L459.9 483.9C461.4 492.9 457.7 502.1 450.2 507.4C442.8 512.7 432.1 513.4 424.9 509.1L287.9 435.9L150.1 509.1C142.9 513.4 133.1 512.7 125.6 507.4C118.2 502.1 114.5 492.9 115.1 483.9L142.2 328.4L31.11 218.2C24.65 211.9 22.36 202.4 25.2 193.7C28.03 185.1 35.5 178.8 44.49 177.5L197.7 154.8L266.3 13.52C270.4 5.249 278.7 0 287.9 0L287.9 0zM287.9 78.95L235.4 187.2C231.9 194.3 225.1 199.3 217.3 200.5L98.98 217.9L184.9 303C190.4 308.5 192.9 316.4 191.6 324.1L171.4 443.7L276.6 387.5C283.7 383.7 292.2 383.7 299.2 387.5L404.4 443.7L384.2 324.1C382.9 316.4 385.5 308.5 391 303L476.9 217.9L358.6 200.5C350.7 199.3 343.9 194.3 340.5 187.2L287.9 78.95z"/></svg>
+  </span>
+
+
+      </span>
+      <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+        2
+      </div>
+
+      <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M80 104c13.3 0 24-10.7 24-24s-10.7-24-24-24S56 66.7 56 80s10.7 24 24 24zm80-24c0 32.8-19.7 61-48 73.3V192c0 17.7 14.3 32 32 32H304c17.7 0 32-14.3 32-32V153.3C307.7 141 288 112.8 288 80c0-44.2 35.8-80 80-80s80 35.8 80 80c0 32.8-19.7 61-48 73.3V192c0 53-43 96-96 96H256v70.7c28.3 12.3 48 40.5 48 73.3c0 44.2-35.8 80-80 80s-80-35.8-80-80c0-32.8 19.7-61 48-73.3V288H144c-53 0-96-43-96-96V153.3C19.7 141 0 112.8 0 80C0 35.8 35.8 0 80 0s80 35.8 80 80zm208 24c13.3 0 24-10.7 24-24s-10.7-24-24-24s-24 10.7-24 24s10.7 24 24 24zM248 432c0-13.3-10.7-24-24-24s-24 10.7-24 24s10.7 24 24 24s24-10.7 24-24z"/></svg>
+  </span>
+
+
+      </span>
+      <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+        0
+      </div>
+
+    </div>
+
+  </div>
+</a>
+</br></p>
+<p>
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md"
+    style="background-color: #e63946"
+  >
+
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center"
+      style="color: #1d3557"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+<path fill="currentColor"  d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-2.8-5.6-5.6-11.2-9.8-16.8l-50.6 58.8s-81.4-103.6-87.1-110.6C133.1 243.8 112 273.2 112 306.8C112 375.4 162.6 416 225.7 416z"/></svg>
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #f1faee"
+    >Demo video</span>
+</div>
+
+</br></p>
+<iframe src="https://www.facebook.com/plugins/video.php?height=317&href=https%3A%2F%2Fwww.facebook.com%2Faideinstitutevietnam%2Fvideos%2F622101275993767%2F&show_text=false&width=625&t=9600" width="625" height="317" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+<div id="1-introduction" class="anchor"></div>
+<h2 class="relative group">1. Introduction 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-introduction" aria-label="Anchor">#</a></span>        
+    
+</h2>
+<p>Mình thích đọc sách. Và mình có một chiếc máy đọc sách kindle dùng cho việc đọc hàng ngày.</p>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./introduction.jpg" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Có một điểm mình thích ở chiếc kindle là nó có một địa chỉ email riêng biệt được amazon cấp phát. Nếu sử dụng email của mình để gửi file sách (dạng .epub/.mobi), hệ thống trên amazon sẽ tự động gửi file sách vào kindle giúp mình, miễn là có kết nối mạng.</p>
+<p>Thế thì tại sao mình không tự build một app, có thể lấy data từ goodreads (một mạng xã hội cho các mọt sách), xử lý và đưa ra lời gợi ý cho những cuốn sách tiếp theo cho mình nhỉ? Và thế là project bắt đầu :D</p>
+<div id="2-objective" class="anchor"></div>
+<h2 class="relative group">2. Objective 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2-objective" aria-label="Anchor">#</a></span>        
+    
+</h2>
+<p>Dataset cơ bản được lấy từ <a href="https://www.kaggle.com/datasets/bahramjannesarr/goodreads-book-datasets-10m"   target="_blank">
+    Kaggle</a>, <a href="https://openlibrary.org"   target="_blank">
+    OpenLibrary API</a>, <a href="https://developers.google.com/drive"   target="_blank">
+    Google Drive API</a> và <a href="https://www.notion.so/lelouvincx/9dca269701b44d6b944c51a7f63b5b5a?v=4852b4d5cf8440e4bc232b0e25327f93"   target="_blank">
+    Notion API</a></p>
+<p>Mục tiêu của project, là với nguồn data được thu thập và xử lý sẵn, khi người dùng nhập thông tin cuốn sách đã đọc, có thể gợi ý các cuốn sách tiếp theo. Nếu cuốn sách đó có file .epub, app sẽ hiện tính năng gửi sách vào kindle.</p>
+<div id="3-design" class="anchor"></div>
+<h2 class="relative group">3. Design 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3-design" aria-label="Anchor">#</a></span>        
+    
+</h2>
+<div id="31-directory-tree" class="anchor"></div>
+<h3 class="relative group">3.1 Directory tree 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#31-directory-tree" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./directory_tree.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<ul>
+<li>app: Giao diện để tương tác với người dùng, viết bằng streamlit</li>
+<li>dagster_home: Config cho dagit (dagster UI) và dagster daemon</li>
+<li>dataset: Lưu dataset dưới dạng .csv, mặc định load vào MySQL</li>
+<li>docker-compose: Compose docker containers</li>
+<li>dockerimages: Chứa các image tự build như dagster (dagit + daemon), spark master, streamlit app</li>
+<li>EDA.ipynb: Exploratory Data Analysis, xem trực tiếp <a href="https://gist.github.com/lelouvincx/a88fa6caf59d7ff76086ab485ecc69bd"   target="_blank">
+    tại đây</a></li>
+<li>elt_pipeline: Toàn bộ pipeline
+<ul>
+<li>dbt_transform: code location của dbt, dùng cho bước transform ở cuối</li>
+<li>Dockerfile + requirements.txt: Thông tin build image</li>
+<li>elt_pipeline: pipeline từ đầu tới trước dbt</li>
+</ul>
+</li>
+<li>.env + .spark_master.env + .spark_worker.env: Lưu biến môi trường (ví dụ POSTGRES_USER, MYSQL_USER, SPARK, &hellip;)</li>
+<li>env.template: Template để bạn tự điền thông tin biến môi trường</li>
+<li>.git + .gitignore: Thuộc git, quản lý code version</li>
+<li>Makefile: Shortcut câu lệnh trên terminal</li>
+<li>load_dataset: Chứa script .sql để tạo schema và load vào database MySQL và Postgres</li>
+<li>requirements.txt + Pipfile + Pipfile.lock: Dependencies của python</li>
+</ul>
+<p>Ngoài ra còn có các thư mục sở hữu riêng của container:</p>
+<ul>
+<li>minio</li>
+<li>storage
+<ul>
+<li>mysql_data</li>
+<li>postgres_data</li>
+<li>metabase_data</li>
+</ul>
+</li>
+</ul>
+<p>Chi tiết xem ở file <a href="https://github.com/lelouvincx/goodreads-elt-pipeline/blob/main/tree.txt"   target="_blank">
+    tree.txt</a></p>
+<div id="32-pipeline-design" class="anchor"></div>
+<h3 class="relative group">3.2 Pipeline design 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#32-pipeline-design" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./design_pipeline.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<ol start="0">
+<li>Ta sử dụng <code>docker</code> để đóng gói ứng dụng và <code>dagster</code> để orchestrate assets (theo <a href="https://docs.dagster.io/concepts/assets/software-defined-assets"   target="_blank">
+    định nghĩa</a> của daster)</li>
+<li>Dữ liệu Goodreads được download từ kaggle dưới dạng <code>.csv</code>, sau đó import vào <code>MySQL</code> mô phỏng dữ liệu development</li>
+<li>Sau khi có thông tin <code>ISBN</code> (mã định danh quốc tế) của sách, tiến hành collect thêm data từ các api liên quan
+<ul>
+<li>Genre, author, pages number, image, description từ <code>OpenLibrary API</code></li>
+<li>Download link từ <code>Notion API</code></li>
+<li>Epub file từ <code>Google Drive API</code></li>
+<li>Image từ <code>OpenLibrary API</code> hoặc <code>Google Drive API</code></li>
+</ul>
+</li>
+<li>Extract dữ liệu dạng bảng ở trên bằng <code>polars</code>, load vào datalake - <code>MinIO</code></li>
+<li>Từ <code>MinIO</code> load ra <code>spark</code> để transform thành layer silver và gold</li>
+<li>Convert <code>Spark DataFrame</code> thành <code>parquet</code>, load lại vào <code>MinIO</code></li>
+<li>Gold layer được load tiếp vào data warehouse - <code>postgreSQL</code>, tạo thành warehouse layer</li>
+<li>Transform tùy mục đích bằng <code>dbt</code> trên nền <code>postgres</code></li>
+<li>Trực quan hóa dữ liệu bằng <code>metabase</code></li>
+<li>Giao diện app gợi ý sách bằng <code>streamlit</code></li>
+</ol>
+<div id="33-database-schema" class="anchor"></div>
+<h3 class="relative group">3.3 Database schema 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#33-database-schema" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./design_schema.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<ol>
+<li><code>book</code>: OLTP table chứa thông tin cuốn sách (ISBN, Authors, Rating, Description&hellip;)</li>
+<li><code>genre</code>: table chứa tên các thể loại sách</li>
+<li><code>book_genre</code>: quan hệ n-n giữa <code>book</code> và <code>genre</code></li>
+<li><code>book_download_link</code>: table chứa link google drive để tham chiếu <code>BookFile</code></li>
+<li><code>files</code>: object storage chứa file download sách (.epub/.pdf/.mobi)</li>
+<li><code>images</code>: object storage chứa hình ảnh cuốn sách</li>
+</ol>
+<div id="34-datalake-structure" class="anchor"></div>
+<h3 class="relative group">3.4 Datalake structure 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#34-datalake-structure" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./datalake_structure.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<ol>
+<li>Datalake chia theo các layer: bronze, silver, gold</li>
+<li>Các loại file đều dạng .parquet để cho kết quả đọc tốt hơn .csv</li>
+<li>Ngoài ra có files: lưu file .epub theo dạng abc.epub, trong đó abc là ISBN của cuốn sách</li>
+<li>Tương tự, abc.jpeg lưu hình ảnh của cuốn sách</li>
+</ol>
+<div id="35-data-lineage" class="anchor"></div>
+<h3 class="relative group">3.5 Data lineage 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#35-data-lineage" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<ol>
+<li>Tổng quan</li>
+</ol>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./assets_general.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Với data lineage dày đặc, dagster là big help khi có thể visualize chúng một cách trực quan:</p>
+<ul>
+<li>Dữ liệu xuất phát từ MySQL và các loại API, load vào bronze layer</li>
+<li>Từ bronze layer, dữ liệu được dedupe, clean và fill missing ở silver layer</li>
+<li>Sau đó tính toán nâng cao và phân tách ở gold layer</li>
+<li>Load vào data warehouse - Postgres ở warehouse layer</li>
+<li>Và cuối cùng, transform theo nhu cầu ở recommendations layer bằng dbt</li>
+</ul>
+<ol start="2">
+<li>Bronze layer</li>
+</ol>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./assets_bronze.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Gồm các asset:</p>
+<ul>
+<li>bronze_book: Bảng <code>book</code> từ MySQL, vì quá lớn (trên 1.2 triệu dòng nên được partitions theo năm từ 1975 tới 2022)</li>
+<li>bronze_genre: Bảng <code>genre</code> từ MySQL</li>
+<li>bronze_book_genre: Bảng <code>book_genre</code> từ MySQL</li>
+<li>bronze_book_download_link: Bảng <code>book_download_link</code> từ MySQL</li>
+<li>bronze_images_and_files_download: Đảm nhận việc kết nối tới google drive api, kéo file .epub và hình ảnh về, lưu trong datalake</li>
+</ul>
+<ol start="3">
+<li>Silver layer</li>
+</ol>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./assets_silver.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Gồm các asset:</p>
+<ul>
+<li>silver_cleaned_book: Clean data từ upstream <code>bronze_book</code>, được partition để đảm bảo <code>spark standalone mode</code> có thể chạy</li>
+<li>silver_collected_book: Collect thêm missing data từ upstream như authors, pages number, description từ <code>OpenLibrary API</code></li>
+<li>silver_isbn: Tách cột isbn từ <code>book</code> để làm dependency cho asset liên quan tới <code>genre</code></li>
+<li>silver_cleaned_genre: Tương tự <code>silver_cleaned_book</code>, khác cái không cần partition vì size không lớn lắm</li>
+<li>silver_collected_genre: Dựa vào <code>silver_isbn</code>, collect thêm genre cho mỗi cuốn sách bị thiếu genre. Nếu không có genre thì không thể làm recommendations cho các task sau</li>
+<li>silver_collected_book_genre: Kết nối quan hệ n-n giữa <code>book</code> và <code>genre</code></li>
+</ul>
+<ol start="4">
+<li>Gold layer</li>
+</ol>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./assets_gold.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Gồm các asset:</p>
+<ul>
+<li>gold_genre: Tính toán, sắp xếp các genre cho phù hợp từ upstream <code>silver_collected_genre</code>, đồng thời lưu vào minIO</li>
+<li>gold_book_genre: Tương tự, từ upstream <code>silver_collected_book_genre</code></li>
+<li>gold_with_info: Phân tách, chỉ chứa thông tin cơ bản về cuốn sách như ISBN, Name, Authors, Language, PagesNumber</li>
+<li>gold_with_publish: Phân tách, chỉ chứa thông tin về nhà xuất bản, thời gian xuất bản</li>
+<li>gold_with_rating: Phân tách và tính toán các loại rating</li>
+</ul>
+<ol start="5">
+<li>Warehouse layer</li>
+</ol>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./assets_warehouse.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Load các asset từ gold layer vào postgres. Trong đó có 1 asset từ bronze layer là book_download_link.</p>
+<p>Trong tương lai sẽ cập nhật asset để bổ sung download link tự động từ Notion API, và thiết lập schedule.</p>
+<ol start="6">
+<li>Transform layer</li>
+</ol>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./assets_dbt.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>Gồm các model (asset):</p>
+<ul>
+<li>search: Transform thông tin để tạo bảng index, khi người dùng tìm kiếm sẽ query trên bảng này</li>
+<li>search_prior: Cũng là bảng index, nhưng chứa các cuốn sách được ưu tiên hơn dựa vào việc có download link, OpenLibrary API hoạt động, rating cao, &hellip;</li>
+<li>criteria: Tiêu chí để query những cuốn sách liên quan khi tìm kiếm 1 cuốn sách</li>
+</ul>
+<div id="4-setup" class="anchor"></div>
+<h2 class="relative group">4. Setup 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4-setup" aria-label="Anchor">#</a></span>        
+    
+</h2>
+<div id="41-prequisites" class="anchor"></div>
+<h3 class="relative group">4.1 Prequisites 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#41-prequisites" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<p>Để sử dụng pipeline này, download những phần mềm sau:</p>
+<ol>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"   target="_blank">
+    Git</a></li>
+<li><a href="https://docs.docker.com/engine/install/"   target="_blank">
+    Docker</a> ít nhất 4GB RAM, 6 core CPU, 2GB swap, 16GB disk</li>
+<li><a href="https://cmake.org/install/"   target="_blank">
+    CMake</a>, nếu dùng hệ máy UNIX (Linux/MacOS), check <code>make --version</code> được cài sẵn</li>
+<li>Python 3.x (3.9.16 recommended vì image của spark chạy trên version này, khuyến khích cài bằng asdf) và môi trường ảo (pipenv recommended)</li>
+<li>Máy local đã free các port sau: 3306, 5432, 9000, 9001, 3001, 8501, 4040, 7077, 8080, 3030</li>
+<li>Dbeaver hoặc một db client bất kỳ (nếu không có thể dùng command-line)</li>
+</ol>
+
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 32h214.6v214.6H0V32zm233.4 0H448v214.6H233.4V32zM0 265.4h214.6V480H0V265.4zm233.4 0H448V480H233.4V265.4z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >Nếu dùng Windows, setup thêm WSL2 và một máy ảo local Ubuntu, cài đặt những thứ trên cho ubuntu.</span>
+</div>
+
+<div id="42-setup-local-infrastructure" class="anchor"></div>
+<h3 class="relative group">4.2 Setup local infrastructure 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#42-setup-local-infrastructure" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<p>Clone repository:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/lelouvincx/goodreads-elt-pipeline.git project
+<span class="nb">cd</span> project
+
+<span class="c1"># Create env file</span>
+touch .env
+cp env.template .env
+touch .spark_master.env
+cp spark_master.env.template .spark_master.env
+touch .spark_worker.env
+cp spark_worker.env.template .spark_worker.env
+</code></pre></div><p>Sau đó điền thông tin biến môi trường vào 3 file env trên. Dưới đây là ví dụ:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-env" data-lang="env"><span class="c1"># MySQL</span>
+<span class="nv">MYSQL_HOST</span><span class="o">=</span>de_mysql
+<span class="nv">MYSQL_PORT</span><span class="o">=</span><span class="m">3306</span>
+<span class="nv">MYSQL_DATABASE</span><span class="o">=</span>goodreads
+<span class="nv">MYSQL_USER</span><span class="o">=</span>admin
+<span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>admin123
+<span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>root123
+
+<span class="c1"># PostgreSQL</span>
+<span class="nv">POSTGRES_HOST</span><span class="o">=</span>de_psql
+<span class="nv">POSTGRES_PORT</span><span class="o">=</span><span class="m">5432</span>
+<span class="nv">POSTGRES_USER</span><span class="o">=</span>admin
+<span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>admin123
+<span class="nv">POSTGRES_DB</span><span class="o">=</span>goodreads
+<span class="nv">POSTGRES_HOST_AUTH_METHOD</span><span class="o">=</span>trust
+
+<span class="c1"># Google Drive</span>
+<span class="nv">GDRIVE_CLIENT_SECRET_FILE</span><span class="o">=</span>client_secret.json
+<span class="nv">GDRIVE_PICKLE_FILE</span><span class="o">=</span>token_drive_v3.pickle
+<span class="nv">GDRIVE_API_NAME</span><span class="o">=</span>drive
+<span class="nv">GDRIVE_API_VERSION</span><span class="o">=</span>v3
+<span class="nv">GDRIVE_SCOPES</span><span class="o">=</span>https://www.googleapis.com/auth/drive.readonly
+
+<span class="c1"># Dagster</span>
+<span class="nv">DAGSTER_PG_HOSTNAME</span><span class="o">=</span>de_psql
+<span class="nv">DAGSTER_PG_USERNAME</span><span class="o">=</span>admin
+<span class="nv">DAGSTER_PG_PASSWORD</span><span class="o">=</span>admin123
+<span class="nv">DAGSTER_PG_DB</span><span class="o">=</span>postgres
+<span class="nv">DAGSTER_OVERALL_CONCURRENCY_LIMIT</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">DAGSTER_HOME</span><span class="o">=</span>/opt/dagster/dagster_home
+
+<span class="c1"># dbt</span>
+<span class="nv">DBT_HOST</span><span class="o">=</span>de_psql
+<span class="nv">DBT_USER</span><span class="o">=</span>admin
+<span class="nv">DBT_PASSWORD</span><span class="o">=</span>admin123
+<span class="nv">DBT_DATABASE</span><span class="o">=</span>goodreads
+<span class="nv">DBT_SCHEMA</span><span class="o">=</span>recommendations
+<span class="c1"># MinIO</span>
+<span class="nv">MINIO_ENDPOINT</span><span class="o">=</span>minio:9000
+<span class="nv">MINIO_ROOT_USER</span><span class="o">=</span>minio
+<span class="nv">MINIO_ROOT_PASSWORD</span><span class="o">=</span>minio123
+<span class="nv">MINIO_ACCESS_KEY</span><span class="o">=</span>minio
+<span class="nv">MINIO_SECRET_KEY</span><span class="o">=</span>minio123
+<span class="nv">DATALAKE_BUCKET</span><span class="o">=</span>lakehouse
+<span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>minio
+<span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>minio123
+<span class="nv">AWS_REGION</span><span class="o">=</span>us-east-1
+
+<span class="c1"># MinIO client (mc)</span>
+<span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>minio
+<span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>minio123
+<span class="nv">AWS_REGION</span><span class="o">=</span>us-east-1
+
+<span class="c1"># Spark</span>
+<span class="nv">SPARK_MASTER_URL</span><span class="o">=</span>spark://spark-master:7077
+<span class="nv">SPARK_VERSION</span><span class="o">=</span>3.3.2
+<span class="nv">HADOOP_VERSION</span><span class="o">=</span><span class="m">3</span>
+
+<span class="c1"># Metabase</span>
+<span class="nv">MB_DB_TYPE</span><span class="o">=</span>postgres
+<span class="nv">MB_DB_DBNAME</span><span class="o">=</span>goodreads
+<span class="nv">MB_DB_PORT</span><span class="o">=</span><span class="m">5432</span>
+<span class="nv">MB_DB_USER</span><span class="o">=</span>admin
+<span class="nv">MB_DB_PASS</span><span class="o">=</span>admin123
+<span class="nv">MB_DB_HOST</span><span class="o">=</span>de_psql
+<span class="nv">MB_DB_FILE</span><span class="o">=</span>/metabase_data/metabase.db
+</code></pre></div><p>Bạn có thể thay các thông tin về user, pasword, &hellip;</p>
+
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md"
+    style="background-color: #cc3300"
+  >
+
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center"
+      style="color: #ffcc00"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #f1faee"
+    >Chỉ dùng cho môi trường development, không dùng cho testing, staging, production.</span>
+</div>
+
+<p>Bây giờ chúng ta import dataset spotify (dạng csv) vào mySQL:</p>
+<p>Chạy các lệnh sau để setup:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># DO NOT RUN BOTH BELOW COMMANDS, ONLY CHOOSE ONE</span>
+<span class="c1"># Setup python environment</span>
+pipenv install
+<span class="c1"># Or create virtualenv and install manually by requirements.txt</span>
+make install
+
+<span class="c1"># Build docker images</span>
+make build-dagster
+make build-spark
+make build-pipeline
+make build-streamlit
+
+<span class="c1"># Run containers dettached</span>
+make up-bg
+
+<span class="c1"># Check running containers</span>
+docker compose ps -a
+
+<span class="c1"># Check code quality</span>
+make check
+make lint
+
+<span class="c1"># Format pipelines</span>
+black ./elt_pipeline
+
+<span class="c1"># Test coverage</span>
+make <span class="nb">test</span>
+</code></pre></div>
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+<path fill="currentColor" d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg>
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >Lúc này sẽ có 11 services sau đang chạy:</span>
+</div>
+
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./docker_1.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+<p>
+
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="./docker_2.png" alt="" />
+      
+    </figure>
+  
+
+</p>
+
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    ><strong>Ports</strong></span>
+</div>
+
+<ul>
+<li>MySQL: 3306</li>
+<li>PostgreSQL: 5432</li>
+<li>Dagit: 3001</li>
+<li>MinIO
+<ul>
+<li>UI: 9001</li>
+<li>API: 9000</li>
+</ul>
+</li>
+<li>Spark master:
+<ul>
+<li>UI: 8080</li>
+<li>API: 7077</li>
+</ul>
+</li>
+<li>Pipeline:
+<ul>
+<li>Spark jobs running: 4040</li>
+</ul>
+</li>
+<li>Metabase: 3030</li>
+<li>Streamlit: 8501</li>
+</ul>
+<div id="43-import-data-into-mysql" class="anchor"></div>
+<h3 class="relative group">4.3 Import data into MySQL 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#43-import-data-into-mysql" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<p>Source từng file theo thứ tự:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">make to_mysql_root
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">local_infile</span><span class="o">=</span><span class="k">TRUE</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="c1">-- Check if local_infile was turned on
+</span><span class="c1"></span><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s2">&#34;local_infile&#34;</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="n">exit</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Create tables with schema</span>
+make mysql_create
+
+<span class="c1"># Load csv into created tables</span>
+make mysql_load
+</code></pre></div><div id="44-create-schema-in-postgres" class="anchor"></div>
+<h3 class="relative group">4.4 Create schema in Postgres 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#44-create-schema-in-postgres" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">make psql_create
+</code></pre></div><div id="45-user-interfaces" class="anchor"></div>
+<h3 class="relative group">4.5 User interfaces 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#45-user-interfaces" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<ol>
+<li><a href="http://localhost:3001"   target="_blank">
+    http://localhost:3001</a> - Dagit</li>
+<li><a href="http://localhost:4040"   target="_blank">
+    http://localhost:4040</a> - Spark jobs</li>
+<li><a href="http://localhost:8080"   target="_blank">
+    http://localhost:8080</a> - Spark master</li>
+<li><a href="http://localhost:9001"   target="_blank">
+    http://localhost:9001</a> - MinIO</li>
+<li><a href="http://localhost:3030"   target="_blank">
+    http://localhost:3030</a> - Metabase</li>
+<li><a href="http://localhost:8501"   target="_blank">
+    http://localhost:8501</a> - Streamlit</li>
+</ol>
+<div id="5-detailed-code-walkthrough" class="anchor"></div>
+<h2 class="relative group">5. Detailed code walkthrough 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5-detailed-code-walkthrough" aria-label="Anchor">#</a></span>        
+    
+</h2>
+<div id="51-exploratory-data-analysis" class="anchor"></div>
+<h3 class="relative group">5.1 Exploratory Data Analysis 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#51-exploratory-data-analysis" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<p>Chi tiết xem ở gist: <a href="https://gist.github.com/lelouvincx/a88fa6caf59d7ff76086ab485ecc69bd"   target="_blank">
+    https://gist.github.com/lelouvincx/a88fa6caf59d7ff76086ab485ecc69bd</a></p>
+<div id="52-extract-mysqlapi" class="anchor"></div>
+<h3 class="relative group">5.2 Extract (MySQL/API) 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#52-extract-mysqlapi" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<p><code>mysql_io_manager</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">connect_mysql</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">conn_info</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&#34;mysql://</span><span class="si">{</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#34;</span>
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&#34;@</span><span class="si">{</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#34;</span>
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&#34;/</span><span class="si">{</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;database&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#34;</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">conn_info</span>
+
+<span class="k">def</span> <span class="nf">extract_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sql</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    Extract data from MySQL database as polars DataFrame
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">conn_info</span> <span class="o">=</span> <span class="n">connect_mysql</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">)</span>
+    <span class="n">df_data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_database</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">sql</span><span class="p">,</span> <span class="n">connection_uri</span><span class="o">=</span><span class="n">conn_info</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_data</span>
+</code></pre></div><p><code>constants</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">COMPUTE_KIND</span> <span class="o">=</span> <span class="s2">&#34;SQL&#34;</span>
+<span class="n">LAYER</span> <span class="o">=</span> <span class="s2">&#34;bronze&#34;</span>
+<span class="n">YEARLY</span> <span class="o">=</span> <span class="n">StaticPartitionsDefinition</span><span class="p">(</span>
+    <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1975</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="p">)]</span>
+<span class="p">)</span>
+</code></pre></div><p><code>bronze_book</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># book from my_sql</span>
+<span class="nd">@asset</span><span class="p">(</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&#34;Load table &#39;book&#39; from MySQL database as polars DataFrame, and save to minIO&#34;</span><span class="p">,</span>
+    <span class="n">partitions_def</span><span class="o">=</span><span class="n">YEARLY</span><span class="p">,</span>
+    <span class="n">io_manager_key</span><span class="o">=</span><span class="s2">&#34;minio_io_manager&#34;</span><span class="p">,</span>
+    <span class="n">required_resource_keys</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;mysql_io_manager&#34;</span><span class="p">},</span>
+    <span class="n">key_prefix</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;bronze&#34;</span><span class="p">,</span> <span class="s2">&#34;goodreads&#34;</span><span class="p">],</span>
+    <span class="n">compute_kind</span><span class="o">=</span><span class="n">COMPUTE_KIND</span><span class="p">,</span>
+    <span class="n">group_name</span><span class="o">=</span><span class="n">LAYER</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">bronze_book</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Output</span><span class="p">[</span><span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&#34;SELECT * FROM book&#34;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">partion_year_str</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">asset_partition_key_for_output</span><span class="p">()</span>
+        <span class="n">partition_by</span> <span class="o">=</span> <span class="s2">&#34;PublishYear&#34;</span>
+        <span class="n">query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34; WHERE </span><span class="si">{</span><span class="n">partition_by</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">partion_year_str</span><span class="si">}</span><span class="s2">&#34;</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Partition by </span><span class="si">{</span><span class="n">partition_by</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">partion_year_str</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;No partition key found, full load data&#34;</span><span class="p">)</span>
+
+    <span class="n">df_data</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">mysql_io_manager</span><span class="o">.</span><span class="n">extract_data</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Table extracted with shape: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Output</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">df_data</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&#34;table&#34;</span><span class="p">:</span> <span class="s2">&#34;book&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;row_count&#34;</span><span class="p">:</span> <span class="n">df_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="s2">&#34;column_count&#34;</span><span class="p">:</span> <span class="n">df_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="s2">&#34;columns&#34;</span><span class="p">:</span> <span class="n">df_data</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+</code></pre></div><p><code>bronze_genre</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># genre from my_sql</span>
+<span class="nd">@asset</span><span class="p">(</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&#34;Load table &#39;genre&#39; from MySQL database as polars DataFrame, and save to minIO&#34;</span><span class="p">,</span>
+    <span class="n">io_manager_key</span><span class="o">=</span><span class="s2">&#34;minio_io_manager&#34;</span><span class="p">,</span>
+    <span class="n">required_resource_keys</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;mysql_io_manager&#34;</span><span class="p">},</span>
+    <span class="n">key_prefix</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;bronze&#34;</span><span class="p">,</span> <span class="s2">&#34;goodreads&#34;</span><span class="p">],</span>
+    <span class="n">compute_kind</span><span class="o">=</span><span class="n">COMPUTE_KIND</span><span class="p">,</span>
+    <span class="n">group_name</span><span class="o">=</span><span class="n">LAYER</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">bronze_genre</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Output</span><span class="p">[</span><span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&#34;SELECT * FROM genre;&#34;</span>
+    <span class="n">df_data</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">mysql_io_manager</span><span class="o">.</span><span class="n">extract_data</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Table extracted with shape: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Output</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">df_data</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&#34;table&#34;</span><span class="p">:</span> <span class="s2">&#34;genre&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;row_count&#34;</span><span class="p">:</span> <span class="n">df_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="s2">&#34;column_count&#34;</span><span class="p">:</span> <span class="n">df_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="s2">&#34;columns&#34;</span><span class="p">:</span> <span class="n">df_data</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+</code></pre></div><p>Các asset khác tương tự.</p>
+<div id="53-load-datalake---minio" class="anchor"></div>
+<h3 class="relative group">5.3 Load (datalake - minIO) 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#53-load-datalake---minio" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<p><code>minio_io_manager</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">connect_minio</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">Minio</span><span class="p">(</span>
+        <span class="n">endpoint</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;endpoint_url&#34;</span><span class="p">),</span>
+        <span class="n">access_key</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;minio_access_key&#34;</span><span class="p">),</span>
+        <span class="n">secret_key</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;minio_secret_key&#34;</span><span class="p">),</span>
+        <span class="n">secure</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">client</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">e</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Make bucket if not exists</span>
+<span class="k">def</span> <span class="nf">make_bucket</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">Minio</span><span class="p">,</span> <span class="n">bucket_name</span><span class="p">):</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">bucket_exists</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">make_bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Bucket </span><span class="si">{</span><span class="n">bucket_name</span><span class="si">}</span><span class="s2"> already exists.&#34;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python">    <span class="k">def</span> <span class="nf">_get_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">InputContext</span><span class="p">,</span> <span class="n">OutputContext</span><span class="p">]):</span>
+        <span class="c1"># E.g context.asset_key.path: [&#39;bronze&#39;, &#39;goodreads&#39;, &#39;book&#39;]</span>
+        <span class="n">layer</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">table</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">asset_key</span><span class="o">.</span><span class="n">path</span>
+        <span class="c1"># NOTE: E.g: bronze/goodreads/book</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="s2">&#34;/&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">layer</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">table</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">layer</span><span class="si">}</span><span class="s2">_&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)])</span>
+        <span class="c1"># E.g /tmp/file_bronze_goodreads_book_20210101000000.parquet</span>
+        <span class="n">tmp_file_path</span> <span class="o">=</span> <span class="s2">&#34;/tmp/file_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">.parquet&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="s2">&#34;_&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">asset_key</span><span class="o">.</span><span class="n">path</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&#34;%Y%m</span><span class="si">%d</span><span class="s2">%H%M%S&#34;</span><span class="p">)</span>
+        <span class="p">)</span>  <span class="c1"># Partition by year</span>
+
+        <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">has_partition_key</span><span class="p">:</span>
+            <span class="c1"># E.g partition_str: book_2021</span>
+            <span class="n">partition_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">table</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;_&#34;</span> <span class="o">+</span> <span class="n">context</span><span class="o">.</span><span class="n">asset_partition_key</span>
+            <span class="c1"># E.g key_name: bronze/goodreads/book/book_2021.parquet</span>
+            <span class="c1"># tmp_file_path: /tmp/file_bronze_goodreads_book_20210101000000.parquet</span>
+            <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">partition_str</span><span class="si">}</span><span class="s2">.parquet&#34;</span><span class="p">),</span> <span class="n">tmp_file_path</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># E.g key_name: bronze/goodreads/book.parquet</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">.parquet&#34;</span><span class="p">,</span> <span class="n">tmp_file_path</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python">    <span class="k">def</span> <span class="nf">handle_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="s2">&#34;OutputContext&#34;</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">key_name</span><span class="p">,</span> <span class="n">tmp_file_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_path</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+
+        <span class="c1"># Convert from polars DataFrame to parquet format</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">write_parquet</span><span class="p">(</span><span class="n">tmp_file_path</span><span class="p">)</span>
+
+        <span class="c1"># Upload file to minIO</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">bucket_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;bucket&#34;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">connect_minio</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+                <span class="c1"># Make bucket if not exist</span>
+                <span class="n">make_bucket</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">bucket_name</span><span class="p">)</span>
+
+                <span class="c1"># Upload file to minIO</span>
+                <span class="c1"># E.g bucket_name: lakehouse,</span>
+                <span class="c1"># key_name: bronze/goodreads/book/book_2021.parquet,</span>
+                <span class="c1"># tmp_file_path: /tmp/file_bronze_goodreads_book_20210101000000.parquet</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">fput_object</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">,</span> <span class="n">key_name</span><span class="p">,</span> <span class="n">tmp_file_path</span><span class="p">)</span>
+                <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&#34;(MinIO handle_output) Number of rows and columns: </span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&#34;</span>
+                <span class="p">)</span>
+                <span class="n">context</span><span class="o">.</span><span class="n">add_output_metadata</span><span class="p">({</span><span class="s2">&#34;path&#34;</span><span class="p">:</span> <span class="n">key_name</span><span class="p">,</span> <span class="s2">&#34;tmp&#34;</span><span class="p">:</span> <span class="n">tmp_file_path</span><span class="p">})</span>
+
+                <span class="c1"># Clean up tmp file</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tmp_file_path</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python">    <span class="k">def</span> <span class="nf">load_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="s2">&#34;InputContext&#34;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        Prepares input for downstream asset,
+</span><span class="s2">        and downloads parquet file from minIO and converts to polars DataFrame
+</span><span class="s2">        &#34;&#34;&#34;</span>
+
+        <span class="n">bucket_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;bucket&#34;</span><span class="p">)</span>
+        <span class="n">key_name</span><span class="p">,</span> <span class="n">tmp_file_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_path</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">connect_minio</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+                <span class="c1"># Make bucket if not exist</span>
+                <span class="n">make_bucket</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span> <span class="n">bucket_name</span><span class="o">=</span><span class="n">bucket_name</span><span class="p">)</span>
+
+                <span class="c1"># E.g bucket_name: lakehouse,</span>
+                <span class="c1"># key_name: bronze/goodreads/book/book_2021.parquet,</span>
+                <span class="c1"># tmp_file_path: /tmp/file_bronze_goodreads_book_20210101000000.parquet</span>
+                <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;(MinIO load_input) from key_name: </span><span class="si">{</span><span class="n">key_name</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">fget_object</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">,</span> <span class="n">key_name</span><span class="p">,</span> <span class="n">tmp_file_path</span><span class="p">)</span>
+                <span class="n">df_data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">tmp_file_path</span><span class="p">)</span>
+                <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&#34;(MinIO load_input) Got polars dataframe with shape: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&#34;</span>
+                <span class="p">)</span>
+
+                <span class="k">return</span> <span class="n">df_data</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>
+</code></pre></div><div id="54-transform-spark" class="anchor"></div>
+<h3 class="relative group">5.4 Transform (spark) 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#54-transform-spark" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Silver cleaned book</span>
+<span class="nd">@asset</span><span class="p">(</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&#34;Load book table from bronze layer in minIO, into a Spark dataframe, then clean data&#34;</span><span class="p">,</span>
+    <span class="n">partitions_def</span><span class="o">=</span><span class="n">YEARLY</span><span class="p">,</span>
+    <span class="n">ins</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&#34;bronze_book&#34;</span><span class="p">:</span> <span class="n">AssetIn</span><span class="p">(</span>
+            <span class="n">key_prefix</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;bronze&#34;</span><span class="p">,</span> <span class="s2">&#34;goodreads&#34;</span><span class="p">],</span>
+        <span class="p">),</span>
+    <span class="p">},</span>
+    <span class="n">io_manager_key</span><span class="o">=</span><span class="s2">&#34;spark_io_manager&#34;</span><span class="p">,</span>
+    <span class="n">key_prefix</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;silver&#34;</span><span class="p">,</span> <span class="s2">&#34;goodreads&#34;</span><span class="p">],</span>
+    <span class="n">compute_kind</span><span class="o">=</span><span class="n">COMPUTE_KIND</span><span class="p">,</span>
+    <span class="n">group_name</span><span class="o">=</span><span class="n">LAYER</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">silver_cleaned_book</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">bronze_book</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    Load book table from bronze layer in minIO, into a Spark dataframe, then clean data
+</span><span class="s2">    &#34;&#34;&#34;</span>
+
+    <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&#34;endpoint_url&#34;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;MINIO_ENDPOINT&#34;</span><span class="p">),</span>
+        <span class="s2">&#34;minio_access_key&#34;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;MINIO_ACCESS_KEY&#34;</span><span class="p">),</span>
+        <span class="s2">&#34;minio_secret_key&#34;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;MINIO_SECRET_KEY&#34;</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&#34;Start creating spark session&#34;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">get_spark_session</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">run_id</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;-&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="k">as</span> <span class="n">spark</span><span class="p">:</span>
+        <span class="c1"># Convert bronze_book from polars DataFrame to Spark DataFrame</span>
+        <span class="n">pandas_df</span> <span class="o">=</span> <span class="n">bronze_book</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&#34;Converted to pandas DataFrame with shape: </span><span class="si">{</span><span class="n">pandas_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&#34;</span>
+        <span class="p">)</span>
+
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span><span class="n">pandas_df</span><span class="p">)</span>
+        <span class="n">spark_df</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Got Spark DataFrame&#34;</span><span class="p">)</span>
+
+        <span class="c1"># Dedupe books</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">dropDuplicates</span><span class="p">()</span>
+        <span class="c1"># Drop rows with null value in column &#39;Name&#39;</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">na</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;Name&#34;</span><span class="p">])</span>
+        <span class="c1"># Drop rows with null values in column ISBN</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">na</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;isbn&#34;</span><span class="p">])</span>
+        <span class="c1"># Drop rows will null values in column &#39;Language&#39;</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">na</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;Language&#34;</span><span class="p">])</span>
+        <span class="c1"># Drop rows with value &#39;--&#39; in column &#39;Language&#39;</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">Language</span> <span class="o">!=</span> <span class="s2">&#34;--&#34;</span><span class="p">)</span>
+        <span class="c1"># Drop rows with value &gt; 350 in column &#39;PagesNumber&#39;</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">PagesNumber</span> <span class="o">&lt;=</span> <span class="mi">350</span><span class="p">)</span>
+        <span class="c1"># Drop column &#39;CountsOfReview&#39; (overlap with &#39;RatingDistTotal&#39;)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&#34;CountsOfReview&#34;</span><span class="p">)</span>
+        <span class="c1"># Choose rows with &#39;PublishYear&#39; from 1900 to datetime.today().year</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">PublishYear</span> <span class="o">&gt;=</span> <span class="mi">1975</span><span class="p">)</span>
+            <span class="o">&amp;</span> <span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">PublishYear</span> <span class="o">&lt;=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="c1"># Update value of column &#39;RatingDist...&#39;, splitting by &#39;:&#39; and take the second value</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;RatingDist5&#34;</span><span class="p">,</span> <span class="n">split_take_second</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&#34;RatingDist5&#34;</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;RatingDist4&#34;</span><span class="p">,</span> <span class="n">split_take_second</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&#34;RatingDist4&#34;</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;RatingDist3&#34;</span><span class="p">,</span> <span class="n">split_take_second</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&#34;RatingDist3&#34;</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;RatingDist2&#34;</span><span class="p">,</span> <span class="n">split_take_second</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&#34;RatingDist2&#34;</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;RatingDist1&#34;</span><span class="p">,</span> <span class="n">split_take_second</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&#34;RatingDist1&#34;</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;RatingDistTotal&#34;</span><span class="p">,</span> <span class="n">split_take_second</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&#34;RatingDistTotal&#34;</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="c1"># Cast column &#39;RatingDist...&#39; to Interger</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;RatingDist5&#34;</span><span class="p">,</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">RatingDist5</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&#34;Integer&#34;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;RatingDist4&#34;</span><span class="p">,</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">RatingDist4</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&#34;Integer&#34;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;RatingDist3&#34;</span><span class="p">,</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">RatingDist3</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&#34;Integer&#34;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;RatingDist2&#34;</span><span class="p">,</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">RatingDist2</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&#34;Integer&#34;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;RatingDist1&#34;</span><span class="p">,</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">RatingDist1</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&#34;Integer&#34;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;RatingDistTotal&#34;</span><span class="p">,</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">RatingDistTotal</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&#34;Integer&#34;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="c1"># Change column name &#39;Count of text reviews&#39; to &#39;CountOfTextReviews&#39;</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumnRenamed</span><span class="p">(</span>
+            <span class="s2">&#34;Count of text reviews&#34;</span><span class="p">,</span> <span class="s2">&#34;CountOfTextReviews&#34;</span>
+        <span class="p">)</span>
+        <span class="c1"># Change value of column &#39;Language&#39; from [&#39;en-US&#39;, &#39;en-GB&#39;, &#39;en-CA&#39;],  to &#39;eng&#39;, from &#39;nl&#39; to &#39;nld&#39;</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;Language&#34;</span><span class="p">,</span> <span class="n">regexp_replace</span><span class="p">(</span><span class="s2">&#34;Language&#34;</span><span class="p">,</span> <span class="s2">&#34;en-US&#34;</span><span class="p">,</span> <span class="s2">&#34;eng&#34;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;Language&#34;</span><span class="p">,</span> <span class="n">regexp_replace</span><span class="p">(</span><span class="s2">&#34;Language&#34;</span><span class="p">,</span> <span class="s2">&#34;en-GB&#34;</span><span class="p">,</span> <span class="s2">&#34;eng&#34;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;Language&#34;</span><span class="p">,</span> <span class="n">regexp_replace</span><span class="p">(</span><span class="s2">&#34;Language&#34;</span><span class="p">,</span> <span class="s2">&#34;en-CA&#34;</span><span class="p">,</span> <span class="s2">&#34;eng&#34;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+            <span class="s2">&#34;Language&#34;</span><span class="p">,</span> <span class="n">regexp_replace</span><span class="p">(</span><span class="s2">&#34;Language&#34;</span><span class="p">,</span> <span class="s2">&#34;nl&#34;</span><span class="p">,</span> <span class="s2">&#34;nld&#34;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">spark_df</span><span class="o">.</span><span class="n">unpersist</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">Output</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">spark_df</span><span class="p">,</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&#34;table&#34;</span><span class="p">:</span> <span class="s2">&#34;silver_cleaned_book&#34;</span><span class="p">,</span>
+                <span class="s2">&#34;row_count&#34;</span><span class="p">:</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span>
+                <span class="s2">&#34;column_count&#34;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span>
+                <span class="s2">&#34;columns&#34;</span><span class="p">:</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Silver collected book</span>
+<span class="nd">@asset</span><span class="p">(</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&#34;Collect more infomation about cleaned books, such as authors, number of pages&#34;</span><span class="p">,</span>
+    <span class="n">partitions_def</span><span class="o">=</span><span class="n">YEARLY</span><span class="p">,</span>
+    <span class="n">ins</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&#34;silver_cleaned_book&#34;</span><span class="p">:</span> <span class="n">AssetIn</span><span class="p">(</span>
+            <span class="n">key_prefix</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;silver&#34;</span><span class="p">,</span> <span class="s2">&#34;goodreads&#34;</span><span class="p">],</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;full_load&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+        <span class="p">),</span>
+    <span class="p">},</span>
+    <span class="n">io_manager_key</span><span class="o">=</span><span class="s2">&#34;spark_io_manager&#34;</span><span class="p">,</span>
+    <span class="n">key_prefix</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;silver&#34;</span><span class="p">,</span> <span class="s2">&#34;goodreads&#34;</span><span class="p">],</span>
+    <span class="n">compute_kind</span><span class="o">=</span><span class="s2">&#34;OpenLibrary API&#34;</span><span class="p">,</span>
+    <span class="n">group_name</span><span class="o">=</span><span class="n">LAYER</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">silver_collected_book</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">silver_cleaned_book</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Output</span><span class="p">[</span><span class="n">DataFrame</span><span class="p">]:</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    Collect more infomation about cleaned books
+</span><span class="s2">    - Authors: if missing
+</span><span class="s2">    - Number of pages: if missing
+</span><span class="s2">    &#34;&#34;&#34;</span>
+
+    <span class="n">spark_df</span> <span class="o">=</span> <span class="n">silver_cleaned_book</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&#34;Caching spark_df ...&#34;</span><span class="p">)</span>
+    <span class="n">spark_df</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Starting filling missing data ...&#34;</span><span class="p">)</span>
+    <span class="n">null_authors_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">Authors</span><span class="o">.</span><span class="n">isNull</span><span class="p">())</span> <span class="o">|</span> <span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">Authors</span> <span class="o">==</span> <span class="s2">&#34;&#34;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">null_pages_number_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">spark_df</span><span class="o">.</span><span class="n">PagesNumber</span><span class="o">.</span><span class="n">isNull</span><span class="p">()))</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">null_authors_df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&#34;ISBN&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">():</span>
+        <span class="n">isbn</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Got isbn: </span><span class="si">{</span><span class="n">isbn</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">isbn</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Get request from OpenLibrary API</span>
+            <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&#34;https://openlibrary.org/api/books?bibkeys=ISBN:</span><span class="si">{</span><span class="n">isbn</span><span class="si">}</span><span class="s2">&amp;format=json&amp;jscmd=data&#34;</span>
+            <span class="p">)</span>
+            <span class="n">json</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&#34;Got json with data&#34;</span><span class="p">)</span>
+                <span class="c1"># Check if spark_df with column &#39;ISBN&#39; = isbn has missing value in column &#39;Authors&#39;</span>
+                <span class="n">row_from_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">ISBN</span> <span class="o">==</span> <span class="n">isbn</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">row_from_df</span><span class="o">.</span><span class="n">Authors</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">row_from_df</span><span class="o">.</span><span class="n">Authors</span> <span class="ow">is</span> <span class="s2">&#34;&#34;</span><span class="p">:</span>
+                    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&#34;Authors is missing, start filling ...&#34;</span><span class="p">)</span>
+                    <span class="c1"># Take the first author</span>
+                    <span class="n">author</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;ISBN:</span><span class="si">{</span><span class="n">isbn</span><span class="si">}</span><span class="s2">&#34;</span> <span class="ow">or</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;authors&#34;</span> <span class="ow">or</span> <span class="p">[])</span>
+                    <span class="n">author</span> <span class="o">=</span> <span class="n">author</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">author</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">None</span>
+                    <span class="k">if</span> <span class="n">author</span><span class="p">:</span>
+                        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+                        <span class="c1"># Update spark_df with column &#39;ISBN&#39; = isbn and column &#39;Authors&#39; = author</span>
+                        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+                            <span class="s2">&#34;Authors&#34;</span><span class="p">,</span>
+                            <span class="n">when</span><span class="p">(</span>
+                                <span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">ISBN</span> <span class="o">==</span> <span class="n">isbn</span><span class="p">)</span>
+                                <span class="o">&amp;</span> <span class="p">(</span>
+                                    <span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">Authors</span><span class="o">.</span><span class="n">isNull</span><span class="p">())</span>
+                                    <span class="o">|</span> <span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">Authors</span> <span class="o">==</span> <span class="s2">&#34;&#34;</span><span class="p">)</span>
+                                <span class="p">),</span>
+                                <span class="n">author</span><span class="p">,</span>
+                            <span class="p">)</span><span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">Authors</span><span class="p">),</span>
+                        <span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Filled in </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> authors&#34;</span><span class="p">)</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">null_pages_number_df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&#34;ISBN&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">():</span>
+        <span class="n">isbn</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Got isbn: </span><span class="si">{</span><span class="n">isbn</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">isbn</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Get request from OpenLibrary API</span>
+            <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&#34;https://openlibrary.org/api/books?bibkeys=ISBN:</span><span class="si">{</span><span class="n">isbn</span><span class="si">}</span><span class="s2">&amp;format=json&amp;jscmd=data&#34;</span>
+            <span class="p">)</span>
+            <span class="n">json</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&#34;Got json with real data&#34;</span><span class="p">)</span>
+                <span class="c1"># Check if spark_df with column &#39;ISBN&#39; = isbn has missing value in column &#39;Authors&#39;</span>
+                <span class="n">row_from_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">ISBN</span> <span class="o">==</span> <span class="n">isbn</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="c1"># Check if spark_df with column &#39;ISBN&#39; = isbn has missing value in column &#39;PagesNumber&#39;</span>
+                <span class="k">if</span> <span class="n">row_from_df</span><span class="o">.</span><span class="n">PagesNumber</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">row_from_df</span><span class="o">.</span><span class="n">PagesNumber</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&#34;PagesNumber is missing, start filling ...&#34;</span><span class="p">)</span>
+                    <span class="c1"># Take the number of pages</span>
+                    <span class="n">pages_number</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;ISBN:</span><span class="si">{</span><span class="n">isbn</span><span class="si">}</span><span class="s2">&#34;</span> <span class="ow">or</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;number_of_pages&#34;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">pages_number</span><span class="p">:</span>
+                        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+                        <span class="c1"># Update spark_df with column &#39;ISBN&#39; = isbn and column &#39;PagesNumber&#39; = pages_number</span>
+                        <span class="n">spark_df</span> <span class="o">=</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span>
+                            <span class="s2">&#34;PagesNumber&#34;</span><span class="p">,</span>
+                            <span class="n">when</span><span class="p">(</span>
+                                <span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">ISBN</span> <span class="o">==</span> <span class="n">isbn</span><span class="p">)</span>
+                                <span class="o">&amp;</span> <span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">PagesNumber</span><span class="o">.</span><span class="n">isNull</span><span class="p">()),</span>
+                                <span class="n">pages_number</span><span class="p">,</span>
+                            <span class="p">)</span><span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">PagesNumber</span><span class="p">),</span>
+                        <span class="p">)</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Filled in </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> pages numbers&#34;</span><span class="p">)</span>
+
+    <span class="n">spark_df</span><span class="o">.</span><span class="n">unpersist</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">Output</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">spark_df</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&#34;table&#34;</span><span class="p">:</span> <span class="s2">&#34;silver_collected_book&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;row_count&#34;</span><span class="p">:</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span>
+            <span class="s2">&#34;column_count&#34;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">spark_df</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span>
+            <span class="s2">&#34;columns&#34;</span><span class="p">:</span> <span class="n">spark_df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+</code></pre></div><div id="55-load-data-warehouse---postgres" class="anchor"></div>
+<h3 class="relative group">5.5 Load (data warehouse - Postgres) 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#55-load-data-warehouse---postgres" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<p><code>psql_io_manager</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">connect_psql</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+            <span class="n">host</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&#34;host&#34;</span><span class="p">],</span>
+            <span class="n">port</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&#34;port&#34;</span><span class="p">],</span>
+            <span class="n">database</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&#34;database&#34;</span><span class="p">],</span>
+            <span class="n">user</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&#34;user&#34;</span><span class="p">],</span>
+            <span class="n">password</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&#34;password&#34;</span><span class="p">],</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Error while connecting to PostgreSQL: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python">    <span class="k">def</span> <span class="nf">handle_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="s2">&#34;OutputContext&#34;</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="c1"># E.g context.asset_key.path = [&#39;warehouse&#39;, &#39;gold&#39;, &#39;book_genre&#39;]</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">asset_key</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        <span class="c1"># NOTE: Replace pattern is &#39;warehouse&#39;, not general</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">asset_key</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;warehouse_&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Schema: </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">, Table: </span><span class="si">{</span><span class="n">table</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+        <span class="n">tmp_tbl</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">table</span><span class="si">}</span><span class="s2">_tmp_</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y_%m_</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">connect_psql</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+                <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Connected to PostgreSQL: </span><span class="si">{</span><span class="n">conn</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+                <span class="n">primary_keys</span> <span class="o">=</span> <span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">metadata</span> <span class="ow">or</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;primary_keys&#34;</span><span class="p">,</span> <span class="p">[])</span>
+                <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Primary keys: </span><span class="si">{</span><span class="n">primary_keys</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+
+                <span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Cursor info: </span><span class="si">{</span><span class="n">cursor</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+                    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&#34;SELECT version()&#34;</span><span class="p">)</span>
+                    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;PostgreSQL version: </span><span class="si">{</span><span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+                    <span class="c1"># Create temp file</span>
+                    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&#34;CREATE TEMP TABLE IF NOT EXISTS </span><span class="si">{</span><span class="n">tmp_tbl</span><span class="si">}</span><span class="s2"> (LIKE </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">table</span><span class="si">}</span><span class="s2">)&#34;</span>
+                    <span class="p">)</span>
+                    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;SELECT COUNT(*) FROM </span><span class="si">{</span><span class="n">tmp_tbl</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+                    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&#34;Log for creating temp table: </span><span class="si">{</span><span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span><span class="si">}</span><span class="s2">&#34;</span>
+                    <span class="p">)</span>
+                    <span class="c1"># Create sql identifiers for the column names</span>
+                    <span class="c1"># Do this to safely insert into a sql query</span>
+                    <span class="n">columns</span> <span class="o">=</span> <span class="n">sql</span><span class="o">.</span><span class="n">SQL</span><span class="p">(</span><span class="s2">&#34;,&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                        <span class="n">sql</span><span class="o">.</span><span class="n">Identifier</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">columns</span>
+                    <span class="p">)</span>
+                    <span class="c1"># Create a placeholder for the values. These will be filled later</span>
+                    <span class="n">values</span> <span class="o">=</span> <span class="n">sql</span><span class="o">.</span><span class="n">SQL</span><span class="p">(</span><span class="s2">&#34;,&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sql</span><span class="o">.</span><span class="n">Placeholder</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+                    <span class="c1"># Create the insert query</span>
+                    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&#34;Inserting data into temp table&#34;</span><span class="p">)</span>
+                    <span class="n">insert_query</span> <span class="o">=</span> <span class="n">sql</span><span class="o">.</span><span class="n">SQL</span><span class="p">(</span><span class="s2">&#34;INSERT INTO </span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">) VALUES(</span><span class="si">{}</span><span class="s2">);&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">sql</span><span class="o">.</span><span class="n">Identifier</span><span class="p">(</span><span class="n">tmp_tbl</span><span class="p">),</span> <span class="n">columns</span><span class="p">,</span> <span class="n">values</span>
+                    <span class="p">)</span>
+                    <span class="c1"># Execute the insert query</span>
+                    <span class="n">psycopg2</span><span class="o">.</span><span class="n">extras</span><span class="o">.</span><span class="n">execute_batch</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="n">insert_query</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">rows</span><span class="p">())</span>
+                    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+                    <span class="c1"># Check data inserted</span>
+                    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&#34;Checking data inserted&#34;</span><span class="p">)</span>
+                    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;SELECT COUNT(*) FROM </span><span class="si">{</span><span class="n">tmp_tbl</span><span class="si">}</span><span class="s2">;&#34;</span><span class="p">)</span>
+                    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Number of rows inserted: </span><span class="si">{</span><span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+                    <span class="c1"># Upsert data</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">primary_keys</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&#34;Table has primary keys, upserting data&#34;</span><span class="p">)</span>
+                        <span class="n">conditions</span> <span class="o">=</span> <span class="s2">&#34; AND &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                            <span class="p">[</span>
+                                <span class="sa">f</span><span class="s2">&#34;&#34;&#34; </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">table</span><span class="si">}</span><span class="s2">.&#34;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&#34; = </span><span class="si">{</span><span class="n">tmp_tbl</span><span class="si">}</span><span class="s2">.&#34;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&#34; &#34;&#34;&#34;</span>
+                                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">primary_keys</span>
+                            <span class="p">]</span>
+                        <span class="p">)</span>
+                        <span class="n">command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;&#34;&#34;
+</span><span class="s2">                            BEGIN TRANSACTION;
+</span><span class="s2">                            DELETE FROM </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">table</span><span class="si">}</span><span class="s2">
+</span><span class="s2">                            USING </span><span class="si">{</span><span class="n">tmp_tbl</span><span class="si">}</span><span class="s2">
+</span><span class="s2">                            WHERE </span><span class="si">{</span><span class="n">conditions</span><span class="si">}</span><span class="s2">;
+</span><span class="s2">
+</span><span class="s2">                            INSERT INTO </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">table</span><span class="si">}</span><span class="s2">
+</span><span class="s2">                            SELECT * FROM </span><span class="si">{</span><span class="n">tmp_tbl</span><span class="si">}</span><span class="s2">;
+</span><span class="s2">
+</span><span class="s2">                            END TRANSACTION;
+</span><span class="s2">                        &#34;&#34;&#34;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&#34;Table has no primary keys, replacing data&#34;</span><span class="p">)</span>
+                        <span class="n">command</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;&#34;&#34;
+</span><span class="s2">                            BEGIN TRANSACTION;
+</span><span class="s2">                            DELETE FROM </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">table</span><span class="si">}</span><span class="s2">;
+</span><span class="s2">
+</span><span class="s2">                            INSERT INTO </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">table</span><span class="si">}</span><span class="s2">
+</span><span class="s2">                            SELECT * FROM </span><span class="si">{</span><span class="n">tmp_tbl</span><span class="si">}</span><span class="s2">;
+</span><span class="s2">
+</span><span class="s2">                            END TRANSACTION;
+</span><span class="s2">                        &#34;&#34;&#34;</span>
+
+                    <span class="c1"># context.log.debug(f&#34;Command: {command}&#34;)</span>
+                    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Upserting data into </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">table</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+                    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+                    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">cursor</span><span class="o">.</span><span class="n">statusmessage</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+                    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Error while handling output to PostgreSQL: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">connect_psql</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+                <span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+                    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;SELECT COUNT(*) FROM </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">table</span><span class="si">}</span><span class="s2">;&#34;</span><span class="p">)</span>
+                    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&#34;Number of rows upserted in </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">table</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span><span class="si">}</span><span class="s2">&#34;</span>
+                    <span class="p">)</span>
+
+                    <span class="c1"># Drop temp table</span>
+                    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;DROP TABLE </span><span class="si">{</span><span class="n">tmp_tbl</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+                    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Error while testing handle_output to PostgreSQL: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</code></pre></div><div id="56-transform-dbt" class="anchor"></div>
+<h3 class="relative group">5.6 Transform (dbt) 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#56-transform-dbt" aria-label="Anchor">#</a></span>        
+    
+</h3>
+<p><code>search</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">
+</span><span class="w">  </span><span class="n">isbn</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">name</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="k">source</span><span class="p">(</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;book_with_info&#39;</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">
+</span></code></pre></div><p><code>search_prior</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">
+</span><span class="w">  </span><span class="n">isbn</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="n">name</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="k">source</span><span class="p">(</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;book_with_info&#39;</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">
+</span><span class="w"></span><span class="k">right</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="k">source</span><span class="p">(</span><span class="s1">&#39;recommendations&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;book_download_link&#39;</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="p">(</span><span class="n">isbn</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">link</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w">
+</span></code></pre></div><p><code>criteria</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">with</span><span class="w"> </span><span class="n">tmp_avg_rating</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">  </span><span class="k">select</span><span class="w">
+</span><span class="w">    </span><span class="n">isbn</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="n">rating</span><span class="w">
+</span><span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="k">source</span><span class="p">(</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;book_with_rating&#39;</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">
+</span><span class="w"></span><span class="p">),</span><span class="w">
+</span><span class="w"></span><span class="n">tmp_download_link</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w">  </span><span class="k">select</span><span class="w">
+</span><span class="w">    </span><span class="n">isbn</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="k">case</span><span class="w">
+</span><span class="w">      </span><span class="k">when</span><span class="w"> </span><span class="n">link</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="w">      </span><span class="k">else</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">hasdownloadlink</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="n">rating</span><span class="w">
+</span><span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="k">source</span><span class="p">(</span><span class="s1">&#39;recommendations&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;book_download_link&#39;</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">
+</span><span class="w">  </span><span class="k">right</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">tmp_avg_rating</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="p">(</span><span class="n">isbn</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">tmp_download_link</span><span class="w">
+</span></code></pre></div><div id="6-tear-down-infrastructure" class="anchor"></div>
+<h2 class="relative group">6. Tear down infrastructure 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#6-tear-down-infrastructure" aria-label="Anchor">#</a></span>        
+    
+</h2>
+<p>Dỡ bỏ containers sau khi xong việc</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">make down
+</code></pre></div><div id="7-considerations" class="anchor"></div>
+<h2 class="relative group">7. Considerations 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#7-considerations" aria-label="Anchor">#</a></span>        
+    
+</h2>
+<p>Giờ là lúc đánh giá project:</p>
+<ol>
+<li>Tốc độ: <code>spark</code> được cài ở chế độ standalone nên không đạt hiệu suất cao, đôi khi bị crash giữa chừng khi thực hiện các task shuffle/read/write</li>
+<li>Môi trường phát triển: Hiện tại mới có develop, tương lai sẽ xem xét môi trường testing, staging, production</li>
+<li><code>dbt</code> hiện tại là project nhỏ, tương lai nếu cần transform nhiều thì cần tách service riêng, phân quyền, &hellip;</li>
+<li>Deployment: Sử dụng một trong các dịnh vụ điện toán đám mây: AWS, Azure, GCP</li>
+</ol>
+<div id="8-further-actions" class="anchor"></div>
+<h2 class="relative group">8. Further actions 
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#8-further-actions" aria-label="Anchor">#</a></span>        
+    
+</h2>
+<ol>
+<li>Hoàn thiện recommender system</li>
+<li>Tích hợp jupyter notebook để làm task của data scientist - <a href="https://docs.dagster.io/integrations/dagstermill"   target="_blank">
+    dagstermill</a></li>
+<li>Testing environment</li>
+<li>Continuous Integration với Github Actions</li>
+</ol>
+
+        </br></br>
+        
+
+      </div>
+      <script>
+        var oid = "views_projects\/fde2-goodreads-elt-pipeline\/index.md"
+        var oid_likes = "likes_projects\/fde2-goodreads-elt-pipeline\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.e81cc025d61acff630909044f33df3ded3f4b7c917bf3db3ab7bef2ed26c7baf9be84ffedc2c4ee9dff8bbc1f3ad63ccb7d489d7f43e56a00a2b14bdeaaee7e1.js" integrity="sha512-6BzAJdYaz/YwkJBE8z3z3tP0t8kXvz2zq3vvLtJse6&#43;b6E/&#43;3CxO6d/4u8HzrWPMt9SJ1/Q&#43;VqAKKxS96q7n4Q=="></script>
+  </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+
+
+    
+    
+    
+
+    
+
+    
+
+    
+  
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/&amp;title=Goodreads%20ELT%20pipelines"
+      title="Share on LinkedIn"
+      aria-label="Share on LinkedIn"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://twitter.com/intent/tweet/?url=https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/&amp;text=Goodreads%20ELT%20pipelines"
+      title="Tweet on Twitter"
+      aria-label="Tweet on Twitter"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://www.facebook.com/sharer/sharer.php?u=https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/&amp;quote=Goodreads%20ELT%20pipelines"
+      title="Share on Facebook"
+      aria-label="Share on Facebook"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="mailto:?body=https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/&amp;subject=Goodreads%20ELT%20pipelines"
+      title="Send via email"
+      aria-label="Send via email"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+  </section>
+
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/projects/fde_project/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Spotify data pipeline ingestion</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div class="pointer-events-none absolute top-[100vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="/tags/"
+            title="Tags">Tags</a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="/categories/"
+            title="Categories">Categories</a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href=""
+            title="">Open Analytics</a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2023
+      lelouvincx
+    </p>
+    
+
+    
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.e7c3599dbb1cedb20b622602837cde52ffd76433ccf3544defb2f071860d81580f68eb150111f9b7fabdeda3aacb803d34d2d8a0a0a9f10410e9d20b98b1f4a1.js" integrity="sha512-58NZnbsc7bILYiYCg3zeUv/XZDPM81RN77LwcYYNgVgPaOsVARH5t/q97aOqy4A9NNLYoKCp8QQQ6dILmLH0oQ=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://lelouvincx.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+  data-id="lelouvincx" data-description="Support me on Buy me a coffee!" data-message="Hi! How about your day? Let&#39;s buy me a coffee!"
+  data-color="#BEE5B0" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+</html>

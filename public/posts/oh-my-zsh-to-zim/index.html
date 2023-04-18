@@ -13,8 +13,8 @@
   <title>Chuyển nhà từ oh-my-zsh sang zimfw &middot; lelouvincx&#39;s blog</title>
   <meta name="title" content="Chuyển nhà từ oh-my-zsh sang zimfw &middot; lelouvincx&#39;s blog" />
   
-  <meta name="description" content="lelouvincx&#39;s website" />
-  
+  <meta name="description" content="Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này" />
+  <meta name="keywords" content="zsh, zimfw, " />
   
   
   <link rel="canonical" href="https://lelouvincx.github.io/posts/oh-my-zsh-to-zim/" />
@@ -28,12 +28,12 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.f4768793c6e39d65693bc2f59f77e81065e3a66628d4a6ca20fbde3039f13ffddee2e2bbccc3c5918f6c76e84a17d4e49bb0856715b2dec889549c695e0f390d.css"
-    integrity="sha512-9HaHk8bjnWVpO8L1n3foEGXjpmYo1KbKIPveMDnxP/3e4uK7zMPFkY9sduhKF9Tkm7CFZxWy3siJVJxpXg85DQ==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.71ceac099f7e0639a8ba6a8147aa1adde5c0052df09f536e5d4f28313d7855caad46570b2254fa5c2da0d692919e21dd340478ad9cf54a25909467502ed55f49.css"
+    integrity="sha512-cc6sCZ9&#43;BjmoumqBR6oa3eXABS3wn1NuXU8oMT14VcqtRlcLIlT6XC2g1pKRniHdNAR4rZz1SiWQlGdQLtVfSQ==" />
   
   
-  <script type="text/javascript" src="/js/appearance.min.49025a779c36ad37a5bf9f1cc6bffd35ccb69ce15560ef1b10057ddf31576265b19f8bcc1733207336c9144926f7b18aea2e5895f29e858b24271332a2fa5cd5.js"
-    integrity="sha512-SQJad5w2rTelv58cxr/9Ncy2nOFVYO8bEAV93zFXYmWxn4vMFzMgczbJFEkm97GK6i5YlfKehYskJxMyovpc1Q=="></script>
+  <script type="text/javascript" src="/js/appearance.min.3508351f0d2322ec03ef8ac4710aedb9fb7aea7d643c74ed34e35458b0fa4de9060522eca162d3de142defab8d9c5ccf9873a25cba9550026d430f0a64326770.js"
+    integrity="sha512-NQg1Hw0jIuwD74rEcQrtuft66n1kPHTtNONUWLD6TekGBSLsoWLT3hQt76uNnFzPmHOiXLqVUAJtQw8KZDJncA=="></script>
   
   
   
@@ -98,10 +98,10 @@
     
     
     
-    "keywords": ["post","zsh","zimfw"],
+    "keywords": ["zsh","zimfw"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1044"
+    "wordCount": "1023"
   }]
   </script>
 
@@ -157,7 +157,30 @@
 
   
   
+  <meta name="theme-color"/>
   
+  
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g",
+      authDomain: "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g",
+      projectId: "lelouvincx-blog",
+      storageBucket: "lelouvincx-blog.appspot.com",
+      messagingSenderId: "687151694094",
+      appId: "1:687151694094:web:1489248715ee5f7849d75f",
+      measurementId: "G-PW1F2X7CRE"
+    };
+
+    var app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+
+  </script>
   
   
 </head>
@@ -298,7 +321,7 @@
 
 
             
-            <button id="search-button" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
                 title="">
                 
 
@@ -316,7 +339,7 @@
             
             <div
                 class="ltr:mr-14 rtl:ml-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400">
-                <button id="appearance-switcher" type="button">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button">
                     <div class="flex items-center justify-center h-12 dark:hidden">
                         
 
@@ -350,7 +373,7 @@
 
 
             
-            <button id="search-button-mobile" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
                 title="">
                 
 
@@ -365,7 +388,7 @@
 
             
             
-            <button id="appearance-switcher-mobile" type="button" style="margin-right:5px">
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" style="margin-right:5px">
                 <div class="flex items-center justify-center h-12 dark:hidden">
                     
 
@@ -566,6 +589,7 @@
 
 
 
+
   
   <div class="relative flex flex-col grow">
     <main id="main-content" class="grow">
@@ -693,22 +717,24 @@
   
   
   
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/post/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/linux/&#34;,'_self');">
     <span class="flex">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
   >
-    post
+    linux
   </span>
 </span>
 
   </span>
+  
+  
+  
+  
+  
+  
+  
+  
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/zsh/&#34;,'_self');">
     <span class="flex">
@@ -797,14 +823,15 @@
       <div class="min-w-0 min-h-0 max-w-prose">
         
 
-        <div id="1-tại-sao-nên-đọc-bài-này" class="anchor">1. Tại sao nên đọc bài này?></div>
+        <div id="1-tại-sao-nên-đọc-bài-này" class="anchor"></div>
 <h2 class="relative group">1. Tại sao nên đọc bài này? 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#1-t%e1%ba%a1i-sao-n%c3%aan-%c4%91%e1%bb%8dc-b%c3%a0i-n%c3%a0y" aria-label="Anchor">#</a></span>        
     
-</h2><p>Chuyện là mình vừa đọc được một bài rất tâm huyết về các zsh frameworks trên <a href="https://www.reddit.com/r/linuxadmin/comments/rhg7wx/zsh_frameworks/"   target="_blank">
+</h2>
+<p>Chuyện là mình vừa đọc được một bài rất tâm huyết về các zsh frameworks trên <a href="https://www.reddit.com/r/linuxadmin/comments/rhg7wx/zsh_frameworks/"   target="_blank">
     Reddit</a>, trong đó có đoạn viết như này:</p>
 <blockquote>
 <p>They took the best ideas, and wrote them as brand new modules with even higher-quality code, and ended up becoming by far the fastest &ldquo;full-featured zsh framework&rdquo; with the <a href="https://github.com/zimfw/zimfw/wiki/Speed"   target="_blank">
@@ -861,9 +888,9 @@ Và thế là công cuộc chuyển nhà từ oh-my-zsh của mình sang Zim b�
 
     <div class="m-0 mt-2 flex items-center">
       
-      <span class="mr-1 inline-block h-3 w-3 rounded-full" style="background-color:#e34c26"></span>
+      <span class="mr-1 inline-block h-3 w-3 rounded-full" style="background-color: #e34c26"></span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        HTML
+         HTML 
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -876,7 +903,7 @@ Và thế là công cuộc chuyển nhà từ oh-my-zsh của mình sang Zim b�
 
       </span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        2989
+        3066
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -889,21 +916,22 @@ Và thế là công cuộc chuyển nhà từ oh-my-zsh của mình sang Zim b�
 
       </span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        170
+        173
       </div>
 
     </div>
 
   </div>
 </a>
-<div id="2-cài-đặt" class="anchor">2. Cài đặt></div>
+<div id="2-cài-đặt" class="anchor"></div>
 <h2 class="relative group">2. Cài đặt 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#2-c%c3%a0i-%c4%91%e1%ba%b7t" aria-label="Anchor">#</a></span>        
     
-</h2><p>Đầu tiên bạn cần gỡ bỏ oh-my-zsh trước:</p>
+</h2>
+<p>Đầu tiên bạn cần gỡ bỏ oh-my-zsh trước:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> ~/.oh-my-zsh/tools/uninstall.sh
 </code></pre></div><p>Sau đấy khởi động lại terminal, zsh sẽ trống trơn. Tiếp theo, cài Zim bằng <code>curl</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh <span class="p">|</span> zsh
@@ -913,14 +941,15 @@ Và thế là công cuộc chuyển nhà từ oh-my-zsh của mình sang Zim b�
     link này</a>.
 Khởi động lại terminal và kiểm tra Zim đã được cài thành công chưa:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">zimfw
-</code></pre></div><div id="zim-themes" class="anchor">Zim themes></div>
+</code></pre></div><div id="zim-themes" class="anchor"></div>
 <h3 class="relative group">Zim themes 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#zim-themes" aria-label="Anchor">#</a></span>        
     
-</h3><p>Theme mặc định của Zim là <a href="https://github.com/zimfw/asciiship"   target="_blank">
+</h3>
+<p>Theme mặc định của Zim là <a href="https://github.com/zimfw/asciiship"   target="_blank">
     asciiship</a>, bạn có thể chọn themes được Zim <a href="https://zimfw.sh/docs/themes/"   target="_blank">
     build sẵn</a> hoặc theme khác tùy ý.
 Ví dụ ở đây mình sẽ dùng theme <code>eriner</code>, vào file <code>~/.zimrc</code>, comment dòng <code>zmodule asciiship</code> và thêm <code>zmodule enriner</code>:</p>
@@ -931,8 +960,21 @@ zmodule eriner
 </code></pre><p>Sau đó chạy lệnh:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">zimfw uninstall <span class="o">&amp;&amp;</span> zimfw install
 </code></pre></div><p>Khởi động lại terminal và enjoy!</p>
-<div class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900">
-  <span class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center">
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
     
 
   <span class="relative block icon">
@@ -942,7 +984,11 @@ zmodule eriner
 
 
   </span>
-  <span class="dark:text-neutral-300"><p>Như vậy tới đây bạn đã biết cách thêm 1 zsh plugin vào bằng Zim: thêm <code>zmodule</code> + tên plugin vào file <code>~/.zimrc</code>, rồi chạy lệnh <code>zimfw install</code>.</p>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    ><p>Như vậy tới đây bạn đã biết cách thêm 1 zsh plugin vào bằng Zim: thêm <code>zmodule</code> + tên plugin vào file <code>~/.zimrc</code>, rồi chạy lệnh <code>zimfw install</code>.</p>
 <p>Các module được cài nằm ở <code>~/.zim/modules</code></p>
 </span>
 </div>
@@ -952,8 +998,21 @@ zmodule eriner
 # ... config modules
 zmodule romkatv/powerlevel10k
 </code></pre><p><code>zimfw install</code>, khởi động lại terminal rồi <code>p10k configure</code>.</p>
-<div class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900">
-  <span class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center">
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
     
 
   <span class="relative block icon">
@@ -963,7 +1022,11 @@ zmodule romkatv/powerlevel10k
 
 
   </span>
-  <span class="dark:text-neutral-300"><code>p10k</code> sequence ưa thích của mình là <code>y y y n 3 1 3 4 4 5 2 3 4 2 2 1 1 y 2 y</code></span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    ><code>p10k</code> sequence ưa thích của mình là <code>y y y n 3 1 3 4 4 5 2 3 4 2 2 1 1 y 2 y</code></span>
 </div>
 
 <p>Done! Khởi động lại terminal và enjoy.
@@ -982,14 +1045,15 @@ zmodule romkatv/powerlevel10k
   
 
 </p>
-<div id="modules-hỗ-trợ" class="anchor">Modules hỗ trợ></div>
+<div id="modules-hỗ-trợ" class="anchor"></div>
 <h3 class="relative group">Modules hỗ trợ 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#modules-h%e1%bb%97-tr%e1%bb%a3" aria-label="Anchor">#</a></span>        
     
-</h3><p>Mặc định Zim đã cài sẵn cho bạn vài plugin như <code>git</code>, <code>zsh-autosuggestions</code>, <code>zsh-syntax-highlighting</code>, etc.
+</h3>
+<p>Mặc định Zim đã cài sẵn cho bạn vài plugin như <code>git</code>, <code>zsh-autosuggestions</code>, <code>zsh-syntax-highlighting</code>, etc.
 Bạn có thể dùng luôn mà không cần config gì thêm.
 Nhưng ở đây mình muốn shell của mình được việc hơn tí nên sẽ cài thêm <a href="https://github.com/ajeetdsouza/zoxide"   target="_blank">
     zoxide</a> và <a href="https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv"   target="_blank">
@@ -1020,9 +1084,9 @@ Nhưng ở đây mình muốn shell của mình được việc hơn tí nên s�
 
     <div class="m-0 mt-2 flex items-center">
       
-      <span class="mr-1 inline-block h-3 w-3 rounded-full" style="background-color:#dea584"></span>
+      <span class="mr-1 inline-block h-3 w-3 rounded-full" style="background-color: #dea584"></span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        Rust
+         Rust 
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -1035,7 +1099,7 @@ Nhưng ở đây mình muốn shell của mình được việc hơn tí nên s�
 
       </span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        9270
+        10174
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -1048,7 +1112,7 @@ Nhưng ở đây mình muốn shell của mình được việc hơn tí nên s�
 
       </span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        335
+        364
       </div>
 
     </div>
@@ -1110,9 +1174,9 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
 
     <div class="m-0 mt-2 flex items-center">
       
-      <span class="mr-1 inline-block h-3 w-3 rounded-full" style="background-color:#89e051"></span>
+      <span class="mr-1 inline-block h-3 w-3 rounded-full" style="background-color: #89e051"></span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        Shell
+         Shell 
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -1125,7 +1189,7 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
 
       </span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        373
+        384
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -1138,7 +1202,7 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
 
       </span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        67
+        66
       </div>
 
     </div>
@@ -1193,14 +1257,15 @@ zimfw build
   
 
 </p>
-<div id="một-vài-config-khác" class="anchor">Một vài config khác></div>
+<div id="một-vài-config-khác" class="anchor"></div>
 <h3 class="relative group">Một vài config khác 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#m%e1%bb%99t-v%c3%a0i-config-kh%c3%a1c" aria-label="Anchor">#</a></span>        
     
-</h3><p>Một vài config khác giúp mình làm việc nhanh và hiệu quả hơn:</p>
+</h3>
+<p>Một vài config khác giúp mình làm việc nhanh và hiệu quả hơn:</p>
 <ul>
 <li>Source Ruby với <code>rvm</code>, khi dùng chỉ cần gõ <code>source_ruby</code>:</li>
 </ul>
@@ -1236,9 +1301,9 @@ zimfw build
 
     <div class="m-0 mt-2 flex items-center">
       
-      <span class="mr-1 inline-block h-3 w-3 rounded-full" style="background-color:#dea584"></span>
+      <span class="mr-1 inline-block h-3 w-3 rounded-full" style="background-color: #dea584"></span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        Rust
+         Rust 
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -1251,7 +1316,7 @@ zimfw build
 
       </span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        20657
+        21402
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -1264,7 +1329,7 @@ zimfw build
 
       </span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        609
+        626
       </div>
 
     </div>
@@ -1289,14 +1354,15 @@ zimfw build
 <span class="c1"># Map tmux shortcut</span>
 <span class="nb">alias</span> <span class="nv">ta</span><span class="o">=</span><span class="s2">&#34;tmux a&#34;</span>
 <span class="nb">alias</span> <span class="nv">tl</span><span class="o">=</span><span class="s2">&#34;tmux ls&#34;</span>
-</code></pre></div><div id="kết-luận" class="anchor">Kết luận></div>
+</code></pre></div><div id="kết-luận" class="anchor"></div>
 <h2 class="relative group">Kết luận 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#k%e1%ba%bft-lu%e1%ba%adn" aria-label="Anchor">#</a></span>        
     
-</h2><p><strong>Ưu điểm</strong>:</p>
+</h2>
+<p><strong>Ưu điểm</strong>:</p>
 <ul>
 <li>Zim cho mình tốc độ nhanh hơn hẳn oh-my-zsh từng dùng, mở cái là lên liền chứ không cần đợi như oh-my-zsh</li>
 <li>Dễ dùng, chỉ cần nhớ vài câu lệnh như <code>zimfw install, uninstall, compile, build</code> là được</li>
@@ -1576,5 +1642,9 @@ zimfw build
 
   </div>
 </body>
+
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+  data-id="lelouvincx" data-description="Support me on Buy me a coffee!" data-message="Hi! How about your day? Let&#39;s buy me a coffee!"
+  data-color="#BEE5B0" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 
 </html>
