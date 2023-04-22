@@ -101,7 +101,7 @@
     "keywords": ["ELT","dbt","dagster","goodreads","spark","minio"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "3508"
+    "wordCount": "3520"
   }]
   </script>
 
@@ -970,7 +970,7 @@ if (!doNotTrack) {
 
       </span>
       <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        2
+        3
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -1457,10 +1457,12 @@ if (!doNotTrack) {
     >Nếu dùng Windows, setup thêm WSL2 và một máy ảo local Ubuntu, cài đặt những thứ trên cho ubuntu.</span>
 </div>
 
-<p>Clone the repository</p>
+<p>Clone project về:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/lelouvincx/goodreads-elt-pipeline.git project
 <span class="nb">cd</span> project
-</code></pre></div><div id="42-setup-google-drive-api" class="anchor"></div>
+</code></pre></div><p>Download dataset <a href="https://www.kaggle.com/datasets/lelouvincx/goodreads-elt-pipeline?select=book.csv"   target="_blank">
+    ở đây</a>, sau đó đặt 4 file <code>.csv</code> vào <code>project/dataset</code>.</p>
+<div id="42-setup-google-drive-api" class="anchor"></div>
 <h3 class="relative group">4.2 Setup google drive api 
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
@@ -1764,7 +1766,6 @@ cp spark_worker.env.template .spark_worker.env
     >Chỉ dùng cho môi trường development, không dùng cho testing, staging, production.</span>
 </div>
 
-<p>Bây giờ chúng ta import dataset spotify (dạng csv) vào mySQL:</p>
 <p>Chạy các lệnh sau để setup:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># DO NOT RUN BOTH BELOW COMMANDS, ONLY CHOOSE ONE</span>
 <span class="c1"># Setup python environment</span>
@@ -1923,7 +1924,7 @@ make <span class="nb">test</span>
             style="text-decoration-line: none !important;" href="#44-import-data-into-mysql" aria-label="Anchor">#</a></span>        
     
 </h3>
-<p>Source từng file theo thứ tự:</p>
+<p>Bây giờ chúng ta import dataset goodreads (dạng csv) vào MySQL. Source từng file theo thứ tự:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">make to_mysql_root
 </code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">local_infile</span><span class="o">=</span><span class="k">TRUE</span><span class="p">;</span><span class="w">
 </span><span class="w"></span><span class="c1">-- Check if local_infile was turned on
