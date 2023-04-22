@@ -196,12 +196,14 @@ Gồm các model (asset):
 Nếu dùng Windows, setup thêm WSL2 và một máy ảo local Ubuntu, cài đặt những thứ trên cho ubuntu.
 {{< /alert >}}
 
-Clone the repository
+Clone project về:
 
 ```bash
 git clone https://github.com/lelouvincx/goodreads-elt-pipeline.git project
 cd project
 ```
+
+Download dataset [ở đây](https://www.kaggle.com/datasets/lelouvincx/goodreads-elt-pipeline?select=book.csv), sau đó đặt 4 file `.csv` vào `project/dataset`.
 
 ### 4.2 Setup google drive api
 
@@ -339,8 +341,6 @@ Bạn có thể thay các thông tin về user, pasword, ...
 Chỉ dùng cho môi trường development, không dùng cho testing, staging, production.
 {{< /alert >}}
 
-Bây giờ chúng ta import dataset spotify (dạng csv) vào mySQL:
-
 Chạy các lệnh sau để setup:
 
 ```bash
@@ -401,7 +401,7 @@ Lúc này sẽ có 11 services sau đang chạy:
 
 ### 4.4 Import data into MySQL
 
-Source từng file theo thứ tự:
+Bây giờ chúng ta import dataset goodreads (dạng csv) vào MySQL. Source từng file theo thứ tự:
 
 ```bash
 make to_mysql_root
