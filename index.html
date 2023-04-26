@@ -195,7 +195,11 @@ if (!doNotTrack) {
   </div>
   
   
-  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
     class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
     
     <div class="flex flex-1 items-center justify-between">
@@ -592,6 +596,16 @@ if (!doNotTrack) {
 
 
 
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
   
   <div class="relative flex flex-col grow">
     <main id="main-content" class="grow">
@@ -631,7 +645,7 @@ if (!doNotTrack) {
                     </h1>
                     
                     <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
-                        Mình viết về data science, software, productivity, và linux. Cùng khám phá ở dưới nha!
+                        Mình viết về data engineering, software, productivity, và linux. Cùng khám phá ở dưới nhé!
                     </h2>
                     
                     <div class="mt-1 mb-10 text-2xl">
@@ -720,47 +734,29 @@ if (!doNotTrack) {
   
 
 
-<section class="space-y-10 w-full">
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
   
   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a class="flex flex-wrap article border border-neutral-200 dark:border-neutral-700 border-2 rounded-md backdrop-blur" href="/projects/fde2-goodreads-elt-pipeline/">
+  <a href="/projects/fde2-goodreads-elt-pipeline/" class="min-w-full">
     
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative backdrop-blur">
         
-        <div class="w-full md:w-auto h-full thumbnail nozoom " style="background-image:url(/projects/fde2-goodreads-elt-pipeline/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_4789729_600x0_resize_q75_box.jpg);"></div>
+        <div class="w-full thumbnail_card nozoom" style="background-image:url(/projects/fde2-goodreads-elt-pipeline/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_4789729_600x0_resize_q75_box.jpg);"></div>
         
-      <div class=" p-4">
-      <div class="items-center text-xl font-semibold">
+      
+
+      <div class="px-6 py-4">
+
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
           href="/projects/fde2-goodreads-elt-pipeline/">Goodreads ELT pipelines</div>
         
-        
-        
-      </div>
-      <div class="text-sm text-neutral-500 dark:text-neutral-400">
-        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
 
 
 
@@ -790,6 +786,8 @@ if (!doNotTrack) {
 
 <div class="flex flex-row flex-wrap items-center">
   
+  
+  <span title="Reading time">17 mins</span>
   
 
   
@@ -913,54 +911,41 @@ if (!doNotTrack) {
 
 
 
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads
+        </div>
+        
       </div>
-      
-      <div class="py-1 max-w-fit prose dark:prose-invert">
-        Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads
+      <div class="px-6 pt-4 pb-2">
+
       </div>
-      
     </div>
   </a>
   
   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a class="flex flex-wrap article border border-neutral-200 dark:border-neutral-700 border-2 rounded-md backdrop-blur" href="/projects/fde_project/">
+  <a href="/projects/fde_project/" class="min-w-full">
     
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative backdrop-blur">
         
-        <div class="w-full md:w-auto h-full thumbnail nozoom " style="background-image:url(/projects/fde_project/featured_hu05d880aff69880235c444aa05d37e813_150482_600x0_resize_q75_box.jpg);"></div>
+        <div class="w-full thumbnail_card nozoom" style="background-image:url(/projects/fde_project/featured_hu05d880aff69880235c444aa05d37e813_150482_600x0_resize_q75_box.jpg);"></div>
         
-      <div class=" p-4">
-      <div class="items-center text-xl font-semibold">
+      
+
+      <div class="px-6 py-4">
+
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
           href="/projects/fde_project/">Spotify data pipeline ingestion</div>
         
-        
-        
-      </div>
-      <div class="text-sm text-neutral-500 dark:text-neutral-400">
-        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
 
 
 
@@ -990,6 +975,8 @@ if (!doNotTrack) {
 
 <div class="flex flex-row flex-wrap items-center">
   
+  
+  <span title="Reading time">11 mins</span>
   
 
   
@@ -1091,54 +1078,41 @@ if (!doNotTrack) {
 
 
 
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)
+        </div>
+        
       </div>
-      
-      <div class="py-1 max-w-fit prose dark:prose-invert">
-        Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)
+      <div class="px-6 pt-4 pb-2">
+
       </div>
-      
     </div>
   </a>
   
   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a class="flex flex-wrap article border border-neutral-200 dark:border-neutral-700 border-2 rounded-md backdrop-blur" href="/posts/oh-my-zsh-to-zim/">
+  <a href="/posts/oh-my-zsh-to-zim/" class="min-w-full">
     
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative backdrop-blur">
         
-        <div class="w-full md:w-auto h-full thumbnail nozoom " style="background-image:url(/posts/oh-my-zsh-to-zim/featured_hu8fda6ddd1c05d3c9fb2760353392f916_92240_600x0_resize_box_3.png);"></div>
+        <div class="w-full thumbnail_card nozoom" style="background-image:url(/posts/oh-my-zsh-to-zim/featured_hu8fda6ddd1c05d3c9fb2760353392f916_92240_600x0_resize_box_3.png);"></div>
         
-      <div class=" p-4">
-      <div class="items-center text-xl font-semibold">
+      
+
+      <div class="px-6 py-4">
+
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
           href="/posts/oh-my-zsh-to-zim/">Chuyển nhà từ oh-my-zsh sang zimfw</div>
         
-        
-        
-      </div>
-      <div class="text-sm text-neutral-500 dark:text-neutral-400">
-        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
 
 
 
@@ -1168,6 +1142,8 @@ if (!doNotTrack) {
 
 <div class="flex flex-row flex-wrap items-center">
   
+  
+  <span title="Reading time">5 mins</span>
   
 
   
@@ -1247,54 +1223,41 @@ if (!doNotTrack) {
 
 
 
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này
+        </div>
+        
       </div>
-      
-      <div class="py-1 max-w-fit prose dark:prose-invert">
-        Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này
+      <div class="px-6 pt-4 pb-2">
+
       </div>
-      
     </div>
   </a>
   
   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a class="flex flex-wrap article border border-neutral-200 dark:border-neutral-700 border-2 rounded-md backdrop-blur" href="/posts/neovim-setup-ruby/">
+  <a href="/posts/neovim-setup-ruby/" class="min-w-full">
     
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative backdrop-blur">
         
-        <div class="w-full md:w-auto h-full thumbnail nozoom " style="background-image:url(/posts/neovim-setup-ruby/featured_hu7921b84e37b4951668865b6f4724dc5f_18820_600x0_resize_box_3.png);"></div>
+        <div class="w-full thumbnail_card nozoom" style="background-image:url(/posts/neovim-setup-ruby/featured_hu7921b84e37b4951668865b6f4724dc5f_18820_600x0_resize_box_3.png);"></div>
         
-      <div class=" p-4">
-      <div class="items-center text-xl font-semibold">
+      
+
+      <div class="px-6 py-4">
+
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
           href="/posts/neovim-setup-ruby/">Code Ruby trên Neovim</div>
         
-        
-        
-      </div>
-      <div class="text-sm text-neutral-500 dark:text-neutral-400">
-        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
 
 
 
@@ -1324,6 +1287,8 @@ if (!doNotTrack) {
 
 <div class="flex flex-row flex-wrap items-center">
   
+  
+  <span title="Reading time">2 mins</span>
   
 
   
@@ -1392,12 +1357,17 @@ if (!doNotTrack) {
 
 
 
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Hướng dẫn setup môi trường phát triển Ruby trên Neovim
+        </div>
+        
       </div>
-      
-      <div class="py-1 max-w-fit prose dark:prose-invert">
-        Hướng dẫn setup môi trường phát triển Ruby trên Neovim
+      <div class="px-6 pt-4 pb-2">
+
       </div>
-      
     </div>
   </a>
   
