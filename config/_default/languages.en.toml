@@ -15,9 +15,8 @@ dateFormat = "2006-01-02"
 [author]
   name = "lelouvincx"
   image = "img/avatar.png"
-  # headline = "I'm writing about data science, dev life, productivity, and linux. Let's discover!"
-  headline = "Mình viết về data science, software, productivity, và linux. Cùng khám phá ở dưới nha!"
-  bio = "Hi! I'm lelouvincx. I'm writing about data science, dev life, productivity, linux... Let's discover!"
+  headline = "Mình viết về data engineering, software, productivity, và linux. Cùng khám phá ở dưới nhé!"
+  bio = "Hi! I'm lelouvincx. I'm writing about data engineering, dev life, productivity, and linux... Let's discover!"
   links = [
     { email = "mailto:dinhminhchinh3357@duck.com" },
     { linkedin = "https://linkedin.com/in/lelouvincx" },

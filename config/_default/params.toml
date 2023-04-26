@@ -18,7 +18,7 @@ mainSections = ["posts", "projects"]
 defaultBackgroundImage = "img/background.jpg" # used as default for background images 
 
 [header]
-  layout = "basic" # valid options: basic, fixed
+  layout = "fixed" # valid options: basic, fixed, fixed-fill, fixed-fill-blur
 
 [footer]
   showMenu = true
@@ -31,23 +31,23 @@ defaultBackgroundImage = "img/background.jpg" # used as default for background i
   layout = "background" # valid options: page, profile, hero, card, background, custom
   # homepageImage = "img/background.jpg" # used in: hero, and card
   showRecent = true
-  showRecentItems = 8
+  showRecentItems = 12
   showMoreLink = true
   showMoreLinkDest = "/posts"
-  cardView = false
+  cardView = true
   cardViewScreenWidth = false
   layoutBackgroundBlur = true # only used when layout equals background
 
 [article]
   showDate = false
-  #showViews = true
-  #showLikes = true
+  showViews = false
+  showLikes = false
   showDateUpdated = false
   showAuthor = true
   showHero = true
-  heroStyle = "basic" # valid options: basic, big, background, thumbAndBackground
-  layoutBackgroundBlur = false # only used when heroStyle equals background or thumbAndBackground
-  layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
+  heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+  layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
+  layoutBackgroundHeaderSpace = false # only used when heroStyle equals background
   showBreadcrumbs = true
   showDraftLabel = true
   showEdit = false
@@ -57,13 +57,13 @@ defaultBackgroundImage = "img/background.jpg" # used as default for background i
   showHeadingAnchors = true
   showPagination = true
   invertPagination = false
-  showReadingTime = false
+  showReadingTime = true
   showTableOfContents = true
   showTaxonomies = true 
   showAuthorsBadges = true 
   showWordCount = false
   showSummary = true
-  sharingLinks = [ "linkedin", "twitter", "facebook", "email"]
+  sharingLinks = [ "linkedin", "twitter", "facebook", "reddit" ]
 
 [list]
   showHero = true
@@ -72,8 +72,8 @@ defaultBackgroundImage = "img/background.jpg" # used as default for background i
   layoutBackgroundHeaderSpace = false # only used when heroStyle equals background
   showBreadcrumbs = false
   showSummary = true
-  #showViews = true
-  #showLikes = true
+  showViews = false
+  showLikes = false
   showTableOfContents = true
   showCards = true
   groupByYear = false

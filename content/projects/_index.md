@@ -5,5 +5,5 @@ description: "My projects shown here."
 cascade:
   showDate: false
   showAuthor: false
-  invertPagination: true
+  invertPagination: false
 ---

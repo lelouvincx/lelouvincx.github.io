@@ -5,7 +5,7 @@ title: "What I'm doing now"
 {{< lead >}}
 Cập nhật ngày 19/04/2023, Việt Nam.
 
-Hành trình vạn dặm khởi đầu bằng bước chân đầu tiên.
+Hành trình vạn dặm khởi đầu từ bước chân đầu tiên.
 ~ _Lão Tử_
 {{< /lead >}}
 
