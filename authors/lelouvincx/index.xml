@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>lelouvincx&#39;s blog</title>
-    <link>https://lelouvincx.github.io/</link>
-    <description>Recent content on lelouvincx&#39;s blog</description>
+    <title>lelouvincx on lelouvincx&#39;s blog</title>
+    <link>https://lelouvincx.github.io/authors/lelouvincx/</link>
+    <description>Recent content in lelouvincx on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/authors/lelouvincx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Goodreads ELT pipelines</title>
       <link>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</link>
@@ -14,7 +14,15 @@
       
       <guid>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</guid>
       <description>Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://lelouvincx.github.io/projects/</link>
+      <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/projects/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -24,7 +32,15 @@
       
       <guid>https://lelouvincx.github.io/posts/oh-my-zsh-to-zim/</guid>
       <description>Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/posts/oh-my-zsh-to-zim/featured.png" />
+    </item>
+    
+    <item>
+      <title>Posts</title>
+      <link>https://lelouvincx.github.io/posts/</link>
+      <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/posts/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -34,7 +50,6 @@
       
       <guid>https://lelouvincx.github.io/posts/neovim-setup-ruby/</guid>
       <description>Hướng dẫn setup môi trường phát triển Ruby trên Neovim</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/posts/neovim-setup-ruby/featured.png" />
     </item>
     
     <item>
@@ -44,7 +59,6 @@
       
       <guid>https://lelouvincx.github.io/projects/fde_project/</guid>
       <description>Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/projects/fde_project/featured.jpg" />
     </item>
     
   </channel>
