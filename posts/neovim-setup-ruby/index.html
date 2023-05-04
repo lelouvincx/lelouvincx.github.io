@@ -896,7 +896,7 @@ gem install --user-install solargraph
 </code></pre></div><p>Hoặc thêm dòng sau vào Gemfile:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">&#39;solargraph&#39;</span><span class="p">,</span> <span class="ss">group</span><span class="p">:</span> <span class="ss">:development</span>
 </code></pre></div><p>Tiếp theo vào Neovim và mở mason: <code>:Mason</code>, tìm và cài 2 gói sau: <code>solargraph</code> và <code>rubocop</code>.</p>
-<p>Nếu có config LSP theo dotfiles của mình, bạn chỉ cần thêm đoạn sau vào <code>~/config/nvim/lua/$USER/plugins/lsp/lspconfig.lua</code>:</p>
+<p>Nếu có config LSP theo dotfiles của mình, bạn chỉ cần thêm đoạn sau vào ~/config/nvim/lua/$USER/plugins/lsp/lspconfig.lua:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-lua" data-lang="lua"><span class="c1">-- ...</span>
 <span class="c1">-- configure ruby language server</span>
 <span class="n">lspconfig</span><span class="p">[</span><span class="s2">&#34;solargraph&#34;</span><span class="p">].</span><span class="n">setup</span><span class="p">({</span>
