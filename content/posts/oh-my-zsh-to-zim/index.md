@@ -1,6 +1,6 @@
 ---
 title: "Chuyển nhà từ oh-my-zsh sang zimfw"
-date: 2023-31-1
+date: 2023-01-31
 draft: false
 description: "Trong bài này mình sẽ hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này"
 summary: "Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này"

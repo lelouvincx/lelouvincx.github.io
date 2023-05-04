@@ -1,6 +1,6 @@
 ---
 title: "Code Ruby trên Neovim"
-date: 2023-1-1
+date: 2023-01-01
 draft: false
 description: "Hướng dẫn setup môi trường phát triển Ruby trên Neovim"
 summary: "Hướng dẫn setup môi trường phát triển Ruby trên Neovim"

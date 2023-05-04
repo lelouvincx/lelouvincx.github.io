@@ -23,6 +23,7 @@ dateFormat = "2006-01-02"
     { github = "https://github.com/lelouvincx" },
     { gitlab = "https://gitlab.com/lelouvincx" },
     { stack-overflow = "https://stackoverflow.com/users/10793419/lelouvincx" },
+    { goodreads = "https://www.goodreads.com/user/show/73433536-lelouvincx" },
   #   { dev = "https://dev.to/username" },
   #   { discord = "https://discord.gg/invitecode" },
   #   { facebook = "https://facebook.com/username" },

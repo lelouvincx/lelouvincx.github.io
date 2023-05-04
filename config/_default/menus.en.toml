@@ -61,7 +61,7 @@
   pageRef = "categories"
   weight = 20
 
-[[footer]]
-  name = "Open Analytics"
-  pageRef = ""
-  weight = 30
+# [[footer]]
+#   name = "Open Analytics"
+#   pageRef = ""
+#   weight = 30
