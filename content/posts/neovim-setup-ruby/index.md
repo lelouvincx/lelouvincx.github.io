@@ -48,7 +48,7 @@ gem 'solargraph', group: :development
 
 Tiếp theo vào Neovim và mở mason: `:Mason`, tìm và cài 2 gói sau: `solargraph` và `rubocop`.
 
-Nếu có config LSP theo dotfiles của mình, bạn chỉ cần thêm đoạn sau vào `~/config/nvim/lua/$USER/plugins/lsp/lspconfig.lua`:
+Nếu có config LSP theo dotfiles của mình, bạn chỉ cần thêm đoạn sau vào ~/config/nvim/lua/$USER/plugins/lsp/lspconfig.lua:
 
 ```lua
 -- ...

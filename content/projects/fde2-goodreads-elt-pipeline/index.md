@@ -20,7 +20,17 @@ Demo video
 {{< /alert >}}
 </br>
 
-<iframe src="https://www.facebook.com/plugins/video.php?height=317&href=https%3A%2F%2Fwww.facebook.com%2Faideinstitutevietnam%2Fvideos%2F622101275993767%2F&show_text=false&width=625&t=9600" width="625" height="317" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+<iframe
+    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Faideinstitutevietnam%2Fvideos%2F622101275993767%2F&show_text=false&t=9600"
+    style="border:none;overflow:hidden"
+    width=100%
+    height=350
+    scrolling="no"
+    frameborder="0"
+    allowfullscreen="true"
+    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+    allowFullScreen="true">
+</iframe>
 
 ## 1. Introduction
 
@@ -441,7 +451,7 @@ make psql_create
 
 ### 5.1 Exploratory Data Analysis
 
-Chi tiết xem ở gist: <https://gist.github.com/lelouvincx/a88fa6caf59d7ff76086ab485ecc69bd>
+Chi tiết xem ở [gist](https://gist.github.com/lelouvincx/a88fa6caf59d7ff76086ab485ecc69bd)
 
 ### 5.2 Extract (MySQL/API)
 

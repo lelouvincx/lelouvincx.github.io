@@ -14,7 +14,7 @@ Trong project này mình sẽ hướng dẫn xây dựng một data pipeline cơ
 
 Project này hoàn thành dựa trên kiến thức đã học được từ khóa Fundamental Data Engineering của AIDE. Xin gửi lời cảm ơn đặc biệt tới thầy Nguyễn Thanh Bình, anh Ông Xuân Hồng và anh Hùng Lê.
 
-{{< gitlab projectID="41290360" >}}
+{{< github repo="lelouvincx/spotify-data-pipeline-ingestion" >}}
 
 ## 2. Objective
 
