@@ -122,9 +122,8 @@ defaultBackgroundImage = "img/background.jpg" # used as default for background i
 [buymeacoffee]
   identifier = "lelouvincx"
   globalWidget = true
-  globalWidgetMessage = "Hi! How about your day? Let's buy me a coffee!"
+  globalWidgetMessage = ""
   globalWidgetColor = "#BEE5B0"
-  globalWidgetPosition = "Right"
 
 [verification]
   # google = ""
