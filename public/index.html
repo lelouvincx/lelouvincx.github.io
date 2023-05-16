@@ -33,12 +33,12 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.71ceac099f7e0639a8ba6a8147aa1adde5c0052df09f536e5d4f28313d7855caad46570b2254fa5c2da0d692919e21dd340478ad9cf54a25909467502ed55f49.css"
-    integrity="sha512-cc6sCZ9&#43;BjmoumqBR6oa3eXABS3wn1NuXU8oMT14VcqtRlcLIlT6XC2g1pKRniHdNAR4rZz1SiWQlGdQLtVfSQ==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.685036c58db59ebf90ddf220501d3d69e675d8a52f92087444b0440ec6b79ec98f6042a12545e97e174320c8782aeb7e0556e1fa59f68f2326bbd7f747e744b2.css"
+    integrity="sha512-aFA2xY21nr&#43;Q3fIgUB09aeZ12KUvkgh0RLBEDsa3nsmPYEKhJUXpfhdDIMh4Kut&#43;BVbh&#43;ln2jyMmu9f3R&#43;dEsg==" />
   
   
-  <script type="text/javascript" src="/js/appearance.min.3508351f0d2322ec03ef8ac4710aedb9fb7aea7d643c74ed34e35458b0fa4de9060522eca162d3de142defab8d9c5ccf9873a25cba9550026d430f0a64326770.js"
-    integrity="sha512-NQg1Hw0jIuwD74rEcQrtuft66n1kPHTtNONUWLD6TekGBSLsoWLT3hQt76uNnFzPmHOiXLqVUAJtQw8KZDJncA=="></script>
+  <script type="text/javascript" src="/js/appearance.min.a309703532996bb908ddb69d7d15af7ea2848ddcd4f60a8e614f2904689fdb72d61c9ecf12c67302194589aabbadb3d34f33dbe0265fb1eaf6efb2c020496bba.js"
+    integrity="sha512-owlwNTKZa7kI3badfRWvfqKEjdzU9gqOYU8pBGif23LWHJ7PEsZzAhlFiaq7rbPTTzPb4CZfser277LAIElrug=="></script>
   
   
   
@@ -118,6 +118,9 @@
   <link href="https://stackoverflow.com/users/10793419/lelouvincx" rel="me" />
   
   
+  <link href="https://www.goodreads.com/user/show/73433536-lelouvincx" rel="me" />
+  
+  
   
   
 
@@ -144,6 +147,17 @@
   
   
   
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PW1F2X7CRE"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-PW1F2X7CRE', { 'anonymize_ip': false });
+}
+</script>
+
 
 
   
@@ -184,7 +198,11 @@
   </div>
   
   
-  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
     class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
     
     <div class="flex flex-1 items-center justify-between">
@@ -222,7 +240,7 @@
   <div>
   <div class="cursor-pointer flex items-center nested-menu">
     
-    <a class="text-base font-medium text-gray-500 hover:text-gray-900" title="Resources">
+    <a  href="/resources/"   class="text-base font-medium text-gray-500 hover:text-gray-900" title="Resources">
       Resources
     </a>
     <span>
@@ -283,6 +301,7 @@
     </div>
   </div>
 </div>
+
 
 
             
@@ -581,6 +600,16 @@
 
 
 
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
   
   <div class="relative flex flex-col grow">
     <main id="main-content" class="grow">
@@ -606,7 +635,7 @@
                     </div>
                     
                 </div>
-                <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8 flex flex-col items-center justify-center text-center">
+                <div class="relative px-8 py-16 flex flex-col items-center justify-center text-center">
                     
                     
                     
@@ -620,7 +649,7 @@
                     </h1>
                     
                     <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
-                        Mình viết về data science, software, productivity, và linux. Cùng khám phá ở dưới nha!
+                        Mình viết về data engineering, software, productivity, và linux. Cùng khám phá ở dưới nhé!
                     </h2>
                     
                     <div class="mt-1 mb-10 text-2xl">
@@ -687,6 +716,18 @@
 </a>
                             
                             
+                            
+                            <a class="px-2 hover:text-primary-400 text-primary-800 dark:text-primary-200" href="https://www.goodreads.com/user/show/73433536-lelouvincx" target="_blank"
+                                aria-label="Goodreads" rel="me noopener noreferrer">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+<path fill="currentColor" d="M299.9 191.2c5.1 37.3-4.7 79-35.9 100.7-22.3 15.5-52.8 14.1-70.8 5.7-37.1-17.3-49.5-58.6-46.8-97.2 4.3-60.9 40.9-87.9 75.3-87.5 46.9-.2 71.8 31.8 78.2 78.3zM448 88v336c0 30.9-25.1 56-56 56H56c-30.9 0-56-25.1-56-56V88c0-30.9 25.1-56 56-56h336c30.9 0 56 25.1 56 56zM330 313.2s-.1-34-.1-217.3h-29v40.3c-.8.3-1.2-.5-1.6-1.2-9.6-20.7-35.9-46.3-76-46-51.9.4-87.2 31.2-100.6 77.8-4.3 14.9-5.8 30.1-5.5 45.6 1.7 77.9 45.1 117.8 112.4 115.2 28.9-1.1 54.5-17 69-45.2.5-1 1.1-1.9 1.7-2.9.2.1.4.1.6.2.3 3.8.2 30.7.1 34.5-.2 14.8-2 29.5-7.2 43.5-7.8 21-22.3 34.7-44.5 39.5-17.8 3.9-35.6 3.8-53.2-1.2-21.5-6.1-36.5-19-41.1-41.8-.3-1.6-1.3-1.3-2.3-1.3h-26.8c.8 10.6 3.2 20.3 8.5 29.2 24.2 40.5 82.7 48.5 128.2 37.4 49.9-12.3 67.3-54.9 67.4-106.3z"/></svg>
+  </span>
+
+</a>
+                            
+                            
                         </div>
                         
                     </div>
@@ -709,47 +750,31 @@
   
 
 
-<section class="space-y-10 w-full">
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
   
   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a class="flex flex-wrap article border border-neutral-200 dark:border-neutral-700 border-2 rounded-md backdrop-blur" href="/projects/fde2-goodreads-elt-pipeline/">
+  <a href="/projects/fde2-goodreads-elt-pipeline/" class="min-w-full">
     
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative backdrop-blur">
         
-        <div class="w-full md:w-auto h-full thumbnail nozoom " style="background-image:url(/projects/fde2-goodreads-elt-pipeline/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_4789729_600x0_resize_q75_box.jpg);"></div>
+        <div class="w-full thumbnail_card nozoom" style="background-image:url(/projects/fde2-goodreads-elt-pipeline/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_4789729_600x0_resize_q75_box.jpg);"></div>
         
-      <div class=" p-4">
-      <div class="items-center text-xl font-semibold">
+      
+
+      <div class="px-6 py-4">
+
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
           href="/projects/fde2-goodreads-elt-pipeline/">Goodreads ELT pipelines</div>
         
-        
-        
-      </div>
-      <div class="text-sm text-neutral-500 dark:text-neutral-400">
-        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
 
 
 
@@ -780,25 +805,13 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
+  <time datetime="2023-04-16 00:00:00 &#43;0000 UTC">2023-04-16</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">17 mins</span>
+  
 
   
   
 </div>
 
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
 
 
 
@@ -902,54 +915,298 @@
 
 
 
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads
+        </div>
+        
       </div>
-      
-      <div class="py-1 max-w-fit prose dark:prose-invert">
-        Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads
+      <div class="px-6 pt-4 pb-2">
+
       </div>
-      
     </div>
   </a>
   
   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a class="flex flex-wrap article border border-neutral-200 dark:border-neutral-700 border-2 rounded-md backdrop-blur" href="/projects/fde_project/">
+  <a href="/posts/oh-my-zsh-to-zim/" class="min-w-full">
     
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative backdrop-blur">
         
-        <div class="w-full md:w-auto h-full thumbnail nozoom " style="background-image:url(/projects/fde_project/featured_hu05d880aff69880235c444aa05d37e813_150482_600x0_resize_q75_box.jpg);"></div>
+        <div class="w-full thumbnail_card nozoom" style="background-image:url(/posts/oh-my-zsh-to-zim/featured_hu8fda6ddd1c05d3c9fb2760353392f916_92240_600x0_resize_box_3.png);"></div>
         
-      <div class=" p-4">
-      <div class="items-center text-xl font-semibold">
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/oh-my-zsh-to-zim/">Chuyển nhà từ oh-my-zsh sang zimfw</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2023-01-31 00:00:00 &#43;0000 UTC">2023-01-31</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/linux/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    linux
+  </span>
+</span>
+
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/zsh/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    zsh
+  </span>
+</span>
+
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/zimfw/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    zimfw
+  </span>
+</span>
+
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+  
+  
+
+  <a href="/posts/neovim-setup-ruby/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative backdrop-blur">
+        
+        <div class="w-full thumbnail_card nozoom" style="background-image:url(/posts/neovim-setup-ruby/featured_hu7921b84e37b4951668865b6f4724dc5f_18820_600x0_resize_box_3.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/neovim-setup-ruby/">Code Ruby trên Neovim</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2023-01-01 00:00:00 &#43;0000 UTC">2023-01-01</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/vim/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    vim
+  </span>
+</span>
+
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ruby/&#34;,'_self');">
+    <span class="flex">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
+  >
+    ruby
+  </span>
+</span>
+
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Hướng dẫn setup môi trường phát triển Ruby trên Neovim
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+  
+  
+
+  <a href="/projects/fde_project/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative backdrop-blur">
+        
+        <div class="w-full thumbnail_card nozoom" style="background-image:url(/projects/fde_project/featured_hu05d880aff69880235c444aa05d37e813_150482_600x0_resize_q75_box.jpg);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
           href="/projects/fde_project/">Spotify data pipeline ingestion</div>
         
-        
-        
-      </div>
-      <div class="text-sm text-neutral-500 dark:text-neutral-400">
-        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
 
 
 
@@ -980,25 +1237,13 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
+  <time datetime="2022-12-18 00:00:00 &#43;0000 UTC">2022-12-18</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">11 mins</span>
+  
 
   
   
 </div>
 
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
 
 
 
@@ -1080,313 +1325,17 @@
 
 
 
-      </div>
-      
-      <div class="py-1 max-w-fit prose dark:prose-invert">
-        Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)
-      </div>
-      
-    </div>
-  </a>
-  
-  
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a class="flex flex-wrap article border border-neutral-200 dark:border-neutral-700 border-2 rounded-md backdrop-blur" href="/posts/oh-my-zsh-to-zim/">
-    
         
-        <div class="w-full md:w-auto h-full thumbnail nozoom " style="background-image:url(/posts/oh-my-zsh-to-zim/featured_hu8fda6ddd1c05d3c9fb2760353392f916_92240_600x0_resize_box_3.png);"></div>
-        
-      <div class=" p-4">
-      <div class="items-center text-xl font-semibold">
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/oh-my-zsh-to-zim/">Chuyển nhà từ oh-my-zsh sang zimfw</div>
-        
-        
+        <div class="py-1 prose dark:prose-invert">
+          Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)
+        </div>
         
       </div>
-      <div class="text-sm text-neutral-500 dark:text-neutral-400">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/linux/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
-    linux
-  </span>
-</span>
-
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/zsh/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
-    zsh
-  </span>
-</span>
-
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/zimfw/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
-    zimfw
-  </span>
-</span>
-
-  </span>
-  
-  
-  
-  
-</div>
-
-
+      <div class="px-6 pt-4 pb-2">
 
       </div>
-      
-      <div class="py-1 max-w-fit prose dark:prose-invert">
-        Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này
-      </div>
-      
-    </div>
-  </a>
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a class="flex flex-wrap article border border-neutral-200 dark:border-neutral-700 border-2 rounded-md backdrop-blur" href="/posts/neovim-setup-ruby/">
-    
-        
-        <div class="w-full md:w-auto h-full thumbnail nozoom " style="background-image:url(/posts/neovim-setup-ruby/featured_hu7921b84e37b4951668865b6f4724dc5f_18820_600x0_resize_box_3.png);"></div>
-        
-      <div class=" p-4">
-      <div class="items-center text-xl font-semibold">
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/neovim-setup-ruby/">Code Ruby trên Neovim</div>
-        
-        
-        
-      </div>
-      <div class="text-sm text-neutral-500 dark:text-neutral-400">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/vim/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
-    vim
-  </span>
-</span>
-
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ruby/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
-    ruby
-  </span>
-</span>
-
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-      </div>
-      
-      <div class="py-1 max-w-fit prose dark:prose-invert">
-        Hướng dẫn setup môi trường phát triển Ruby trên Neovim
-      </div>
-      
     </div>
   </a>
   
@@ -1422,7 +1371,7 @@
   
 
       
-    </main><footer class="py-10 print:hidden">
+    </main><footer id="site-footer" class="py-10 print:hidden">
   
   
     
@@ -1437,11 +1386,6 @@
         <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
           <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="/categories/"
             title="Categories">Categories</a>
-        </li>
-        
-        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href=""
-            title="">Open Analytics</a>
         </li>
         
       </ul>
@@ -1474,7 +1418,7 @@
   </script>
   
   
-  <script type="text/javascript" src="/js/process.min.e7c3599dbb1cedb20b622602837cde52ffd76433ccf3544defb2f071860d81580f68eb150111f9b7fabdeda3aacb803d34d2d8a0a0a9f10410e9d20b98b1f4a1.js" integrity="sha512-58NZnbsc7bILYiYCg3zeUv/XZDPM81RN77LwcYYNgVgPaOsVARH5t/q97aOqy4A9NNLYoKCp8QQQ6dILmLH0oQ=="></script>
+  <script type="text/javascript" src="/js/process.min.d836b489a45bffaed02affef469dc781911093c17ac7e121d202f83b8d70851d11fd2131d16237b2524fb1087234800afa0e42fcf043825ac1846a1916976240.js" integrity="sha512-2Da0iaRb/67QKv/vRp3HgZEQk8F6x&#43;Eh0gL4O41whR0R/SEx0WI3slJPsQhyNIAK&#43;g5C/PBDglrBhGoZFpdiQA=="></script>
   
   
 </footer><div
@@ -1534,7 +1478,7 @@
 </body>
 
 <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-  data-id="lelouvincx" data-description="Support me on Buy me a coffee!" data-message="Hi! How about your day? Let&#39;s buy me a coffee!"
-  data-color="#BEE5B0" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+  data-id="lelouvincx" data-description="Support me on Buy me a coffee!" data-message=""
+  data-color="#BEE5B0" data-position="Left" data-x_margin="18" data-y_margin="18"></script>
 
 </html>
