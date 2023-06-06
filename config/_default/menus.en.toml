@@ -18,35 +18,35 @@
 [[main]]
   name = "Resume"
   parent = "Resources"
-  pageRef = ""
+  pageRef = "resources/resume"
   weight = 10
 
 [[main]]
   name = "Recommendations"
   parent = "Resources"
-  pageRef = ""
+  pageRef = "resources/recommendations"
   weight = 20
 
 [[main]]
   name = "Reading list"
   parent = "Resources"
-  pageRef = ""
+  pageRef = "resources/reading-list"
   weight = 30
 
 [[main]]
   name = "List 100"
   parent = "Resources"
-  pageRef = ""
+  pageRef = "resources/list-100"
   weight = 40
 
 [[main]]
   name = "Now"
-  pageRef = "now"
+  pageRef = "resources/now"
   weight = 50
 
 [[main]]
   name = "About"
-  pageRef = "about"
+  pageRef = "resources/about"
   weight = 60
 
 # -- Footer Menu --

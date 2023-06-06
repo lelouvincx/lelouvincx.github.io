@@ -1,7 +1,9 @@
 ---
 title: "About me"
-
-showTableOfContents: true
+date: 2023-28-05
+draft: false
+description: "About me"
+summary: "Introduction about me"
 ---
 
 Xin chào! Mình là lelouvincx, bình thường mọi người gọi là Chính, tác giả của blog này. Bạn có thể gọi mình theo cả hai cách đều được.

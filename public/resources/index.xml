@@ -6,5 +6,59 @@
     <description>Recent content in Resources on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language><atom:link href="https://lelouvincx.github.io/resources/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://lelouvincx.github.io/resources/reading-list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/resources/reading-list/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lelouvincx.github.io/resources/recommendations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/resources/recommendations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lelouvincx.github.io/resources/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/resources/resume/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://lelouvincx.github.io/resources/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/resources/about/</guid>
+      <description>Introduction about me</description>
+    </item>
+    
+    <item>
+      <title>My reading list</title>
+      <link>https://lelouvincx.github.io/resources/list-100/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/resources/list-100/</guid>
+      <description>My reading list</description>
+    </item>
+    
+    <item>
+      <title>What I&#39;m doing now</title>
+      <link>https://lelouvincx.github.io/resources/now/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/resources/now/</guid>
+      <description>What lelouvincx&amp;rsquo;s doing now?</description>
+    </item>
+    
   </channel>
 </rss>

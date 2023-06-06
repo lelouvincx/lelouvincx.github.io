@@ -1,5 +1,9 @@
 ---
 title: "What I'm doing now"
+date: 2023-28-05
+draft: false
+description: "What lelouvincx's doing now"
+summary: "What lelouvincx's doing now?"
 ---
 
 {{< lead >}}
