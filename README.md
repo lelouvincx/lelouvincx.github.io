@@ -4,4 +4,32 @@ This is my portfolio for GitHub pages I created using [Hugo](https://gohugo.io/)
 
 Using [blowfish](https://github.com/nunocoracao/blowfish) theme.
 
-Nhan ia thui
+## Installation
+
+1. Clone the repository
+
+```
+git clone git@github.com:lelouvincx/lelouvincx.github.io.git 
+git submodule init
+git submodule update --remote --merge
+```
+
+2. Install hugo by asdf
+
+```bash
+asdf plugin add hugo
+asdf install hugo latest
+asdf global hugo latest
+```
+
+**Run the server:**
+
+```bash
+hugo server
+```
+
+**Build the server:**
+
+```bash
+hugo
+```
