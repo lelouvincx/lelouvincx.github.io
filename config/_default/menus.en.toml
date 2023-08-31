@@ -10,34 +10,34 @@
   pageRef = "projects"
   weight = 20
 
-[[main]]
-  name = "Resources"
-  pageRef = "resources"
-  weight = 30
+# [[main]]
+#   name = "Resources"
+#   pageRef = "resources"
+#   weight = 30
 
 [[main]]
   name = "Resume 📎"
-  parent = "Resources"
+  # parent = "Resources"
   url = "https://drive.google.com/file/d/169DqMlba_dWbs6IaTxmPWCwLmiy_MtMO/view?usp=sharing"
-  weight = 10
-
-[[main]]
-  name = "Recommendations"
-  parent = "Resources"
-  pageRef = "resources/recommendations"
-  weight = 20
-
-[[main]]
-  name = "Reading list"
-  parent = "Resources"
-  pageRef = "resources/reading-list"
   weight = 30
 
-[[main]]
-  name = "List 100"
-  parent = "Resources"
-  pageRef = "resources/list-100"
-  weight = 40
+# [[main]]
+#   name = "Recommendations"
+#   parent = "Resources"
+#   pageRef = "resources/recommendations"
+#   weight = 20
+
+# [[main]]
+#   name = "Reading list"
+#   parent = "Resources"
+#   pageRef = "resources/reading-list"
+#   weight = 30
+
+# [[main]]
+#   name = "List 100"
+#   parent = "Resources"
+#   pageRef = "resources/list-100"
+#   weight = 40
 
 [[main]]
   name = "Now"

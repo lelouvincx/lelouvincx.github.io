@@ -6,6 +6,7 @@
     <description>Recent content in data engineering on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2023 lelouvincx</copyright>
     <lastBuildDate>Sun, 16 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/categories/data-engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Goodreads ELT pipelines</title>
@@ -14,6 +15,7 @@
       
       <guid>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</guid>
       <description>Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/featured.jpg" />
     </item>
     
     <item>
@@ -23,6 +25,7 @@
       
       <guid>https://lelouvincx.github.io/projects/fde_project/</guid>
       <description>Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/projects/fde_project/featured.jpg" />
     </item>
     
   </channel>

@@ -6,6 +6,7 @@
     <description>Recent content in lelouvincx on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2023 lelouvincx</copyright>
     <lastBuildDate>Sun, 16 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/authors/lelouvincx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Goodreads ELT pipelines</title>
@@ -14,15 +15,7 @@
       
       <guid>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</guid>
       <description>Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads</description>
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>https://lelouvincx.github.io/projects/</link>
-      <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://lelouvincx.github.io/projects/</guid>
-      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/featured.jpg" />
     </item>
     
     <item>
@@ -32,15 +25,17 @@
       
       <guid>https://lelouvincx.github.io/posts/oh-my-zsh-to-zim/</guid>
       <description>Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/posts/oh-my-zsh-to-zim/featured.png" />
     </item>
     
     <item>
-      <title>Posts</title>
-      <link>https://lelouvincx.github.io/posts/</link>
-      <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
+      <title>Code Ruby trên Neovim</title>
+      <link>https://lelouvincx.github.io/posts/kafka-python-vs-java/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/posts/</guid>
-      <description></description>
+      <guid>https://lelouvincx.github.io/posts/kafka-python-vs-java/</guid>
+      <description>Hướng dẫn setup môi trường phát triển Ruby trên Neovim</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/posts/kafka-python-vs-java/featured.png" />
     </item>
     
     <item>
@@ -50,6 +45,7 @@
       
       <guid>https://lelouvincx.github.io/posts/neovim-setup-ruby/</guid>
       <description>Hướng dẫn setup môi trường phát triển Ruby trên Neovim</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/posts/neovim-setup-ruby/featured.png" />
     </item>
     
     <item>
@@ -59,6 +55,7 @@
       
       <guid>https://lelouvincx.github.io/projects/fde_project/</guid>
       <description>Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/projects/fde_project/featured.jpg" />
     </item>
     
     <item>
@@ -68,6 +65,7 @@
       
       <guid>https://lelouvincx.github.io/resources/reading-list/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -77,6 +75,7 @@
       
       <guid>https://lelouvincx.github.io/resources/recommendations/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -86,6 +85,7 @@
       
       <guid>https://lelouvincx.github.io/resources/resume/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -95,6 +95,7 @@
       
       <guid>https://lelouvincx.github.io/resources/about/</guid>
       <description>Introduction about me</description>
+      
     </item>
     
     <item>
@@ -104,6 +105,27 @@
       
       <guid>https://lelouvincx.github.io/resources/list-100/</guid>
       <description>My reading list</description>
+      
+    </item>
+    
+    <item>
+      <title>Posts</title>
+      <link>https://lelouvincx.github.io/posts/</link>
+      <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/posts/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://lelouvincx.github.io/projects/</link>
+      <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/projects/</guid>
+      <description></description>
+      
     </item>
     
     <item>
@@ -113,6 +135,7 @@
       
       <guid>https://lelouvincx.github.io/resources/</guid>
       <description>My personal stuff shown here.</description>
+      
     </item>
     
     <item>
@@ -122,6 +145,7 @@
       
       <guid>https://lelouvincx.github.io/resources/now/</guid>
       <description>What lelouvincx&amp;rsquo;s doing now?</description>
+      
     </item>
     
   </channel>

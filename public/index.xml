@@ -6,6 +6,7 @@
     <description>Recent content on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2023 lelouvincx</copyright>
     <lastBuildDate>Sun, 16 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Goodreads ELT pipelines</title>
@@ -25,6 +26,16 @@
       <guid>https://lelouvincx.github.io/posts/oh-my-zsh-to-zim/</guid>
       <description>Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/posts/oh-my-zsh-to-zim/featured.png" />
+    </item>
+    
+    <item>
+      <title>Code Ruby trên Neovim</title>
+      <link>https://lelouvincx.github.io/posts/kafka-python-vs-java/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/posts/kafka-python-vs-java/</guid>
+      <description>Hướng dẫn setup môi trường phát triển Ruby trên Neovim</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/posts/kafka-python-vs-java/featured.png" />
     </item>
     
     <item>

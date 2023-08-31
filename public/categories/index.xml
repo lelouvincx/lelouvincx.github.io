@@ -6,6 +6,7 @@
     <description>Recent content in Categories on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2023 lelouvincx</copyright>
     <lastBuildDate>Sun, 16 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>data engineering</title>
@@ -14,6 +15,7 @@
       
       <guid>https://lelouvincx.github.io/categories/data-engineering/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -23,6 +25,7 @@
       
       <guid>https://lelouvincx.github.io/categories/linux/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -32,6 +35,7 @@
       
       <guid>https://lelouvincx.github.io/categories/vim/</guid>
       <description></description>
+      
     </item>
     
   </channel>
