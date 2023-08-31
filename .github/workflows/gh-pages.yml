@@ -14,13 +14,19 @@ jobs:
         with:
           submodules: true
           fetch-depth: 0
+
+      - name: Checkout submodules
+        run: ls /home/runner/work/lelouvincx.github.io/lelouvincx.github.io/themes/blowfish
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "0.117.0"
           extended: true
+
       - name: Build
         run: hugo
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
