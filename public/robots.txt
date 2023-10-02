@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://lelouvincx.github.io/sitemap.xml
