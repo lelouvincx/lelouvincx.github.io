@@ -24,16 +24,13 @@ jobs:
       - name: Install Blowfish module
         run: bash install-blowfish.sh
 
-      - name: List directory
-        run: ls -a
+      - name: Build
+        run: hugo
 
-      # - name: Build
-      #   run: hugo
-
-      # - name: Deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   if: ${{ github.ref == 'refs/heads/main' }}
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_branch: gh-pages
-      #     publish_dir: ./public
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./public
