@@ -21,6 +21,9 @@ jobs:
           hugo-version: "0.117.0"
           extended: true
 
+      - name: Install blowfish module
+        run: bash ./install-blowfish.sh
+
       - name: Build
         run: hugo
 

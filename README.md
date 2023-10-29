@@ -10,8 +10,8 @@ Using [blowfish](https://github.com/nunocoracao/blowfish) theme.
 
 ```
 git clone git@github.com:lelouvincx/lelouvincx.github.io.git 
-git submodule init
-git submodule update --remote --merge
+echo $GITHUB_ACCESS_TOKEN
+bash ./install-blowfish.sh
 ```
 
 2. Install hugo by asdf
