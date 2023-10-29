@@ -6,6 +6,7 @@
     <description>Recent content in ruby on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2023 lelouvincx</copyright>
     <lastBuildDate>Sun, 01 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code Ruby trên Neovim</title>
@@ -14,6 +15,7 @@
       
       <guid>https://lelouvincx.github.io/posts/neovim-setup-ruby/</guid>
       <description>Hướng dẫn setup môi trường phát triển Ruby trên Neovim</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/posts/neovim-setup-ruby/featured.png" />
     </item>
     
   </channel>
