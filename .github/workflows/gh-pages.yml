@@ -24,6 +24,9 @@ jobs:
       - name: Show directory
         run: ls -a
 
+      - name: Install Blowfish module
+        run: bash install-blowfish.sh
+
       - name: Build
         run: hugo
 
