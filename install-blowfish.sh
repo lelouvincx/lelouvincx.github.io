@@ -1,12 +1,12 @@
 #!/bin/bash
 set -e
 
-cd /home/lelouvincx/Repos/lelouvincx.github.io/
-
-latest_tag=$(curl -s -H "Content-Type:application/json" -u lelouvincx:$GITHUB_ACCESS_TOKEN \
-	"https://api.github.com/repos/nunocoracao/blowfish/releases/latest" |
-	grep '"tag_name":' |
-	sed -E 's/.*"([^"]+)".*/\1/')
+latest_tag=$(
+	curl -s -H "Content-Type:application/json" \
+		"https://api.github.com/repos/nunocoracao/blowfish/releases/latest" |
+		grep '"tag_name":' |
+		sed -E 's/.*"([^"]+)".*/\1/'
+)
 
 echo "=== Latest version: $latest_tag. ==="
 
