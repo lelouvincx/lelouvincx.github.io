@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 lelouvincx</copyright>
-    <atom:link href="https://lelouvincx.github.io/resources/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/resources/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What I&#39;m doing now</title>
+      <link>https://lelouvincx.github.io/resources/now/</link>
+      <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/resources/now/</guid>
+      <description>What lelouvincx&amp;rsquo;s doing now?</description>
+      
+    </item>
+    
     <item>
       <title></title>
       <link>https://lelouvincx.github.io/resources/reading-list/</link>
@@ -45,16 +55,6 @@
       
       <guid>https://lelouvincx.github.io/resources/list-100/</guid>
       <description>My reading list</description>
-      
-    </item>
-    
-    <item>
-      <title>What I&#39;m doing now</title>
-      <link>https://lelouvincx.github.io/resources/now/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lelouvincx.github.io/resources/now/</guid>
-      <description>What lelouvincx&amp;rsquo;s doing now?</description>
       
     </item>
     

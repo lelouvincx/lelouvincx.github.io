@@ -57,6 +57,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://lelouvincx.github.io/resources/</loc>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://lelouvincx.github.io/tags/spark/</loc>
     <lastmod>2024-01-13T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -64,6 +70,12 @@
   </url>
   <url>
     <loc>https://lelouvincx.github.io/tags/</loc>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lelouvincx.github.io/resources/now/</loc>
     <lastmod>2024-01-13T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -185,17 +197,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://lelouvincx.github.io/resources/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://lelouvincx.github.io/series/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://lelouvincx.github.io/resources/now/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
