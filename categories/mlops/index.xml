@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MLOps on lelouvincx&#39;s blog</title>
+    <link>https://lelouvincx.github.io/categories/mlops/</link>
+    <description>Recent content in MLOps on lelouvincx&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 lelouvincx</copyright>
+    <lastBuildDate>Sat, 13 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/categories/mlops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spark Data Platform</title>
+      <link>https://lelouvincx.github.io/projects/spark-data-platform/</link>
+      <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://lelouvincx.github.io/projects/spark-data-platform/</guid>
+      <description>Xây dựng data platform với on-premise Spark Cluster</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/projects/spark-data-platform/featured.png" />
+    </item>
+    
+  </channel>
+</rss>

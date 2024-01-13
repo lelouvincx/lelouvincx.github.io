@@ -4,25 +4,67 @@
 
   <url>
     <loc>https://lelouvincx.github.io/authors/</loc>
-    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://lelouvincx.github.io/categories/</loc>
-    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://lelouvincx.github.io/tags/dagster/</loc>
-    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://lelouvincx.github.io/categories/data-engineering/</loc>
-    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lelouvincx.github.io/tags/imdb/</loc>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lelouvincx.github.io/authors/lelouvincx/</loc>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lelouvincx.github.io/</loc>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lelouvincx.github.io/categories/mlops/</loc>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lelouvincx.github.io/projects/</loc>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lelouvincx.github.io/tags/spark/</loc>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lelouvincx.github.io/tags/</loc>
+    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
@@ -51,37 +93,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://lelouvincx.github.io/authors/lelouvincx/</loc>
-    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://lelouvincx.github.io/</loc>
-    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://lelouvincx.github.io/tags/minio/</loc>
-    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://lelouvincx.github.io/projects/</loc>
-    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://lelouvincx.github.io/tags/spark/</loc>
-    <lastmod>2023-04-16T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://lelouvincx.github.io/tags/</loc>
     <lastmod>2023-04-16T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
