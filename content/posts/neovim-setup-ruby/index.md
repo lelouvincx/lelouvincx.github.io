@@ -6,6 +6,7 @@ description: "Hướng dẫn setup môi trường phát triển Ruby trên Neovi
 summary: "Hướng dẫn setup môi trường phát triển Ruby trên Neovim"
 tags: ["ruby"]
 categories: ["vim"]
+showReadingTime: true
 ---
 
 ## 1. Tại sao nên đọc bài này?

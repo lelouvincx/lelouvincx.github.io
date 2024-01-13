@@ -6,6 +6,7 @@ description: "ELT data pipelines với bộ dữ liệu sách từ Goodreads"
 summary: "Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads"
 tags: ["ELT", "dbt", "dagster", "goodreads", "spark", "minio"]
 categories: ["data engineering"]
+showReadingTime: true
 ---
 
 Trong project này mình sẽ hướng dẫn xây dựng một data pipeline cơ bản theo mô hình ELT (extract - load - transform), sử dụng bộ dữ liệu từ goodreads để ingest, transform data phục vụ hệ thống recommend sách cho bản thân.

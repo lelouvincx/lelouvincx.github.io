@@ -6,6 +6,7 @@ description: "Trong bài này mình sẽ hướng dẫn cách chuyển từ oh-m
 summary: "Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này"
 tags: ["zsh", "zimfw"]
 categories: ["linux"]
+showReadingTime: true
 ---
 
 ## 1. Tại sao nên đọc bài này?

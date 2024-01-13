@@ -6,6 +6,7 @@ description: "Kafka bằng Python vs Java. Cái nào tốt hơn?"
 summary: "Kafka bằng Python vs Java. Cái nào tốt hơn?"
 tags: ["kafka"]
 categories: ["data engineering"]
+showReadingTime: true
 ---
 
 ## 1. Tại sao nên đọc bài này?

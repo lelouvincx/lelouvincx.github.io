@@ -6,6 +6,7 @@ description: "Data pipeline ELT để ingest dữ liệu từ MySQL và API đơ
 summary: "Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)"
 tags: ["ELT", "dagster", "AWS", "spotify"]
 categories: ["data engineering"]
+showReadingTime: true
 ---
 
 ## 1. Introduction
