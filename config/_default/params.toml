@@ -134,7 +134,7 @@ smartTOC = true
   # globalWidgetColor = "#BEE5B0"
 
 [verification]
-  google = "google-site-verification=WPBka757s4mWrKL_dUWO2qAYo4K4YBTlDSKG88q60aQ"
+  # google = ""
   # bing = ""
   # pinterest = ""
   # yandex = ""
