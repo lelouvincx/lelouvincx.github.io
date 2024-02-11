@@ -28,8 +28,8 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.2b4bebea7a930667b464f1045e311cebccfa295fd43dfb249a31d7b86f035a86b7e383c54d28d95282e61e6d9f515b6e2fdf347153eda013eb3d715e31ff72c6.css"
-    integrity="sha512-K0vr6nqTBme0ZPEEXjEc68z6KV/UPfskmjHXuG8DWoa344PFTSjZUoLmHm2fUVtuL980cVPtoBPrPXFeMf9yxg==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.b0d4aeb65335611c810957fcff4af94f45bb796b37facd9be6f7287ee03ce57038918ff5d4ac7a6ea77914fde6d3942c0243d3d17f90926c454b4ea3499e973a.css"
+    integrity="sha512-sNSutlM1YRyBCVf8/0r5T0W7eWs3&#43;s2b5vcofuA85XA4kY/11Kx6bqd5FP3m05QsAkPT0X&#43;QkmxFS06jSZ6XOg==" />
   
   
   <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
@@ -61,6 +61,8 @@
   
   
   
+  <meta name="google-site-verification" content="google-site-verification=WPBka757s4mWrKL_dUWO2qAYo4K4YBTlDSKG88q60aQ" />
+  
   
   
   
@@ -90,9 +92,6 @@
   
   
   <link href="https://github.com/lelouvincx" rel="me" />
-  
-  
-  <link href="https://gitlab.com/lelouvincx" rel="me" />
   
   
   <link href="https://stackoverflow.com/users/10793419/lelouvincx" rel="me" />
@@ -138,29 +137,6 @@
   
   
   <meta name="theme-color"/>
-  
-  
-  
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script>
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g",
-      authDomain: "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g",
-      projectId: "lelouvincx-blog",
-      storageBucket: "lelouvincx-blog.appspot.com",
-      messagingSenderId: "687151694094",
-      appId: "1:687151694094:web:1489248715ee5f7849d75f",
-      measurementId: "G-PW1F2X7CRE"
-    };
-
-    var app = firebase.initializeApp(firebaseConfig);
-    var db = firebase.firestore();
-    var auth = firebase.auth();
-
-  </script>
   
   
 </head>
@@ -457,6 +433,16 @@
 
 
 
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
 
   </div>
 </div>
@@ -586,7 +572,7 @@
 
 
 
-<div style="cursor: default;" class="flex flex-row flex-wrap items-center">
+<div class="flex flex-row flex-wrap items-center">
   
   
   <time datetime="2023-04-16 00:00:00 &#43;0000 UTC">2023-04-16</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">17 mins</span>
@@ -600,7 +586,7 @@
 
 
 
-<div style="cursor: pointer;" class="flex flex-row flex-wrap items-center">
+<div class="flex flex-row flex-wrap items-center">
   
   
   
@@ -608,14 +594,11 @@
   
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/data-engineering/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     data engineering
   </span>
 </span>
-
   </span>
   
   
@@ -627,69 +610,51 @@
   
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/elt/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     ELT
   </span>
 </span>
-
   </span>
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/dbt/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     dbt
   </span>
 </span>
-
   </span>
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/dagster/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     dagster
   </span>
 </span>
-
   </span>
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/goodreads/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     goodreads
   </span>
 </span>
-
   </span>
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/spark/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     spark
   </span>
 </span>
-
   </span>
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/minio/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     minio
   </span>
 </span>
-
   </span>
   
   
@@ -767,7 +732,7 @@
 
 
 
-<div style="cursor: default;" class="flex flex-row flex-wrap items-center">
+<div class="flex flex-row flex-wrap items-center">
   
   
   <time datetime="2022-12-18 00:00:00 &#43;0000 UTC">2022-12-18</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">11 mins</span>
@@ -781,7 +746,7 @@
 
 
 
-<div style="cursor: pointer;" class="flex flex-row flex-wrap items-center">
+<div class="flex flex-row flex-wrap items-center">
   
   
   
@@ -789,14 +754,11 @@
   
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/data-engineering/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     data engineering
   </span>
 </span>
-
   </span>
   
   
@@ -808,47 +770,35 @@
   
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/elt/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     ELT
   </span>
 </span>
-
   </span>
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/dagster/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     dagster
   </span>
 </span>
-
   </span>
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/aws/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     AWS
   </span>
 </span>
-
   </span>
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/spotify/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     spotify
   </span>
 </span>
-
   </span>
   
   
@@ -893,13 +843,19 @@
       <ul class="flex flex-col list-none sm:flex-row">
         
         <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="/tags/"
-            title="Tags">Tags</a>
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
+            title="Tags">
+            
+            Tags
+          </a>
         </li>
         
         <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="/categories/"
-            title="Categories">Categories</a>
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/categories/"
+            title="Categories">
+            
+            Categories
+          </a>
         </li>
         
       </ul>
@@ -990,9 +946,5 @@
 
   </div>
 </body>
-
-<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-  data-id="lelouvincx" data-description="Support me on Buy me a coffee!" data-message=""
-  data-color="#BEE5B0" data-position="Left" data-x_margin="18" data-y_margin="18"></script>
 
 </html>

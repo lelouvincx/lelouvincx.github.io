@@ -26,8 +26,8 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.2b4bebea7a930667b464f1045e311cebccfa295fd43dfb249a31d7b86f035a86b7e383c54d28d95282e61e6d9f515b6e2fdf347153eda013eb3d715e31ff72c6.css"
-    integrity="sha512-K0vr6nqTBme0ZPEEXjEc68z6KV/UPfskmjHXuG8DWoa344PFTSjZUoLmHm2fUVtuL980cVPtoBPrPXFeMf9yxg==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.b0d4aeb65335611c810957fcff4af94f45bb796b37facd9be6f7287ee03ce57038918ff5d4ac7a6ea77914fde6d3942c0243d3d17f90926c454b4ea3499e973a.css"
+    integrity="sha512-sNSutlM1YRyBCVf8/0r5T0W7eWs3&#43;s2b5vcofuA85XA4kY/11Kx6bqd5FP3m05QsAkPT0X&#43;QkmxFS06jSZ6XOg==" />
   
   
   <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
@@ -58,6 +58,8 @@
   <link rel="manifest" href="/site.webmanifest" />
   
   
+  
+  <meta name="google-site-verification" content="google-site-verification=WPBka757s4mWrKL_dUWO2qAYo4K4YBTlDSKG88q60aQ" />
   
   
   
@@ -120,9 +122,6 @@
   <link href="https://github.com/lelouvincx" rel="me" />
   
   
-  <link href="https://gitlab.com/lelouvincx" rel="me" />
-  
-  
   <link href="https://stackoverflow.com/users/10793419/lelouvincx" rel="me" />
   
   
@@ -166,29 +165,6 @@
   
   
   <meta name="theme-color"/>
-  
-  
-  
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script>
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g",
-      authDomain: "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g",
-      projectId: "lelouvincx-blog",
-      storageBucket: "lelouvincx-blog.appspot.com",
-      messagingSenderId: "687151694094",
-      appId: "1:687151694094:web:1489248715ee5f7849d75f",
-      measurementId: "G-PW1F2X7CRE"
-    };
-
-    var app = firebase.initializeApp(firebaseConfig);
-    var db = firebase.firestore();
-    var auth = firebase.auth();
-
-  </script>
   
   
 </head>
@@ -485,6 +461,16 @@
 
 
 
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
 
   </div>
 </div>
@@ -617,7 +603,7 @@
 
 
 
-<div style="cursor: default;" class="flex flex-row flex-wrap items-center">
+<div class="flex flex-row flex-wrap items-center">
   
   
   <time datetime="2023-01-31 00:00:00 &#43;0000 UTC">2023-01-31</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
@@ -631,7 +617,7 @@
 
 
 
-<div style="cursor: pointer;" class="flex flex-row flex-wrap items-center">
+<div class="flex flex-row flex-wrap items-center">
   
   
   
@@ -639,14 +625,11 @@
   
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/linux/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     linux
   </span>
 </span>
-
   </span>
   
   
@@ -658,25 +641,19 @@
   
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/zsh/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     zsh
   </span>
 </span>
-
   </span>
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/zimfw/&#34;,'_self');">
-    <span class="flex">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400"
-  >
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     zimfw
   </span>
 </span>
-
   </span>
   
   
@@ -699,14 +676,14 @@
       
 <div class="flex author">
   
-  
-  
-  
-  
-  
-  <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
-    alt="lelouvincx" src="/img/avatar_hu7299a5c7c76cb28dbafd75b672f79c8c_283577_192x192_fill_box_smart1_3.png" />
-  
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="lelouvincx" src="/img/avatar_hu7299a5c7c76cb28dbafd75b672f79c8c_283577_192x192_fill_box_smart1_3.png" />
+    
   
   <div class="place-self-center">
     
@@ -770,24 +747,6 @@
 
   <span class="relative block icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-
-  </span>
-
-</span></a
-        >
-      
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://gitlab.com/lelouvincx"
-          target="_blank"
-          aria-label="Gitlab"
-          rel="me noopener noreferrer"
-          ><span class="inline-block align-text-bottom">
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M510.486,284.482l-27.262-83.963c.012.038.016.077.028.115-.013-.044-.021-.088-.033-.132v-.01L429.1,33.871a21.328,21.328,0,0,0-20.445-14.6A21.038,21.038,0,0,0,388.466,34L337.094,192.154H175L123.533,33.989A21.033,21.033,0,0,0,103.35,19.274h-.113A21.467,21.467,0,0,0,82.86,34L28.888,200.475l-.008.021v0c-.013.042-.019.084-.033.127.012-.038.017-.077.029-.115L1.514,284.482a30.6,30.6,0,0,0,11.117,34.283L248.893,490.427c.035.026.074.041.109.067.1.072.2.146.3.214-.1-.065-.187-.136-.282-.2l0,0c.015.012.033.02.05.031s.027.015.041.024l.006,0a11.992,11.992,0,0,0,1.137.7c.054.03.1.068.157.1l0,0c.033.016.064.038.1.054s.053.02.077.032.038.015.056.023c.044.021.092.034.136.057.205.1.421.178.633.264.2.082.389.177.592.248l.025.011c.034.012.064.028.1.04s.083.032.125.046l.05.012c.053.016.11.024.163.039.019.006.042.009.063.015.284.086.579.148.872.213.115.026.225.062.341.083.017,0,.032.009.05.012.038.008.073.021.112.027.062.011.122.031.186.04.049.007.1,0,.151.012h.033a11.918,11.918,0,0,0,1.7.136h.019a11.971,11.971,0,0,0,1.7-.136h.033c.05-.008.1,0,.153-.012s.124-.029.187-.04c.038-.006.073-.019.11-.027.017,0,.032-.009.049-.012.118-.023.231-.059.349-.084.288-.064.578-.126.861-.21.019-.006.039-.008.059-.014.055-.017.113-.024.169-.041.016-.006.035-.007.051-.012.044-.013.086-.032.129-.047s.063-.028.1-.041l.026-.01c.214-.076.417-.175.627-.261s.394-.154.584-.245c.047-.023.1-.036.142-.059.018-.009.04-.015.058-.024s.053-.02.078-.033.068-.04.1-.056l0,0c.056-.028.106-.069.161-.1a12.341,12.341,0,0,0,1.132-.695c.029-.02.062-.035.092-.056.008-.006.017-.009.024-.015.035-.026.076-.043.11-.068l236.3-171.666A30.6,30.6,0,0,0,510.486,284.482ZM408.8,49.48l46.342,142.674H362.46Zm-305.6,0,46.428,142.675H56.948ZM26.817,299.251a6.526,6.526,0,0,1-2.361-7.308l20.34-62.42L193.835,420.6Zm38.245-82.972h92.411L223.354,419.22Zm183.416,273.83c-.047-.038-.092-.079-.138-.118-.009-.008-.018-.018-.028-.026-.091-.075-.18-.152-.268-.231-.172-.15-.341-.3-.5-.462.014.012.029.022.043.035l.055.046a12.191,12.191,0,0,0,1.091.929l.012.011c.018.013.033.03.051.045C248.689,490.263,248.58,490.19,248.478,490.109Zm7.514-48.482L217.226,322.21,182.839,216.279H329.253Zm7.935,48.107c-.091.079-.178.157-.27.233l-.032.028c-.047.038-.091.079-.136.117-.1.08-.209.152-.313.229.018-.013.033-.032.053-.044l.009-.009a11.69,11.69,0,0,0,1.086-.926c.014-.013.03-.024.044-.036s.038-.03.054-.047C264.262,489.435,264.1,489.586,263.927,489.734Zm90.7-273.455h92.4l-18.91,24.23-139.468,178.7Zm130.567,82.967L318.2,420.563,467.284,229.538l20.258,62.393A6.528,6.528,0,0,1,485.189,299.246Z"/></svg>
 
   </span>
 
@@ -900,6 +859,45 @@
   </div>
 </details>
 
+ 
+<script>
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = e.attr('id');
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+          
+            $(e).removeClass('active');
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+        
+        onScroll();
+      });
+    }
+  })();
+</script>
    </div>
       </div>
       
@@ -952,7 +950,7 @@ Toàn bộ project đều tối giản với modules siêu sạch, gọn, nằm 
 <p>Wow, cũng đáng để thử đấy chứ!
 Cộng thêm việc mình đã quá ngán với con zsh của mình khi lúc nào bật lên cũng tốn ~0.5 - 1 giây (quá chậm cho 1 shell), vậy là quá đủ lý do để từ bỏ oh-my-zsh.
 Và thế là công cuộc chuyển nhà từ oh-my-zsh của mình sang Zim bắt đầu.</p>
-<a id="github-0-1705141319958248862" target="_blank" href="https://github.com/zimfw/zimfw" class="cursor-pointer">
+<a id="github-afb61826a796bd276848c9121a82c9b5" target="_blank" href="https://github.com/zimfw/zimfw" class="cursor-pointer">
   <div
     class="w-full md:w-auto pt-3 p-5 border border-neutral-200 dark:border-neutral-700 border rounded-md shadow-2xl">
 
@@ -968,13 +966,13 @@ Và thế là công cuộc chuyển nhà từ oh-my-zsh của mình sang Zim b�
 
       </span>
       <div
-        id="github-0-1705141319958248862-full_name"
+        id="github-afb61826a796bd276848c9121a82c9b5-full_name"
         class="m-0 font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral">
         zimfw/zimfw
       </div>
     </div>
 
-    <p id="github-0-1705141319958248862-description" class="m-0 mt-2 text-md text-neutral-800 dark:text-neutral">
+    <p id="github-afb61826a796bd276848c9121a82c9b5-description" class="m-0 mt-2 text-md text-neutral-800 dark:text-neutral">
       Zim: Modular, customizable, and blazing fast Zsh framework
     </p>
 
@@ -995,8 +993,8 @@ Và thế là công cuộc chuyển nhà từ oh-my-zsh của mình sang Zim b�
 
 
       </span>
-      <div id="github-0-1705141319958248862-stargazers" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        3411
+      <div id="github-afb61826a796bd276848c9121a82c9b5-stargazers" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+        3461
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -1008,8 +1006,8 @@ Và thế là công cuộc chuyển nhà từ oh-my-zsh của mình sang Zim b�
 
 
       </span>
-      <div id="github-0-1705141319958248862-forks" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        179
+      <div id="github-afb61826a796bd276848c9121a82c9b5-forks" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+        183
       </div>
 
     </div>
@@ -1023,10 +1021,10 @@ Và thế là công cuộc chuyển nhà từ oh-my-zsh của mình sang Zim b�
     })
       .then(response => response.json())
       .then(data => {
-        document.getElementById('github-0-1705141319958248862-full_name').innerHTML = data.full_name;
-        document.getElementById('github-0-1705141319958248862-description').innerHTML = data.description;
-        document.getElementById('github-0-1705141319958248862-stargazers').innerHTML = data.stargazers_count;
-        document.getElementById('github-0-1705141319958248862-forks').innerHTML = data.forks;
+        document.getElementById('github-afb61826a796bd276848c9121a82c9b5-full_name').innerHTML = data.full_name;
+        document.getElementById('github-afb61826a796bd276848c9121a82c9b5-description').innerHTML = data.description;
+        document.getElementById('github-afb61826a796bd276848c9121a82c9b5-stargazers').innerHTML = data.stargazers_count;
+        document.getElementById('github-afb61826a796bd276848c9121a82c9b5-forks').innerHTML = data.forks;
       })
       .catch(error => console.error(error))
   </script>
@@ -1173,7 +1171,7 @@ Nhưng ở đây mình muốn shell của mình được việc hơn tí nên s�
     zoxide</a> và <a href="https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv"   target="_blank">
     zsh-autoswitch-virtualenv</a>.</p>
 <p>Zoxide là một tool tự động nhớ các đường dẫn mà bạn đã <code>cd</code>, giúp bạn di chuyển nhan hơn trong terminal.
-<a id="github-3-1705141320195918512" target="_blank" href="https://github.com/ajeetdsouza/zoxide" class="cursor-pointer">
+<a id="github-3f23886be96b66d133cf7cb5d0116a07" target="_blank" href="https://github.com/ajeetdsouza/zoxide" class="cursor-pointer">
   <div
     class="w-full md:w-auto pt-3 p-5 border border-neutral-200 dark:border-neutral-700 border rounded-md shadow-2xl">
 
@@ -1189,13 +1187,13 @@ Nhưng ở đây mình muốn shell của mình được việc hơn tí nên s�
 
       </span>
       <div
-        id="github-3-1705141320195918512-full_name"
+        id="github-3f23886be96b66d133cf7cb5d0116a07-full_name"
         class="m-0 font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral">
         ajeetdsouza/zoxide
       </div>
     </div>
 
-    <p id="github-3-1705141320195918512-description" class="m-0 mt-2 text-md text-neutral-800 dark:text-neutral">
+    <p id="github-3f23886be96b66d133cf7cb5d0116a07-description" class="m-0 mt-2 text-md text-neutral-800 dark:text-neutral">
       A smarter cd command. Supports all major shells.
     </p>
 
@@ -1216,8 +1214,8 @@ Nhưng ở đây mình muốn shell của mình được việc hơn tí nên s�
 
 
       </span>
-      <div id="github-3-1705141320195918512-stargazers" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        13034
+      <div id="github-3f23886be96b66d133cf7cb5d0116a07-stargazers" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+        13483
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -1229,8 +1227,8 @@ Nhưng ở đây mình muốn shell của mình được việc hơn tí nên s�
 
 
       </span>
-      <div id="github-3-1705141320195918512-forks" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        423
+      <div id="github-3f23886be96b66d133cf7cb5d0116a07-forks" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+        429
       </div>
 
     </div>
@@ -1244,10 +1242,10 @@ Nhưng ở đây mình muốn shell của mình được việc hơn tí nên s�
     })
       .then(response => response.json())
       .then(data => {
-        document.getElementById('github-3-1705141320195918512-full_name').innerHTML = data.full_name;
-        document.getElementById('github-3-1705141320195918512-description').innerHTML = data.description;
-        document.getElementById('github-3-1705141320195918512-stargazers').innerHTML = data.stargazers_count;
-        document.getElementById('github-3-1705141320195918512-forks').innerHTML = data.forks;
+        document.getElementById('github-3f23886be96b66d133cf7cb5d0116a07-full_name').innerHTML = data.full_name;
+        document.getElementById('github-3f23886be96b66d133cf7cb5d0116a07-description').innerHTML = data.description;
+        document.getElementById('github-3f23886be96b66d133cf7cb5d0116a07-stargazers').innerHTML = data.stargazers_count;
+        document.getElementById('github-3f23886be96b66d133cf7cb5d0116a07-forks').innerHTML = data.forks;
       })
       .catch(error => console.error(error))
   </script>
@@ -1282,7 +1280,7 @@ Nếu chưa có <code>zoxide</code>, hãy cài nó vào trước:</p>
 </p>
 <p><code>zsh-autoswitch-virtualenv</code> là tool giúp tự activate/deactivate khi bạn <code>cd</code> vào project có <code>virtualenv</code> của python.
 Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách nhận diện một trong các file sau (xem thêm ở GitHub):
-<a id="github-4-1705141320339724582" target="_blank" href="https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv" class="cursor-pointer">
+<a id="github-18f74f6777cae83eb19aaed2250f2f5a" target="_blank" href="https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv" class="cursor-pointer">
   <div
     class="w-full md:w-auto pt-3 p-5 border border-neutral-200 dark:border-neutral-700 border rounded-md shadow-2xl">
 
@@ -1298,13 +1296,13 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
 
       </span>
       <div
-        id="github-4-1705141320339724582-full_name"
+        id="github-18f74f6777cae83eb19aaed2250f2f5a-full_name"
         class="m-0 font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral">
         MichaelAquilina/zsh-autoswitch-virtualenv
       </div>
     </div>
 
-    <p id="github-4-1705141320339724582-description" class="m-0 mt-2 text-md text-neutral-800 dark:text-neutral">
+    <p id="github-18f74f6777cae83eb19aaed2250f2f5a-description" class="m-0 mt-2 text-md text-neutral-800 dark:text-neutral">
       🐍 ZSH plugin to automatically switch python virtualenvs (including pipenv and poetry) as you move between directories
     </p>
 
@@ -1325,8 +1323,8 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
 
 
       </span>
-      <div id="github-4-1705141320339724582-stargazers" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        449
+      <div id="github-18f74f6777cae83eb19aaed2250f2f5a-stargazers" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+        454
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -1338,8 +1336,8 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
 
 
       </span>
-      <div id="github-4-1705141320339724582-forks" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        72
+      <div id="github-18f74f6777cae83eb19aaed2250f2f5a-forks" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+        73
       </div>
 
     </div>
@@ -1353,10 +1351,10 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
     })
       .then(response => response.json())
       .then(data => {
-        document.getElementById('github-4-1705141320339724582-full_name').innerHTML = data.full_name;
-        document.getElementById('github-4-1705141320339724582-description').innerHTML = data.description;
-        document.getElementById('github-4-1705141320339724582-stargazers').innerHTML = data.stargazers_count;
-        document.getElementById('github-4-1705141320339724582-forks').innerHTML = data.forks;
+        document.getElementById('github-18f74f6777cae83eb19aaed2250f2f5a-full_name').innerHTML = data.full_name;
+        document.getElementById('github-18f74f6777cae83eb19aaed2250f2f5a-description').innerHTML = data.description;
+        document.getElementById('github-18f74f6777cae83eb19aaed2250f2f5a-stargazers').innerHTML = data.stargazers_count;
+        document.getElementById('github-18f74f6777cae83eb19aaed2250f2f5a-forks').innerHTML = data.forks;
       })
       .catch(error => console.error(error))
   </script>
@@ -1430,7 +1428,7 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
 </span></span></code></pre></div><ul>
 <li>Dùng <code>exa</code> thay cho <code>ls</code>, exa nhanh và cho màu đẹp hơn <code>ls</code>:</li>
 </ul>
-<a id="github-5-1705141320494658850" target="_blank" href="https://github.com/ogham/exa" class="cursor-pointer">
+<a id="github-ffea0d86dd153d9ba94ec9a17ec780c6" target="_blank" href="https://github.com/ogham/exa" class="cursor-pointer">
   <div
     class="w-full md:w-auto pt-3 p-5 border border-neutral-200 dark:border-neutral-700 border rounded-md shadow-2xl">
 
@@ -1446,13 +1444,13 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
 
       </span>
       <div
-        id="github-5-1705141320494658850-full_name"
+        id="github-ffea0d86dd153d9ba94ec9a17ec780c6-full_name"
         class="m-0 font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral">
         ogham/exa
       </div>
     </div>
 
-    <p id="github-5-1705141320494658850-description" class="m-0 mt-2 text-md text-neutral-800 dark:text-neutral">
+    <p id="github-ffea0d86dd153d9ba94ec9a17ec780c6-description" class="m-0 mt-2 text-md text-neutral-800 dark:text-neutral">
       A modern replacement for ‘ls’.
     </p>
 
@@ -1473,8 +1471,8 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
 
 
       </span>
-      <div id="github-5-1705141320494658850-stargazers" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        22954
+      <div id="github-ffea0d86dd153d9ba94ec9a17ec780c6-stargazers" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+        23042
       </div>
 
       <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
@@ -1486,8 +1484,8 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
 
 
       </span>
-      <div id="github-5-1705141320494658850-forks" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
-        677
+      <div id="github-ffea0d86dd153d9ba94ec9a17ec780c6-forks" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+        685
       </div>
 
     </div>
@@ -1501,10 +1499,10 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
     })
       .then(response => response.json())
       .then(data => {
-        document.getElementById('github-5-1705141320494658850-full_name').innerHTML = data.full_name;
-        document.getElementById('github-5-1705141320494658850-description').innerHTML = data.description;
-        document.getElementById('github-5-1705141320494658850-stargazers').innerHTML = data.stargazers_count;
-        document.getElementById('github-5-1705141320494658850-forks').innerHTML = data.forks;
+        document.getElementById('github-ffea0d86dd153d9ba94ec9a17ec780c6-full_name').innerHTML = data.full_name;
+        document.getElementById('github-ffea0d86dd153d9ba94ec9a17ec780c6-description').innerHTML = data.description;
+        document.getElementById('github-ffea0d86dd153d9ba94ec9a17ec780c6-stargazers').innerHTML = data.stargazers_count;
+        document.getElementById('github-ffea0d86dd153d9ba94ec9a17ec780c6-forks').innerHTML = data.forks;
       })
       .catch(error => console.error(error))
   </script>
@@ -1711,13 +1709,19 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
       <ul class="flex flex-col list-none sm:flex-row">
         
         <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="/tags/"
-            title="Tags">Tags</a>
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
+            title="Tags">
+            
+            Tags
+          </a>
         </li>
         
         <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="/categories/"
-            title="Categories">Categories</a>
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/categories/"
+            title="Categories">
+            
+            Categories
+          </a>
         </li>
         
       </ul>
@@ -1808,9 +1812,5 @@ Nó hỗ trợ nhiều loại cho bạn như venv, pipenv, poetry bằng cách n
 
   </div>
 </body>
-
-<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-  data-id="lelouvincx" data-description="Support me on Buy me a coffee!" data-message=""
-  data-color="#BEE5B0" data-position="Left" data-x_margin="18" data-y_margin="18"></script>
 
 </html>
