@@ -25,29 +25,29 @@
 #   name = "Recommendations"
 #   parent = "Resources"
 #   pageRef = "resources/recommendations"
-#   weight = 20
+#   weight = 40
 
 # [[main]]
 #   name = "Reading list"
 #   parent = "Resources"
 #   pageRef = "resources/reading-list"
-#   weight = 30
+#   weight = 50
 
 # [[main]]
 #   name = "List 100"
 #   parent = "Resources"
 #   pageRef = "resources/list-100"
-#   weight = 40
+#   weight = 60
 
 [[main]]
   name = "Now"
   pageRef = "resources/now"
-  weight = 50
+  weight = 70
 
 [[main]]
   name = "About"
   pageRef = "resources/about"
-  weight = 60
+  weight = 80
 
 # -- Footer Menu --
 

@@ -16,6 +16,16 @@ mainSections = ["posts", "projects"]
 # robots = ""
 
 defaultBackgroundImage = "img/background.jpg" # used as default for background images 
+defaultFeaturedImage = ""
+
+showViews = false
+showLikes = false
+disableImageZoom = false
+disableImageOptimization = false
+disableTextInHeader = false
+highlightCurrentMenuArea = true
+smartTOC = true
+
 
 [header]
   layout = "fixed" # valid options: basic, fixed, fixed-fill, fixed-fill-blur
@@ -40,8 +50,6 @@ defaultBackgroundImage = "img/background.jpg" # used as default for background i
 
 [article]
   showDate = true
-  showViews = false
-  showLikes = false
   showDateUpdated = false
   showAuthor = true
   showHero = true
@@ -52,7 +60,7 @@ defaultBackgroundImage = "img/background.jpg" # used as default for background i
   showDraftLabel = true
   showEdit = false
   # editURL = "https://github.com/username/repo/"
-  editAppendPath = true
+  # editAppendPath = true
   seriesOpened = false
   showHeadingAnchors = true
   showPagination = true
@@ -83,7 +91,7 @@ defaultBackgroundImage = "img/background.jpg" # used as default for background i
   cardViewScreenWidth = false
 
 [sitemap]
-  excludedKinds = []
+  excludedKinds = ["taxonomy", "term"]
 
 [taxonomy]
   showTermCount = true
@@ -107,26 +115,26 @@ defaultBackgroundImage = "img/background.jpg" # used as default for background i
   #cardView = false
 
 [firebase]
-  apiKey = "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g"
-  authDomain = "lelouvincx-blog.firebaseapp.com"
-  projectId = "lelouvincx-blog"
-  storageBucket = "lelouvincx-blog.appspot.com"
-  messagingSenderId = "687151694094"
-  appId = "1:687151694094:web:1489248715ee5f7849d75f"
-  measurementId = "G-PW1F2X7CRE"
+  # apiKey = "AIzaSyDZ4LyfvKYtEUU_9LKttMVDskaK9DpRv3g"
+  # authDomain = "lelouvincx-blog.firebaseapp.com"
+  # projectId = "lelouvincx-blog"
+  # storageBucket = "lelouvincx-blog.appspot.com"
+  # messagingSenderId = "687151694094"
+  # appId = "1:687151694094:web:1489248715ee5f7849d75f"
+  # measurementId = "G-PW1F2X7CRE"
 
 [fathomAnalytics]
   # site = "ABC12345"
   # domain = "llama.yoursite.com"
 
 [buymeacoffee]
-  identifier = "lelouvincx"
-  globalWidget = true
-  globalWidgetMessage = ""
-  globalWidgetColor = "#BEE5B0"
+  # identifier = "lelouvincx"
+  # globalWidget = true
+  # globalWidgetMessage = ""
+  # globalWidgetColor = "#BEE5B0"
 
 [verification]
-  # google = ""
+  google = "google-site-verification=WPBka757s4mWrKL_dUWO2qAYo4K4YBTlDSKG88q60aQ"
   # bing = ""
   # pinterest = ""
   # yandex = ""
