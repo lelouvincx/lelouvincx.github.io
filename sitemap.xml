@@ -4,18 +4,24 @@
 
   <url>
     <loc>https://lelouvincx.github.io/</loc>
-    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://lelouvincx.github.io/projects/</loc>
-    <lastmod>2024-01-13T00:00:00+00:00</lastmod>
+    <lastmod>2024-03-08T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://lelouvincx.github.io/resources/</loc>
+    <lastmod>2024-03-08T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lelouvincx.github.io/resources/talks/</loc>
+    <lastmod>2024-03-08T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lelouvincx.github.io/projects/</loc>
     <lastmod>2024-01-13T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -57,22 +63,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://lelouvincx.github.io/resources/reading-list/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://lelouvincx.github.io/resources/recommendations/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://lelouvincx.github.io/resources/about/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://lelouvincx.github.io/resources/list-100/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
