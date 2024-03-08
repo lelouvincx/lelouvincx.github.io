@@ -10,16 +10,22 @@
   pageRef = "projects"
   weight = 20
 
-# [[main]]
-#   name = "Resources"
-#   pageRef = "resources"
-#   weight = 30
+[[main]]
+  name = "Resources"
+  pageRef = "resources"
+  weight = 30
 
 [[main]]
   name = "Resume 📎"
   # parent = "Resources"
   url = "https://drive.google.com/file/d/1b0lI1kEsajRXjAxCKMa8KotNBLbV0Zae/view?usp=sharing"
-  weight = 30
+  weight = 40
+
+[[main]]
+  name = "Talks"
+  parent = "Resources"
+  pageRef = "resources/talks"
+  weight = 31
 
 # [[main]]
 #   name = "Recommendations"
