@@ -23,16 +23,32 @@ Phải thú thật là mình rất thích viết, nhưng đồng thời cũng r�
 
 ## Về bản thân mình
 
+{{< timeline >}}
+
+{{< timelineItem icon="check" header="Thời học sinh" badge="" subheader="" >}}
 Mình tốt nghiệp cấp 3 ở trường THPT Chuyên Hùng Vương - Gia Lai, khóa 18 - 21.
-![highschool](highschool.jpg)
+{{< gallery >}}
+<img src="highschool.jpg" class="" />
+{{< /gallery >}}
 
 Suốt những năm cấp 3, mình điều hành một câu lạc bộ về tranh biện và tổ chức hội nghị MUN (Model United Nations) cho học sinh trong tỉnh.
-![hvsads](hvsads.jpg)
+{{< gallery >}}
+<img src="hvsads.jpg" class="" />
+{{< /gallery >}}
+{{< /timelineItem >}}
 
+{{< timelineItem icon="github" header="header" badge="" subheader="" >}}
 Mình cũng là thành viên của đội tuyển Tin học quốc gia ở trường.
-![doi tuyen tin](tinhocchv.JPG)
+{{< gallery >}}
+<img src="tinhocchv.JPG" class="" />
+{{< /gallery >}}
+{{< /timelineItem >}}
 
-Hiện tại mình là sinh viên năm hai, khóa K21 trường đại học KHTN HCM.
+{{< timelineItem icon="graduation-cap" header="header" badge="" subheader="" >}}
+Hiện tại mình là sinh viên năm ba, khóa K21 trường đại học KHTN HCM.
+{{< /timelineItem >}}
+
+{{< /timeline >}}
 
 ## Những thứ mình làm
 
@@ -41,8 +57,7 @@ Bạn có thể xem thêm ở trang [project]({{< ref "projects" >}}) và [githu
 
 ## Kết nối với mình
 
-- [Email](mailto:dinhminhchinh3357@duck.com) (active hàng ngày)
-- Trò chuyện trực tiếp với [mình](https://cal.com/lelouvincx-wjrcua)
-- Nhắn tin qua [discord](lelouvincx#6976) (active thường xuyên)
+- Email: [dinhminhchinh3357@gmail.com](mailto:dinhminhchinh3357@gmail.com)
+- Trò chuyện trực tiếp với mình: https://calendar.app.google/tx5d2nifstG3gm248
 
 ## Q&A
