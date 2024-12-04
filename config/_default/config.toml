@@ -3,7 +3,7 @@
 # https://nunocoracao.github.io/blowfish/docs/getting-started/
 
 theme = "blowfish"
-baseURL = "https://lelouvincx.github.io/"
+baseURL = ""
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
@@ -16,15 +16,15 @@ buildFuture = false
 googleAnalytics = "G-PW1F2X7CRE"
 
 [taxonomies]
-  tag = "tags"
-  category = "categories"
-  author = "authors"
-  series = "series"
+tag = "tags"
+category = "categories"
+author = "authors"
+series = "series"
 
 [sitemap]
-  changefreq = 'daily'
-  filename = 'sitemap.xml'
-  priority = 0.5
+changefreq = 'daily'
+filename = 'sitemap.xml'
+priority = 0.5
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+home = ["HTML", "RSS", "JSON"]
