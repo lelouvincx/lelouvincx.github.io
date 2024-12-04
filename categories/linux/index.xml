@@ -2,20 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linux on lelouvincx&#39;s blog</title>
-    <link>https://lelouvincx.github.io/categories/linux/</link>
+    <link>/categories/linux/</link>
     <description>Recent content in linux on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 </copyright>
-    <lastBuildDate>Tue, 31 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>Chuyển nhà từ oh-my-zsh sang zimfw</title>
-      <link>https://lelouvincx.github.io/posts/oh-my-zsh-to-zim/</link>
+      <link>/posts/oh-my-zsh-to-zim/</link>
       <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/posts/oh-my-zsh-to-zim/</guid>
+      <guid>/posts/oh-my-zsh-to-zim/</guid>
       <description>Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/posts/oh-my-zsh-to-zim/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/posts/oh-my-zsh-to-zim/featured.png" />
     </item>
     
   </channel>

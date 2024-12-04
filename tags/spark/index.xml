@@ -2,30 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>spark on lelouvincx&#39;s blog</title>
-    <link>https://lelouvincx.github.io/tags/spark/</link>
+    <link>/tags/spark/</link>
     <description>Recent content in spark on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 </copyright>
-    <lastBuildDate>Sat, 13 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/tags/spark/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="/tags/spark/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>Spark Data Platform</title>
-      <link>https://lelouvincx.github.io/projects/spark-data-platform/</link>
+      <link>/projects/spark-data-platform/</link>
       <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/projects/spark-data-platform/</guid>
+      <guid>/projects/spark-data-platform/</guid>
       <description>Xây dựng data platform với on-premise Spark Cluster</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/projects/spark-data-platform/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/projects/spark-data-platform/featured.png" />
     </item>
     
     <item>
       <title>Goodreads ELT pipelines</title>
-      <link>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</link>
+      <link>/projects/fde2-goodreads-elt-pipeline/</link>
       <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/</guid>
+      <guid>/projects/fde2-goodreads-elt-pipeline/</guid>
       <description>Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://lelouvincx.github.io/projects/fde2-goodreads-elt-pipeline/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/projects/fde2-goodreads-elt-pipeline/featured.jpg" />
     </item>
     
   </channel>

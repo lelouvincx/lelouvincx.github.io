@@ -2,48 +2,49 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on lelouvincx&#39;s blog</title>
-    <link>https://lelouvincx.github.io/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 </copyright>
-    <lastBuildDate>Sat, 13 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>data engineering</title>
-      <link>https://lelouvincx.github.io/categories/data-engineering/</link>
+      <link>/categories/data-engineering/</link>
       <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/categories/data-engineering/</guid>
+      <guid>/categories/data-engineering/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>MLOps</title>
-      <link>https://lelouvincx.github.io/categories/mlops/</link>
+      <link>/categories/mlops/</link>
       <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/categories/mlops/</guid>
+      <guid>/categories/mlops/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>linux</title>
-      <link>https://lelouvincx.github.io/categories/linux/</link>
+      <link>/categories/linux/</link>
       <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/categories/linux/</guid>
+      <guid>/categories/linux/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>vim</title>
-      <link>https://lelouvincx.github.io/categories/vim/</link>
+      <link>/categories/vim/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/categories/vim/</guid>
+      <guid>/categories/vim/</guid>
       <description></description>
       
     </item>

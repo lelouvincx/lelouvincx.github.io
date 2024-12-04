@@ -2,128 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on lelouvincx&#39;s blog</title>
-    <link>https://lelouvincx.github.io/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 </copyright>
-    <lastBuildDate>Sat, 13 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>dagster</title>
-      <link>https://lelouvincx.github.io/tags/dagster/</link>
+      <link>/tags/dagster/</link>
       <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/dagster/</guid>
+      <guid>/tags/dagster/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>imdb</title>
-      <link>https://lelouvincx.github.io/tags/imdb/</link>
+      <link>/tags/imdb/</link>
       <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/imdb/</guid>
+      <guid>/tags/imdb/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>spark</title>
-      <link>https://lelouvincx.github.io/tags/spark/</link>
+      <link>/tags/spark/</link>
       <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/spark/</guid>
+      <guid>/tags/spark/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>dbt</title>
-      <link>https://lelouvincx.github.io/tags/dbt/</link>
+      <link>/tags/dbt/</link>
       <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/dbt/</guid>
+      <guid>/tags/dbt/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>ELT</title>
-      <link>https://lelouvincx.github.io/tags/elt/</link>
+      <link>/tags/elt/</link>
       <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/elt/</guid>
+      <guid>/tags/elt/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>goodreads</title>
-      <link>https://lelouvincx.github.io/tags/goodreads/</link>
+      <link>/tags/goodreads/</link>
       <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/goodreads/</guid>
+      <guid>/tags/goodreads/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>minio</title>
-      <link>https://lelouvincx.github.io/tags/minio/</link>
+      <link>/tags/minio/</link>
       <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/minio/</guid>
+      <guid>/tags/minio/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>zimfw</title>
-      <link>https://lelouvincx.github.io/tags/zimfw/</link>
+      <link>/tags/zimfw/</link>
       <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/zimfw/</guid>
+      <guid>/tags/zimfw/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>zsh</title>
-      <link>https://lelouvincx.github.io/tags/zsh/</link>
+      <link>/tags/zsh/</link>
       <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/zsh/</guid>
+      <guid>/tags/zsh/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>ruby</title>
-      <link>https://lelouvincx.github.io/tags/ruby/</link>
+      <link>/tags/ruby/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/ruby/</guid>
+      <guid>/tags/ruby/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>AWS</title>
-      <link>https://lelouvincx.github.io/tags/aws/</link>
+      <link>/tags/aws/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/aws/</guid>
+      <guid>/tags/aws/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>spotify</title>
-      <link>https://lelouvincx.github.io/tags/spotify/</link>
+      <link>/tags/spotify/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/tags/spotify/</guid>
+      <guid>/tags/spotify/</guid>
       <description></description>
       
     </item>

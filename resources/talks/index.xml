@@ -2,11 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tech Talks on lelouvincx&#39;s blog</title>
-    <link>https://lelouvincx.github.io/resources/talks/</link>
+    <link>/resources/talks/</link>
     <description>Recent content in Tech Talks on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 </copyright>
-    <lastBuildDate>Fri, 08 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/resources/talks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="/resources/talks/index.xml" rel="self" type="application/rss+xml" />
+    
   </channel>
 </rss>

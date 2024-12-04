@@ -2,18 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors on lelouvincx&#39;s blog</title>
-    <link>https://lelouvincx.github.io/authors/</link>
+    <link>/authors/</link>
     <description>Recent content in Authors on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 </copyright>
-    <lastBuildDate>Fri, 08 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://lelouvincx.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>lelouvincx</title>
-      <link>https://lelouvincx.github.io/authors/lelouvincx/</link>
+      <link>/authors/lelouvincx/</link>
       <pubDate>Fri, 08 Mar 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://lelouvincx.github.io/authors/lelouvincx/</guid>
+      <guid>/authors/lelouvincx/</guid>
       <description></description>
       
     </item>
