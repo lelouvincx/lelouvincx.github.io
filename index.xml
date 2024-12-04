@@ -30,6 +30,16 @@
     </item>
     
     <item>
+      <title>About me</title>
+      <link>/resources/about/</link>
+      <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/about/</guid>
+      <description>Introduction about me</description>
+      
+    </item>
+    
+    <item>
       <title>Goodreads ELT pipelines</title>
       <link>/projects/fde2-goodreads-elt-pipeline/</link>
       <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
@@ -67,16 +77,6 @@
       <guid>/projects/fde_project/</guid>
       <description>Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/projects/fde_project/featured.jpg" />
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>/resources/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/resources/about/</guid>
-      <description>Introduction about me</description>
-      
     </item>
     
   </channel>

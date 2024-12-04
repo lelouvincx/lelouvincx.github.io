@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>lelouvincx on lelouvincx&#39;s blog</title>
+    <title>Lelouvincx on lelouvincx&#39;s blog</title>
     <link>/authors/lelouvincx/</link>
-    <description>Recent content in lelouvincx on lelouvincx&#39;s blog</description>
+    <description>Recent content in Lelouvincx on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 </copyright>
     <lastBuildDate>Fri, 08 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="/authors/lelouvincx/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Resources</title>
+      <link>/resources/</link>
+      <pubDate>Fri, 08 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/</guid>
+      <description>&lt;p&gt;My personal stuff shown here.&lt;/p&gt;</description>
+      
+    </item>
     
     <item>
       <title>Tech Talks</title>
@@ -15,8 +25,44 @@
       <pubDate>Fri, 08 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>/resources/talks/</guid>
-      <description>My tech talks&amp;rsquo; resources.
-2024 # &amp;ldquo;Git 101&amp;rdquo; | GDSC HCMUS - cs101 session 2 # Small session introducing Git, Git Workflow, and GitOps to all freshmen and sophomores who are newbies to Git.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;My tech talks&amp;rsquo; resources.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;2024 
+    &lt;div id=&#34;2024&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#2024&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;&amp;ldquo;Git 101&amp;rdquo; | GDSC HCMUS - cs101 session 2 
+    &lt;div id=&#34;git-101--gdsc-hcmus---cs101-session-2&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#git-101--gdsc-hcmus---cs101-session-2&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;Small session introducing Git, Git Workflow, and GitOps to all freshmen and sophomores who are newbies to Git.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>/projects/</link>
+      <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/</guid>
+      <description></description>
       
     </item>
     
@@ -37,6 +83,26 @@
       
       <guid>/resources/now/</guid>
       <description>What lelouvincx&amp;rsquo;s doing now?</description>
+      
+    </item>
+    
+    <item>
+      <title>Posts</title>
+      <link>/posts/</link>
+      <pubDate>Thu, 31 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>/resources/about/</link>
+      <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/about/</guid>
+      <description>Introduction about me</description>
       
     </item>
     
@@ -78,46 +144,6 @@
       <guid>/projects/fde_project/</guid>
       <description>Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/projects/fde_project/featured.jpg" />
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>/resources/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/resources/about/</guid>
-      <description>Introduction about me</description>
-      
-    </item>
-    
-    <item>
-      <title>Posts</title>
-      <link>/posts/</link>
-      <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>/projects/</link>
-      <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Resources</title>
-      <link>/resources/</link>
-      <pubDate>Fri, 08 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>/resources/</guid>
-      <description>My personal stuff shown here.</description>
-      
     </item>
     
   </channel>
