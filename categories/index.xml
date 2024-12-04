@@ -6,14 +6,16 @@
     <description>Recent content in Categories on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2024 </copyright>
+    <managingEditor>dinhminhchinh3357@gmail.com (lelouvincx)</managingEditor>
+    <webMaster>dinhminhchinh3357@gmail.com (lelouvincx)</webMaster>
+    <copyright>© 2025 lelouvincx</copyright>
     <lastBuildDate>Sat, 13 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Data Engineering</title>
       <link>/categories/data-engineering/</link>
       <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
-      
+      <author>dinhminhchinh3357@gmail.com (lelouvincx)</author>
       <guid>/categories/data-engineering/</guid>
       <description></description>
       
@@ -23,7 +25,7 @@
       <title>MLOps</title>
       <link>/categories/mlops/</link>
       <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
-      
+      <author>dinhminhchinh3357@gmail.com (lelouvincx)</author>
       <guid>/categories/mlops/</guid>
       <description></description>
       
@@ -33,7 +35,7 @@
       <title>Linux</title>
       <link>/categories/linux/</link>
       <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
-      
+      <author>dinhminhchinh3357@gmail.com (lelouvincx)</author>
       <guid>/categories/linux/</guid>
       <description></description>
       
@@ -43,7 +45,7 @@
       <title>Vim</title>
       <link>/categories/vim/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      
+      <author>dinhminhchinh3357@gmail.com (lelouvincx)</author>
       <guid>/categories/vim/</guid>
       <description></description>
       

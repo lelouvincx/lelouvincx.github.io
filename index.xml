@@ -6,34 +6,36 @@
     <description>Recent content on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2024 </copyright>
-    <lastBuildDate>Fri, 08 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Spark Data Platform</title>
-      <link>/projects/spark-data-platform/</link>
-      <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/spark-data-platform/</guid>
-      <description>Xây dựng data platform với on-premise Spark Cluster</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/projects/spark-data-platform/featured.png" />
-    </item>
+    <managingEditor>dinhminhchinh3357@gmail.com (lelouvincx)</managingEditor>
+    <webMaster>dinhminhchinh3357@gmail.com (lelouvincx)</webMaster>
+    <copyright>© 2025 lelouvincx</copyright>
+    <lastBuildDate>Wed, 04 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>What I&#39;m doing now</title>
       <link>/resources/now/</link>
-      <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
-      
+      <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
+      <author>dinhminhchinh3357@gmail.com (lelouvincx)</author>
       <guid>/resources/now/</guid>
       <description>What lelouvincx&amp;rsquo;s doing now?</description>
       
     </item>
     
     <item>
+      <title>Spark Data Platform</title>
+      <link>/projects/spark-data-platform/</link>
+      <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
+      <author>dinhminhchinh3357@gmail.com (lelouvincx)</author>
+      <guid>/projects/spark-data-platform/</guid>
+      <description>Xây dựng data platform với on-premise Spark Cluster</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/projects/spark-data-platform/featured.png" />
+    </item>
+    
+    <item>
       <title>About me</title>
       <link>/resources/about/</link>
       <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
-      
+      <author>dinhminhchinh3357@gmail.com (lelouvincx)</author>
       <guid>/resources/about/</guid>
       <description>Introduction about me</description>
       
@@ -43,7 +45,7 @@
       <title>Goodreads ELT pipelines</title>
       <link>/projects/fde2-goodreads-elt-pipeline/</link>
       <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
-      
+      <author>dinhminhchinh3357@gmail.com (lelouvincx)</author>
       <guid>/projects/fde2-goodreads-elt-pipeline/</guid>
       <description>Xây dựng ELT data pipelines hoàn chỉnh với bộ dữ liệu sách từ Goodreads</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/projects/fde2-goodreads-elt-pipeline/featured.jpg" />
@@ -53,7 +55,7 @@
       <title>Chuyển nhà từ oh-my-zsh sang zimfw</title>
       <link>/posts/oh-my-zsh-to-zim/</link>
       <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
-      
+      <author>dinhminhchinh3357@gmail.com (lelouvincx)</author>
       <guid>/posts/oh-my-zsh-to-zim/</guid>
       <description>Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/posts/oh-my-zsh-to-zim/featured.png" />
@@ -63,7 +65,7 @@
       <title>Code Ruby trên Neovim</title>
       <link>/posts/neovim-setup-ruby/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      
+      <author>dinhminhchinh3357@gmail.com (lelouvincx)</author>
       <guid>/posts/neovim-setup-ruby/</guid>
       <description>Hướng dẫn setup môi trường phát triển Ruby trên Neovim</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/posts/neovim-setup-ruby/featured.png" />
@@ -73,7 +75,7 @@
       <title>Spotify data pipeline ingestion</title>
       <link>/projects/fde_project/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
-      
+      <author>dinhminhchinh3357@gmail.com (lelouvincx)</author>
       <guid>/projects/fde_project/</guid>
       <description>Xây dựng một data pipeline ELT để ingest dữ liệu từ MySQL và API đơn giản từ Spotify (batch ingestion)</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/projects/fde_project/featured.jpg" />

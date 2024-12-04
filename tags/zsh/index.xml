@@ -6,14 +6,16 @@
     <description>Recent content in Zsh on lelouvincx&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2024 </copyright>
+    <managingEditor>dinhminhchinh3357@gmail.com (lelouvincx)</managingEditor>
+    <webMaster>dinhminhchinh3357@gmail.com (lelouvincx)</webMaster>
+    <copyright>© 2025 lelouvincx</copyright>
     <lastBuildDate>Tue, 31 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Chuyển nhà từ oh-my-zsh sang zimfw</title>
       <link>/posts/oh-my-zsh-to-zim/</link>
       <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
-      
+      <author>dinhminhchinh3357@gmail.com (lelouvincx)</author>
       <guid>/posts/oh-my-zsh-to-zim/</guid>
       <description>Hướng dẫn cách chuyển từ oh-my-zsh sang zim và bước đầu làm quen với framework này</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/posts/oh-my-zsh-to-zim/featured.png" />
