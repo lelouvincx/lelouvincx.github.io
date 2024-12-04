@@ -1,13 +1,13 @@
 ---
 title: "What I'm doing now"
-date: 2024-01-13
+date: 2024-12-04
 draft: false
 description: "What lelouvincx's doing now"
 summary: "What lelouvincx's doing now?"
 ---
 
 {{< lead >}}
-Cập nhật ngày 13/01/2024, Việt Nam.
+Cập nhật ngày 04/12/2024, Việt Nam.
 
 Hành trình vạn dặm khởi đầu bằng bước chân đầu tiên.
 {{% rtl %}}
@@ -17,22 +17,25 @@ Hành trình vạn dặm khởi đầu bằng bước chân đầu tiên.
 
 # Học
 
-Mình đang học năm ba, trường Đại học Khoa Học Tự Nhiên TP. HCM, ngành khoa học dữ liệu.
+Mình đang học năm tư, trường Đại học Khoa Học Tự Nhiên TP. HCM, ngành khoa học dữ liệu.
 
-Đang tổng hợp những kiến thức data đã học từ đó giờ. Và tập tự modelling về star schema trên 1 bộ dữ liệu.
+Hiện tại, mình có hứng thú với LLM, và đang học thêm về cách xây dựng ứng dụng LLM để phục vụ các nhu cầu trong cuộc sống.
 
-CI/CD là một quá trình phức tạp. Mình đang học các best practices trong deployment và sử dụng GitOps.
+Project về LLM mà mình đang tham gia:
+
+- [Llamamba Coding](https://github.com/lelouvincx/llamamba-coding)
 
 # Làm
 
-Data Engineer tại [KMS Healthcare](https://kms-healthcare.com/).
+Data & Analytics Engineer tại [Holistics](https://www.holistics.io/).
 
 **Vài project nhỏ mà mình và bạn mình nổi hứng nghĩ ra:**
 
 - [x] [Goodreads ELT pipeline]({{< ref "projects/fde2-goodreads-elt-pipeline" >}}): Xây dựng một ELT (Extract - Load - Transform) data pipeline hoàn chỉnh với bộ dữ liệu sách từ Goodreads.
 - [x] [Spark Data Platform](https://lelouvincxs-organization.gitbook.io/spark-data-platform/): Xây dựng data platform với bộ dữ liệu phim từ IMDb.com - kết hợp Spark Cluster dạng on-premise.
+- [x] [Database replication](https://github.com/lelouvincx/Chinh-Dinh-training): Replicate từ upstream database về downstream, sử dụng Apache Kafka.
+- [x] [Neovim setup](https://github.com/lelouvincx/nvim): Mình đã dùng vim được 5 năm, và đây là config setup của mình.
 - [Ubunchuu Trường Ú](https://ubunchuu-truong-us.github.io/): Một project nhỏ với mục tiêu giúp cho các bạn sinh viên tiếp cận dễ hơn với Linux (cụ thể là Ubuntu).
-- [Database replication](https://github.com/lelouvincx/Chinh-Dinh-training): Replicate từ upstream database về downstream, sử dụng Apache Kafka.
 - [Projectopia](https://github.com/projectopia): Auto-devops tool, giúp đỡ khâu DevOps cho các dự án quy mô sinh viên
 
 **Vài post ideas đang trong quá trình sản xuất:**
