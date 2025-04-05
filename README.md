@@ -9,17 +9,23 @@ Using [blowfish](https://github.com/nunocoracao/blowfish) theme.
 1. Clone the repository
 
 ```
-git clone git@github.com:lelouvincx/lelouvincx.github.io.git 
-echo $GITHUB_ACCESS_TOKEN
+git clone git@github.com:lelouvincx/lelouvincx.github.io.git
+export GITHUB_TOKEN=<your_github_token>
 bash ./install-blowfish.sh
 ```
 
-2. Install hugo by asdf
+2. Install hugo by asdf or mise
 
 ```bash
 asdf plugin add hugo
 asdf install hugo latest
 asdf global hugo latest
+```
+
+Or using mise:
+
+```bash
+mise use hugo@latest
 ```
 
 **Run the server:**
