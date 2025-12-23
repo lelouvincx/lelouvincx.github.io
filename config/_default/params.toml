@@ -96,8 +96,8 @@ excludedKinds = ["taxonomy", "term"]
 
 [taxonomy]
 showTermCount = true
-#showHero = true
-#heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+showHero = true
+heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
 showBreadcrumbs = false
 #showViews = false
 #showLikes = false
@@ -105,8 +105,8 @@ showBreadcrumbs = false
 #cardView = false
 
 [term]
-#showHero = true
-#heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+showHero = true
+heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
 showBreadcrumbs = false
 #showViews = false
 #showLikes = false
