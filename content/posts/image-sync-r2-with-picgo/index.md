@@ -40,7 +40,7 @@ The desired workflow is:
 ![](https://media.secondbrain.lelouvincx.com/2025/12/3021ca046013741e6538f8a5f1988527.png)
 
 Demo:
-<video width="100%" controls>
+<video width="100%" height="600" controls preload="metadata">
 
   <source src="https://media.secondbrain.lelouvincx.com/2025/12/80e07802cf551d2952f4787ffec5c0a5.mp4" type="video/mp4">
   Your browser does not support the video tag.
