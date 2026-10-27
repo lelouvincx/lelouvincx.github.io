@@ -1,14 +1,9 @@
 #!/bin/bash
 set -e
 
-latest_tag=$(
-	curl -s -H "Content-Type:application/json" \
-		"https://api.github.com/repos/nunocoracao/blowfish/releases/latest" |
-		grep '"tag_name":' |
-		sed -E 's/.*"([^"]+)".*/\1/'
-)
+latest_tag="v2.94.0"
 
-echo "=== Latest version: $latest_tag. ==="
+echo "=== Theme version: $latest_tag. ==="
 
 if [ -e "$latest_tag.zip" ]; then
 	echo "=== Zip file exists. ==="
